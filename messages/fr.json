@@ -1,0 +1,233 @@
+{
+  "WorkInProgress": {
+    "title": "Bientôt Disponible",
+    "description": "Cette page est en cours de construction. Nous travaillons dur pour vous la présenter.",
+    "cta": "Aller à la page d'accueil"
+  },
+  "sidebar": {
+    "home": "Accueil",
+    "analytics": "Analytique",
+    "diagnosis": "Diagnostic",
+    "financialProfile": "Profil Financier",
+    "publicProfile": "Profil Public",
+    "repairSessions": "Sessions de Réparation",
+    "settings": "Paramètres",
+    "store": "Magasin",
+    "technicalPlans": "Plans Techniques",
+    "workshopManagement": "Gestion d'Atelier",
+    "dtcSearch": "Recherche de codes de défaut (DTC)",
+    "repairProtocols": "Protocoles de réparation",
+    "vinDecoder": "Décodeur VIN",
+    "electricalDiagrams": "Schémas électriques",
+    "componentLocations": "Emplacements des composants",
+    "disassemblyDiagrams": "Schémas de démontage"
+  },
+  "pages": {
+    "dtcSearch": "Recherche de codes de défaut (DTC)",
+    "repairProtocols": "Protocoles de réparation",
+    "vinDecoder": "Décodeur VIN",
+    "electricalDiagrams": "Schémas électriques",
+    "componentLocations": "Emplacements des composants",
+    "disassemblyDiagrams": "Schémas de démontage"
+  },
+  "header": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "learn": "Apprendre",
+    "register": "S'inscrire"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "slogan": "Votre outil professionnel pour un diagnostic et une réparation rapides.",
+    "links": "Liens rapides",
+    "about": "À propos de nous",
+    "services": "Services",
+    "prices": "Tarifs",
+    "learn": "En savoir plus",
+    "legal": "Légal",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation",
+    "cookiePolicy": "Politique en matière de cookies",
+    "contact": "Contactez-nous",
+    "address": "123 Rue d'Alger, Alger",
+    "phone": "+213 (0) 12 345 678",
+    "email": "supports@kontrilo.com"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllAsRead": "Marquer tout comme lu",
+    "info": "Information",
+    "warning": "Avertissement",
+    "success": "Succès",
+    "error": "Erreur",
+    "promotion": "Promotion",
+    "reminder": "Rappel",
+    "viewDetails": "Voir les détails"
+  },
+  "Dashboard": {
+    "ProfileDropdown": {
+      "accountStatus": "Statut du compte",
+      "subscriptionPlan": "Plan d'abonnement",
+      "verified": "Vérifié",
+      "unverified": "Non vérifié",
+      "username": "Nom d'utilisateur",
+      "expiresOn": "Expire le",
+      "verificationWarning": "Votre e-mail ou votre téléphone n'est pas vérifié. Veuillez mettre à jour votre profil.",
+      "settings": "Paramètres",
+      "publicProfile": "Profil Public"
+    }
+  },
+  "LandingPage": {
+    "Hero": {
+      "title": "Le Futur du Diagnostic Auto",
+      "subtitle": "Base de données, protocoles de réparation, et outils de gestion pour votre atelier.",
+      "ctaPrimary": "Commencer",
+      "ctaSecondary": "Voir la démo"
+    },
+    "Features": {
+      "title": "Caractéristiques Principales",
+      "feature1": {
+        "title": "Base de Données DTC",
+        "description": "Couverture complète des codes OBD-II et constructeurs."
+      },
+      "feature2": {
+        "title": "Protocoles de Réparation Guidés",
+        "description": "Étapes détaillées, données live et diagrammes."
+      },
+      "feature3": {
+        "title": "Gestion des Sessions de Réparation",
+        "description": "Journal visuel et suivi des coûts."
+      },
+      "feature4": {
+        "title": "Outils d'Atelier",
+        "description": "Décodeur VIN, intégration OBD-II, CRM."
+      },
+      "feature5": {
+        "title": "Réseau et Communauté",
+        "description": "Profil, recherche, évaluations, et suivi financier."
+      },
+      "discoverMore": "Découvrir plus"
+    },
+    "HowItWorks": {
+      "title": "Comment Ça Marche",
+      "subtitle": "Suivez ces étapes simples pour démarrer avec notre plateforme.",
+      "videoLink": "Voir la vidéo",
+      "docsLink": "Lire la doc",
+      "step1": {
+        "title": "Créez Votre Compte Pro",
+        "description": "Démarrez en quelques minutes."
+      },
+      "step2": {
+        "title": "Créez une Session de Réparation",
+        "description": "Ajoutez les détails client et véhicule."
+      },
+      "step3": {
+        "title": "Ajoutez les infos voiture/client",
+        "description": "Utilisez nos outils pour un diagnostic précis."
+      },
+      "step4": {
+        "title": "Réparez avec notre base de données",
+        "description": "Suivez les protocoles guidés étape par étape."
+      },
+      "step5": {
+        "title": "Gérez vos gains et factures",
+        "description": "Suivez vos revenus et dépenses en un seul endroit."
+      }
+    },
+    "Testimonials": {
+      "title": "Ce Que Disent Nos Clients",
+      "subtitle": "Voyez ce que disent nos techniciens et propriétaires d'ateliers satisfaits.",
+      "testimonial1": {
+        "name": "Mohammed",
+        "quote": "Diagnostics 50% plus rapides !",
+        "expertise": "Spécialiste en programmation ECU"
+      },
+      "testimonial2": {
+        "name": "Ahmed",
+        "quote": "Les diagrammes attirent de nouveaux clients.",
+        "expertise": "Maître électricien automobile"
+      },
+      "testimonial3": {
+        "name": "Fatima",
+        "quote": "La gestion des sessions simplifie mon travail.",
+        "expertise": "+15 ans d'expérience"
+      }
+    },
+    "Pricing": {
+      "title": "Choisissez le Forfait Qui Vous Convient",
+      "featured": "Le plus populaire",
+      "free": {
+        "plan": "Forfait d'essai",
+        "price": "Gratuit",
+        "feature1": "Accès complet au forfait Technicien",
+        "feature2": "Limité à 14 jours",
+        "cta": "Commencer l'essai"
+      },
+      "technician": {
+        "plan": "Forfait Technicien",
+        "price": "XX Dinar/mois",
+        "feature1": "Analyses avancées",
+        "feature2": "Diagnostic complet",
+        "feature3": "Schémas techniques",
+        "feature4": "Gestion des sessions",
+        "feature5": "Profils financier & public",
+        "feature6": "Support technique",
+        "cta": "Choisir le forfait Technicien"
+      },
+      "workshop": {
+        "plan": "Forfait Atelier",
+        "price": "XX Dinar/mois",
+        "feature1": "Toutes les fonctionnalités du forfait Technicien",
+        "feature2": "Gestion complète d'atelier",
+        "feature3": "Gestion employés & permissions",
+        "feature4": "Gestion magasin & stocks",
+        "feature5": "Rapports d'atelier avancés",
+        "cta": "Demander un devis"
+      }
+    },
+    "FAQ": {
+      "title": "Questions Fréquemment Posées",
+      "subtitle": "Vous avez des questions ? Nous avons des réponses. Si vous ne trouvez pas ce que vous cherchez, n'hésitez pas à nous contacter.",
+      "helperLinks": {
+        "title": "Liens utiles",
+        "link1": "Aller à la documentation",
+        "link2": "Contacter le support"
+      },
+      "q1": {
+        "category": "Technique",
+        "question": "Comment connecter mon appareil OBD-II ?",
+        "answer": "Localisez le port 16 broches, coupez le contact, et branchez l'appareil.",
+        "answer_long": "Pour connecter votre appareil OBD-II, localisez d'abord le port 16 broches de votre véhicule, généralement sous le tableau de bord près du volant. Le contact étant complètement coupé, branchez fermement l'appareil. Une fois connecté, vous pouvez mettre le contact en position \"On\" (sans démarrer le moteur) et lancer notre application pour établir une connexion sans fil."
+      },
+      "q2": {
+        "category": "Général",
+        "question": "Prenez-vous en charge toutes les marques de voitures ?",
+        "answer": "Oui, compatible avec la plupart des véhicules après 1996.",
+        "answer_long": "Oui, notre plateforme est compatible avec tous les véhicules conformes à la norme OBD-II. Cela inclut la quasi-totalité des voitures et des camions légers fabriqués pour la vente en Europe, aux États-Unis et en Asie après 1996. Nous mettons continuellement à jour notre base de données pour prendre en charge les derniers modèles et protocoles de véhicules afin d'assurer la couverture la plus large possible."
+      },
+      "q3": {
+        "category": "Compte",
+        "question": "Comment attirer plus de clients ?",
+        "answer": "Complétez votre profil, ajoutez une photo et encouragez les avis pour attirer des clients.",
+        "answer_long": "Un profil public complet et professionnel est essentiel pour instaurer la confiance. Nous vous recommandons d'ajouter une photo de profil de haute qualité, de détailler vos années d'expérience et vos certifications, et de mettre en valeur votre atelier. De plus, encourager les clients satisfaits à laisser des avis sur votre profil augmentera considérablement votre visibilité et attirera plus de clients via la recherche de notre plateforme."
+      }
+    },
+    "FinalCTA": {
+      "title": "Prêt à évoluer ?",
+      "subtitle": "Rejoignez des milliers de techniciens.",
+      "form": {
+        "name": "Nom complet",
+        "email": "Adresse e-mail",
+        "cta": "Inscrivez"
+      }
+    },
+    "Footer": {
+      "rights": "Tous droits réservés.",
+      "contact": {
+        "email": "support@kontrilo.com",
+        "domain": "kontrilo.com"
+      }
+    }
+  }
+}

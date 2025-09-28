@@ -1,0 +1,15 @@
+@import "@flaticon/flaticon-uicons/css/all/all";
+@import "tailwindcss";
+
+@theme {
+  --color-Primary: #EB7735;
+  --color-Secondary: #484E55;
+  --color-body: #F1F4F9;
+
+  /* Dark mode colors */
+  --color-Secondary-dark: #A0A7AF;
+  --color-body-dark: #1A1D21;
+  --color-body-dark-two: #111418;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *))
