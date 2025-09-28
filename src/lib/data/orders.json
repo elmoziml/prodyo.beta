@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ORD001",
+    "customer": "John Doe",
+    "date": "2024-09-27T10:00:00Z",
+    "status": "Processing",
+    "total": 99.99,
+    "items": [
+      { "id": "prod001", "name": "Product A", "quantity": 1, "price": 99.99, "options": { "color": "Red", "size": "M" } }
+    ]
+  },
+  {
+    "id": "ORD002",
+    "customer": "Jane Smith",
+    "date": "2024-09-26T14:30:00Z",
+    "status": "Shipped",
+    "total": 150.50,
+    "items": [
+      { "id": "prod002", "name": "Product B", "quantity": 2, "price": 50.25, "options": { "color": "Black" } },
+      { "id": "prod003", "name": "Product C", "quantity": 1, "price": 50.00, "options": { "size": "L" } }
+    ]
+  },
+  {
+    "id": "ORD003",
+    "customer": "Sam Wilson",
+    "date": "2024-09-25T09:00:00Z",
+    "status": "Delivered",
+    "total": 25.00,
+    "items": [
+      { "id": "prod004", "name": "Product D", "quantity": 1, "price": 25.00 }
+    ]
+  },
+    {
+    "id": "ORD004",
+    "customer": "Sarah Brown",
+    "date": "2024-09-27T11:00:00Z",
+    "status": "Pending",
+    "total": 75.00,
+    "items": [
+      { "id": "prod005", "name": "Product E", "quantity": 3, "price": 25.00, "options": { "material": "Cotton" } }
+    ]
+  },
+  {
+    "id": "ORD005",
+    "customer": "Michael Johnson",
+    "date": "2024-09-26T18:00:00Z",
+    "status": "Processing",
+    "total": 200.00,
+    "items": [
+      { "id": "prod001", "name": "Product A", "quantity": 2, "price": 100.00, "options": { "color": "Blue", "size": "XL" } }
+    ]
+  },
+  {
+    "id": "ORD006",
+    "customer": "Emily Davis",
+    "date": "2024-09-25T12:45:00Z",
+    "status": "Shipped",
+    "total": 45.75,
+    "items": [
+      { "id": "prod006", "name": "Product F", "quantity": 1, "price": 45.75 }
+    ]
+  },
+  {
+    "id": "ORD007",
+    "customer": "David Martinez",
+    "date": "2024-09-24T08:20:00Z",
+    "status": "Delivered",
+    "total": 300.00,
+    "items": [
+      { "id": "prod007", "name": "Product G", "quantity": 1, "price": 300.00, "options": { "warranty": "2 years" } }
+    ]
+  },
+  {
+    "id": "ORD008",
+    "customer": "Jessica Garcia",
+    "date": "2024-09-27T15:00:00Z",
+    "status": "Canceled",
+    "total": 120.00,
+    "items": [
+      { "id": "prod008", "name": "Product H", "quantity": 2, "price": 60.00 }
+    ]
+  },
+  {
+    "id": "ORD009",
+    "customer": "Chris Rodriguez",
+    "date": "2024-09-26T16:00:00Z",
+    "status": "Processing",
+    "total": 80.00,
+    "items": [
+      { "id": "prod009", "name": "Product I", "quantity": 1, "price": 80.00, "options": { "color": "Green" } }
+    ]
+  },
+  {
+    "id": "ORD010",
+    "customer": "Amanda Hernandez",
+    "date": "2024-09-25T19:30:00Z",
+    "status": "Shipped",
+    "total": 95.50,
+    "items": [
+      { "id": "prod010", "name": "Product J", "quantity": 1, "price": 95.50, "options": { "size": "S", "color": "White" } }
+    ]
+  }
+]

@@ -1,30 +1,49 @@
-export const sidebarLinks = [
-  { href: '/home', label: 'home', icon: 'fi fi-sr-home' },
-  { href: '/analytics', label: 'analytics', icon: 'fi fi-sr-dashboard' },
+import { SidebarLink } from '@/types';
+
+export const sidebarLinks: SidebarLink[] = [
   {
-    label: 'diagnosis',
-    icon: 'fi fi-br-tools',
-    href: '/diagnosis',
-    subLinks: [
-      { href: '/diagnosis/dtc-search', label: 'dtcSearch' },
-      { href: '/diagnosis/repair-protocols', label: 'repairProtocols' },
-      { href: '/diagnosis/vin-decoder', label: 'vinDecoder' },
-    ],
+    label: 'home',
+    href: '/home',
+    icon: 'fi-sr-home',
   },
   {
-    label: 'technicalPlans',
-    icon: 'fi fi-sr-document',
-    href: '/technical-plans',
-    subLinks: [
-      { href: '/technical-plans/electrical-diagrams', label: 'electricalDiagrams' },
-      { href: '/technical-plans/component-locations', label: 'componentLocations' },
-      { href: '/technical-plans/disassembly-diagrams', label: 'disassemblyDiagrams' },
-    ],
+    label: 'orders',
+    href: '/orders',
+    icon: 'fi-sr-shopping-cart',
   },
-  { href: '/repair-sessions', label: 'repairSessions', icon: 'fi fi-sr-briefcase' },
-  { href: '/workshop-management', label: 'workshopManagement', icon: 'fi fi-ss-employees' },
-  { href: '/public-profile', label: 'publicProfile', icon: 'fi fi-ss-users' },
-  { href: '/financial-profile', label: 'financialProfile', icon: 'fi fi-sr-sack-dollar' },
-  { href: '/store', label: 'store', icon: 'fi fi-sr-store-alt' },
-  { href: '/settings', label: 'settings', icon: 'fi fi-sr-settings' },
+  {
+    label: 'products',
+    href: '/products',
+    icon: 'fi-sr-box-alt',
+  },
+  {
+    label: 'inventory',
+    href: '/inventory',
+    icon: 'fi-sr-warehouse-alt',
+  },
+  {
+    label: 'categories',
+    href: '/categories',
+    icon: 'fi-sr-tags',
+  },
+  {
+    label: 'reports',
+    href: '/reports',
+    icon: 'fi-sr-chart-line-up',
+  },
+  {
+    label: 'landingPage',
+    href: '/landing-page',
+    icon: 'fi-sr-layout-fluid',
+  },
+  {
+    label: 'storeSettings',
+    href: '/settings',
+    icon: 'fi-sr-store',
+  },
+  {
+    label: 'staff',
+    href: '/staff',
+    icon: 'fi-sr-users-alt',
+  },
 ];

@@ -1,21 +1,14 @@
 {
   "sidebar": {
-    "home": "Home",
-    "analytics": "Analytics",
-    "diagnosis": "Diagnosis",
-    "financialProfile": "Financial Profile",
-    "publicProfile": "Public Profile",
-    "repairSessions": "Repair Sessions",
-    "settings": "Settings",
-    "store": "Store",
-    "technicalPlans": "Technical Plans",
-    "workshopManagement": "Workshop Management",
-    "dtcSearch": "DTC Search",
-    "repairProtocols": "Repair Protocols",
-    "vinDecoder": "VIN Decoder",
-    "electricalDiagrams": "Electrical Diagrams",
-    "componentLocations": "Component Locations",
-    "disassemblyDiagrams": "Disassembly Diagrams"
+    "home": "Dashboard",
+    "orders": "Orders",
+    "products": "Products",
+    "inventory": "Inventory",
+    "categories": "Categories",
+    "reports": "Reports",
+    "landingPage": "Landing Page",
+    "storeSettings": "Store Settings",
+    "staff": "Admins/Staff"
   },
   "pages": {
     "dtcSearch": "DTC Search",
@@ -77,6 +70,82 @@
     "title": "Coming Soon",
     "description": "This page is under construction. We are working hard to bring it to you.",
     "cta": "Go to Homepage"
+  },
+  "OrdersPage": {
+    "title": "Orders",
+    "loading": "Loading orders...",
+    "error": "Failed to load orders.",
+    "empty": "No orders found.",
+    "table": {
+      "orderId": "Order ID",
+      "customer": "Customer",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "detailsButton": "Details",
+    "modal": {
+      "title": "Order Details",
+      "customerInfo": "Customer Information",
+      "name": "Name",
+      "orderSummary": "Order Summary",
+      "items": "Items",
+      "quantity": "Qty",
+      "price": "Price",
+      "print": "Print",
+      "close": "Close",
+      "options": "Options",
+      "color": "Color",
+      "size": "Size",
+      "material": "Material",
+      "warranty": "Warranty"
+    }
+  },
+  "OrderStatus": {
+    "Processing": "Processing",
+    "Shipped": "Shipped",
+    "Delivered": "Delivered",
+    "Canceled": "Canceled",
+    "Pending": "Pending"
+  },
+  "ProductsPage": {
+    "title": "Products",
+    "loading": "Loading products...",
+    "error": "Failed to load products.",
+    "empty": "No products found.",
+    "table": {
+      "product": "Product",
+      "category": "Category",
+      "stock": "Stock",
+      "price": "Price",
+      "actions": "Actions"
+    },
+    "detailsButton": "Details",
+    "modal": {
+      "title": "Product Details",
+      "description": "Description",
+      "options": "Available Options",
+      "close": "Close"
+    },
+    "addProduct": {
+      "title": "Add New Product",
+      "addButton": "Add Product",
+      "nameLabel": "Product Name",
+      "namePlaceholder": "e.g., Classic T-Shirt",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "e.g., Apparel",
+      "priceLabel": "Price",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "propertiesLabel": "Product Properties",
+      "addPropertyButton": "Add Property",
+      "propertyNameLabel": "Property",
+      "propertyValueLabel": "Value",
+      "selectProperty": "Select a property",
+      "saveButton": "Save Product",
+      "cancelButton": "Cancel"
+    }
   },
   "LandingPage": {
     "Hero": {

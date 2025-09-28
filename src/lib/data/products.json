@@ -1,0 +1,58 @@
+
+[
+  {
+    "id": "PROD001",
+    "name": "Classic T-Shirt",
+    "category": "Apparel",
+    "price": 25.99,
+    "stock": 150,
+    "description": "A high-quality classic t-shirt made from 100% premium cotton. Perfect for everyday wear.",
+    "options": {
+      "colors": ["Red", "Black", "White"],
+      "sizes": ["S", "M", "L", "XL"]
+    }
+  },
+  {
+    "id": "PROD002",
+    "name": "Wireless Headphones",
+    "category": "Electronics",
+    "price": 199.99,
+    "stock": 75,
+    "description": "Experience immersive sound with these noise-cancelling wireless headphones. 24-hour battery life.",
+    "options": {
+      "colors": ["Matte Black", "Silver"]
+    }
+  },
+  {
+    "id": "PROD003",
+    "name": "Leather Wallet",
+    "category": "Accessories",
+    "price": 49.50,
+    "stock": 200,
+    "description": "A sleek and durable wallet made from genuine leather, featuring multiple card slots and a cash compartment.",
+    "options": {}
+  },
+  {
+    "id": "PROD004",
+    "name": "Running Shoes",
+    "category": "Footwear",
+    "price": 89.99,
+    "stock": 120,
+    "description": "Lightweight and comfortable running shoes designed for maximum performance and support.",
+    "options": {
+      "sizes": ["8", "9", "10", "11", "12"],
+      "colors": ["Blue/White", "Black/Red"]
+    }
+  },
+  {
+    "id": "PROD005",
+    "name": "Stainless Steel Water Bottle",
+    "category": "Home Goods",
+    "price": 19.99,
+    "stock": 300,
+    "description": "Keep your drinks cold for 24 hours or hot for 12 hours with this insulated stainless steel water bottle.",
+    "options": {
+      "capacity": ["500ml", "750ml", "1L"]
+    }
+  }
+]

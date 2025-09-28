@@ -1,4 +1,3 @@
-// src/components/ui/sidebar/index.tsx
 'use client';
 
 import { useLocale } from 'next-intl';
@@ -24,25 +23,32 @@ export default function Sidebar({ isOpen, toggle }: { isOpen: boolean; toggle: (
   const rightIcon = isRtl ? 'fi-sr-angle-left' : 'fi-sr-angle-right';
 
   const desktopSidebarClasses = clsx(
-    'bg-white dark:bg-body-dark text-Secondary dark:text-Secondary-dark p-5 transition-all duration-300 ease-in-out',
-    'relative h-fit mt-[20px] mx-[20px] rounded-[40px] hidden md:block',
+    'bg-white dark:bg-body-dark text-Secondary dark:text-Secondary-dark p-4 transition-all duration-300 ease-in-out',
+    'h-full hidden md:block shadow-md dark:shadow-lg z-20',
     {
-      'w-[300px]': isDesktopOpen,
-      'w-[80px]': !isDesktopOpen,
+      'w-72': isDesktopOpen,
+      'w-20': !isDesktopOpen,
     }
   );
 
   const mobileSidebarClasses = clsx(
     'bg-white dark:bg-body-dark text-Secondary dark:text-Secondary-dark p-5 transition-transform duration-300 ease-in-out',
-    'fixed inset-y-0 z-30 w-64 md:hidden',
+    'fixed inset-y-0 z-40 w-64 md:hidden shadow-lg',
     isRtl
       ? { 'right-0 translate-x-0': isOpen, 'right-0 translate-x-full': !isOpen }
       : { 'left-0 translate-x-0': isOpen, 'left-0 -translate-x-full': !isOpen }
   );
 
   const sidebarContent = (isMobile: boolean) => (
-    <nav>
-      <ul>
+    <nav className="h-full flex flex-col">
+      <div className={clsx('flex items-center mb-5', isDesktopOpen && !isMobile ? 'justify-end' : 'justify-center')}>
+        {!isMobile && (
+          <button onClick={toggleDesktop} className="w-10 h-10 rounded-full bg-Primary text-Secondary dark:text-body-dark flex items-center justify-center">
+            <i className={clsx('fi flex cursor-pointer', isDesktopOpen ? leftIcon : rightIcon)}></i>
+          </button>
+        )}
+      </div>
+      <ul className="flex-1 overflow-y-auto no-scrollbar">
         {sidebarLinks.map((link) => {
           if (link.subLinks) {
             return (
@@ -74,21 +80,16 @@ export default function Sidebar({ isOpen, toggle }: { isOpen: boolean; toggle: (
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className={`${desktopSidebarClasses} shadow-md dark:shadow-lg`}>
-        <div className={clsx('flex items-center mb-5', isDesktopOpen ? 'justify-end' : 'justify-center')}>
-          <button onClick={toggleDesktop} className="w-10 h-10 rounded-full bg-Primary text-Secondary dark:text-body-dark flex items-center justify-center">
-            <i className={clsx('fi flex cursor-pointer', isDesktopOpen ? leftIcon : rightIcon)}></i>
-          </button>
-        </div>
+      <aside className={desktopSidebarClasses}>
         {sidebarContent(false)}
       </aside>
 
       {/* Mobile Sidebar */}
-      <aside className={`${mobileSidebarClasses} shadow-md dark:shadow-lg `}>
+      <aside className={mobileSidebarClasses}>
         {sidebarContent(true)}
       </aside>
 
-      {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-20 md:hidden" onClick={toggle}></div>}
+      {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-30 md:hidden" onClick={toggle}></div>}
     </>
   );
 }

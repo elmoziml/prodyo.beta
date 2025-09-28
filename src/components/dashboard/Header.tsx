@@ -47,7 +47,7 @@ export default function Header({ toggleSidebar }: { toggleSidebar: () => void })
 
   return (
     <header
-      className="bg-white dark:bg-body-dark shadow-md dark:shadow-lg flex justify-between items-center w-full rounded-[40px] p-[20px]"
+      className="bg-white dark:bg-body-dark shadow-md flex justify-between items-center w-full px-4 md:px-6 h-16 z-30"
       dir={isRtl ? 'rtl' : 'ltr'}
     >
       <div className="flex items-center">

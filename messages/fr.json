@@ -5,22 +5,15 @@
     "cta": "Aller à la page d'accueil"
   },
   "sidebar": {
-    "home": "Accueil",
-    "analytics": "Analytique",
-    "diagnosis": "Diagnostic",
-    "financialProfile": "Profil Financier",
-    "publicProfile": "Profil Public",
-    "repairSessions": "Sessions de Réparation",
-    "settings": "Paramètres",
-    "store": "Magasin",
-    "technicalPlans": "Plans Techniques",
-    "workshopManagement": "Gestion d'Atelier",
-    "dtcSearch": "Recherche de codes de défaut (DTC)",
-    "repairProtocols": "Protocoles de réparation",
-    "vinDecoder": "Décodeur VIN",
-    "electricalDiagrams": "Schémas électriques",
-    "componentLocations": "Emplacements des composants",
-    "disassemblyDiagrams": "Schémas de démontage"
+    "home": "Tableau de bord",
+    "orders": "Commandes",
+    "products": "Produits",
+    "inventory": "Inventaire",
+    "categories": "Catégories",
+    "reports": "Rapports",
+    "landingPage": "Contenu/Page d'accueil",
+    "storeSettings": "Paramètres du magasin",
+    "staff": "Personnel/Admins"
   },
   "pages": {
     "dtcSearch": "Recherche de codes de défaut (DTC)",

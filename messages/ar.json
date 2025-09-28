@@ -6,21 +6,14 @@
   },
   "sidebar": {
     "home": "الرئيسية",
-    "analytics": "التحليلات",
-    "diagnosis": "التشخيص",
-    "financialProfile": "الملف المالي",
-    "publicProfile": "الملف العام",
-    "repairSessions": "جلسات الإصلاح",
-    "settings": "الإعدادات",
-    "store": "المتجر",
-    "technicalPlans": "المخططات الفنية",
-    "workshopManagement": "إدارة الورشة",
-    "dtcSearch": "البحث عن أكواد الأعطال (DTC)",
-    "repairProtocols": "بروتوكولات الإصلاح",
-    "vinDecoder": "فك تشفير VIN",
-    "electricalDiagrams": "المخططات الكهربائية",
-    "componentLocations": "مواقع المكونات",
-    "disassemblyDiagrams": "مخططات التفكيك"
+    "orders": "الطلبات",
+    "products": "المنتجات",
+    "inventory": "المخزون",
+    "categories": "الفئات",
+    "reports": "التقارير",
+    "landingPage": "المحتوى/صفحة الهبوط",
+    "storeSettings": "إعدادات المتجر",
+    "staff": "الموظفون/الأدمنز"
   },
   "pages": {
     "dtcSearch": "البحث عن أكواد الأعطال (DTC)",
@@ -75,7 +68,84 @@
       "expiresOn": "ينتهي في",
       "verificationWarning": "لم يتم التحقق من بريدك الإلكتروني أو هاتفك. يرجى تحديث ملفك الشخصي.",
       "settings": "الإعدادات",
+
       "publicProfile": "الملف الشخصي العام"
+    }
+  },
+  "OrdersPage": {
+    "title": "الطلبات",
+    "loading": "جاري تحميل الطلبات...",
+    "error": "فشل تحميل الطلبات.",
+    "empty": "لم يتم العثور على طلبات.",
+    "table": {
+      "orderId": "رقم الطلب",
+      "customer": "العميل",
+      "date": "التاريخ",
+      "status": "الحالة",
+      "total": "الإجمالي",
+      "actions": "الإجراءات"
+    },
+    "detailsButton": "تفاصيل",
+    "modal": {
+      "title": "تفاصيل الطلب",
+      "customerInfo": "معلومات العميل",
+      "name": "الاسم",
+      "orderSummary": "ملخص الطلب",
+      "items": "المنتجات",
+      "quantity": "الكمية",
+      "price": "السعر",
+      "print": "طباعة",
+      "close": "إغلاق",
+      "options": "خيارات",
+      "color": "اللون",
+      "size": "المقاس",
+      "material": "المادة",
+      "warranty": "الضمان"
+    }
+  },
+  "OrderStatus": {
+    "Processing": "قيد المعالجة",
+    "Shipped": "تم الشحن",
+    "Delivered": "تم التوصيل",
+    "Canceled": "ملغي",
+    "Pending": "قيد الانتظار"
+  },
+  "ProductsPage": {
+    "title": "المنتجات",
+    "loading": "جاري تحميل المنتجات...",
+    "error": "فشل تحميل المنتجات.",
+    "empty": "لم يتم العثور على منتجات.",
+    "table": {
+      "product": "المنتج",
+      "category": "الفئة",
+      "stock": "المخزون",
+      "price": "السعر",
+      "actions": "الإجراءات"
+    },
+    "detailsButton": "تفاصيل",
+    "modal": {
+      "title": "تفاصيل المنتج",
+      "description": "الوصف",
+      "options": "الخيارات المتاحة",
+      "close": "إغلاق"
+    },
+    "addProduct": {
+      "title": "إضافة منتج جديد",
+      "addButton": "إضافة منتج",
+      "nameLabel": "اسم المنتج",
+      "namePlaceholder": "مثال: قميص كلاسيكي",
+      "categoryLabel": "الفئة",
+      "categoryPlaceholder": "مثال: ملابس",
+      "priceLabel": "السعر",
+      "stockLabel": "المخزون",
+      "descriptionLabel": "الوصف",
+      "propertiesLabel": "خصائص المنتج",
+      "addPropertyButton": "إضافة خاصية",
+      "propertyNameLabel": "الخاصية",
+      "propertyValueLabel": "القيمة",
+      "selectProperty": "اختر خاصية",
+      "saveButton": "حفظ المنتج",
+      "cancelButton": "إلغاء"
     }
   },
   "LandingPage": {
