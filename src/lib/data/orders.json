@@ -3,8 +3,14 @@
     "id": "ord-1",
     "display_id": "ORD001",
     "customer_id": "cust-1",
-    "customer": { "id": "cust-1", "full_name": "John Doe", "email": "john.doe@example.com", "phone": "123-456-7890", "address": "123 Main St, Anytown, USA" },
-    "status": "Delivered",
+    "customer": {
+      "id": "cust-1",
+      "full_name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "123-456-7890",
+      "address": "123 Main St, Anytown, USA"
+    },
+    "status": "Pending",
     "total_amount": 25.99,
     "order_date": "2025-08-15T10:00:00Z"
   },
@@ -12,8 +18,14 @@
     "id": "ord-2",
     "display_id": "ORD002",
     "customer_id": "cust-2",
-    "customer": { "id": "cust-2", "full_name": "Jane Smith", "email": "jane.smith@example.com", "phone": "987-654-3210", "address": "456 Oak Ave, Somecity, USA" },
-    "status": "Shipped",
+    "customer": {
+      "id": "cust-2",
+      "full_name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "987-654-3210",
+      "address": "456 Oak Ave, Somecity, USA"
+    },
+    "status": "Canceled",
     "total_amount": 249.49,
     "order_date": "2025-09-20T14:30:00Z"
   },
@@ -21,8 +33,14 @@
     "id": "ord-3",
     "display_id": "ORD003",
     "customer_id": "cust-3",
-    "customer": { "id": "cust-3", "full_name": "Sam Wilson", "email": "sam.wilson@example.com", "phone": "555-123-4567", "address": "789 Pine Ln, Otherville, USA" },
-    "status": "Processing",
+    "customer": {
+      "id": "cust-3",
+      "full_name": "Sam Wilson",
+      "email": "sam.wilson@example.com",
+      "phone": "555-123-4567",
+      "address": "789 Pine Ln, Otherville, USA"
+    },
+    "status": "Delivered",
     "total_amount": 89.99,
     "order_date": "2025-09-26T11:30:00Z"
   },
@@ -30,8 +48,14 @@
     "id": "ord-4",
     "display_id": "ORD004",
     "customer_id": "cust-4",
-    "customer": { "id": "cust-4", "full_name": "Alice Johnson", "email": "alice.j@example.com", "phone": "555-987-6543", "address": "101 Maple Dr, Metroburg, USA" },
-    "status": "Pending",
+    "customer": {
+      "id": "cust-4",
+      "full_name": "Alice Johnson",
+      "email": "alice.j@example.com",
+      "phone": "555-987-6543",
+      "address": "101 Maple Dr, Metroburg, USA"
+    },
+    "status": "Delivered",
     "total_amount": 59.99,
     "order_date": "2025-09-27T09:00:00Z"
   },
@@ -39,16 +63,28 @@
     "id": "ord-5",
     "display_id": "ORD005",
     "customer_id": "cust-5",
-    "customer": { "id": "cust-5", "full_name": "Bob Brown", "email": "bob.b@example.com", "phone": "555-456-1234", "address": "212 Birch Rd, Smalltown, USA" },
+    "customer": {
+      "id": "cust-5",
+      "full_name": "Bob Brown",
+      "email": "bob.b@example.com",
+      "phone": "555-456-1234",
+      "address": "212 Birch Rd, Smalltown, USA"
+    },
     "status": "Canceled",
-    "total_amount": 49.50,
+    "total_amount": 49.5,
     "order_date": "2025-08-22T18:00:00Z"
   },
   {
     "id": "ord-6",
     "display_id": "ORD006",
     "customer_id": "cust-1",
-    "customer": { "id": "cust-1", "full_name": "John Doe", "email": "john.doe@example.com", "phone": "123-456-7890", "address": "123 Main St, Anytown, USA" },
+    "customer": {
+      "id": "cust-1",
+      "full_name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "123-456-7890",
+      "address": "123 Main St, Anytown, USA"
+    },
     "status": "Delivered",
     "total_amount": 289.98,
     "order_date": "2025-09-01T12:00:00Z"
@@ -57,7 +93,13 @@
     "id": "ord-7",
     "display_id": "ORD007",
     "customer_id": "cust-6",
-    "customer": { "id": "cust-6", "full_name": "Charlie Davis", "email": "charlie.d@example.com", "phone": "555-789-0123", "address": "333 Cedar Blvd, Bigcity, USA" },
+    "customer": {
+      "id": "cust-6",
+      "full_name": "Charlie Davis",
+      "email": "charlie.d@example.com",
+      "phone": "555-789-0123",
+      "address": "333 Cedar Blvd, Bigcity, USA"
+    },
     "status": "Shipped",
     "total_amount": 199.99,
     "order_date": "2025-09-24T15:20:00Z"
@@ -66,8 +108,14 @@
     "id": "ord-8",
     "display_id": "ORD008",
     "customer_id": "cust-2",
-    "customer": { "id": "cust-2", "full_name": "Jane Smith", "email": "jane.smith@example.com", "phone": "987-654-3210", "address": "456 Oak Ave, Somecity, USA" },
-    "status": "Processing",
+    "customer": {
+      "id": "cust-2",
+      "full_name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "987-654-3210",
+      "address": "456 Oak Ave, Somecity, USA"
+    },
+    "status": "Delivered",
     "total_amount": 25.99,
     "order_date": "2025-09-28T10:15:00Z"
   }

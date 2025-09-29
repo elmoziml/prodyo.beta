@@ -4,44 +4,41 @@
     "name": "Classic T-Shirt",
     "category_id": "cat-1",
     "price": 25.99,
-    "stock": 150,
-    "description": "A high-quality classic t-shirt made from 100% premium cotton.",
-    "available_options": { "colors": ["Red", "Black", "White"], "sizes": ["S", "M", "L", "XL"] }
+    "stock": 150
   },
   {
     "id": "prod-2",
     "name": "Wireless Headphones",
     "category_id": "cat-2",
     "price": 199.99,
-    "stock": 75,
-    "description": "Noise-cancelling wireless headphones with 24-hour battery life.",
-    "available_options": { "colors": ["Matte Black", "Silver"] }
+    "stock": 75
   },
   {
     "id": "prod-3",
     "name": "Leather Wallet",
     "category_id": "cat-3",
-    "price": 49.50,
-    "stock": 200,
-    "description": "A sleek wallet made from genuine leather.",
-    "available_options": {}
+    "price": 49.5,
+    "stock": 200
   },
   {
     "id": "prod-4",
     "name": "Running Shoes",
     "category_id": "cat-4",
     "price": 89.99,
-    "stock": 120,
-    "description": "Lightweight and comfortable running shoes for all terrains.",
-    "available_options": { "sizes": ["8", "9", "10", "11", "12"], "colors": ["Blue", "Gray"] }
+    "stock": 120
   },
   {
     "id": "prod-5",
     "name": "Coffee Maker",
     "category_id": "cat-5",
     "price": 59.99,
-    "stock": 50,
-    "description": "12-cup programmable coffee maker with a reusable filter.",
-    "available_options": { "colors": ["Black", "Stainless Steel"] }
+    "stock": 50
+  },
+  {
+    "id": "prod-1759165744631",
+    "name": "يبلاب",
+    "category_id": "cat-1",
+    "price": 1222,
+    "stock": 222
   }
 ]

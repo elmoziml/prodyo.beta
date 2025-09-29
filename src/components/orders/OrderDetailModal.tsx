@@ -4,6 +4,8 @@
 import { useTranslations } from 'next-intl';
 import { format } from 'date-fns';
 import { useOrderDetail } from '@/hooks/useOrderDetail';
+import { useState } from 'react';
+import { useUpdateOrder } from '@/hooks/useUpdateOrder';
 
 interface OrderDetailModalProps {
   orderId: string | null;
@@ -14,6 +16,20 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
   const t = useTranslations('OrdersPage.modal');
   const tStatus = useTranslations('OrderStatus');
   const { data: order, isLoading, isError } = useOrderDetail(orderId);
+  const [status, setStatus] = useState(order?.status || '');
+  const updateOrderMutation = useUpdateOrder();
+
+  const orderStatuses = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Canceled'];
+
+  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setStatus(e.target.value);
+  };
+
+  const handleSaveStatus = () => {
+    if (orderId) {
+      updateOrderMutation.mutate({ orderId, status });
+    }
+  };
 
   if (isLoading) {
     return <div className="p-8 text-center">{t('loadingDetails')}</div>;
@@ -56,7 +72,14 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
             <p><strong className="font-medium text-gray-600">{t('email')}:</strong> {order.customer.email}</p>
             <p><strong className="font-medium text-gray-600">{t('phone')}:</strong> {order.customer.phone}</p>
             <p><strong className="font-medium text-gray-600">{t('address')}:</strong> {order.customer.address}</p>
-            <p><strong className="font-medium text-gray-600">{t('status')}:</strong> {tStatus(order.status as any)}</p>
+            <div className="flex items-center gap-2">
+              <strong className="font-medium text-gray-600">{t('status')}:</strong>
+              <select value={status} onChange={handleStatusChange} className="p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+                {orderStatuses.map(s => (
+                  <option key={s} value={s}>{tStatus(s)}</option>
+                ))}
+              </select>
+            </div>
         </div>
       </div>
 
@@ -102,6 +125,9 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
       </div>
 
       <div className="mt-10 flex justify-end gap-4 no-print">
+        <button onClick={handleSaveStatus} disabled={updateOrderMutation.isPending} className="px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 disabled:opacity-50 focus:outline-none">
+          {updateOrderMutation.isPending ? 'Saving...' : 'Save'}
+        </button>
         <button onClick={handlePrint} className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 focus:outline-none">
           {t('print')}
         </button>
@@ -112,4 +138,3 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
     </div>
   );
 }
-

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm, useFieldArray } from 'react-hook-form';
@@ -7,6 +6,8 @@ import { z } from 'zod';
 import { useTranslations } from 'next-intl';
 import { productPropertyKeys } from '@/lib/data/properties';
 import { useCategories } from '@/hooks/useCategories';
+import { Product } from '@/types';
+import { useEffect } from 'react';
 
 // Zod schema for validation
 const propertySchema = z.object({
@@ -30,27 +31,39 @@ const productSchema = z.object({
 
 type ProductFormData = z.infer<typeof productSchema>;
 
-interface AddProductFormProps {
+interface EditProductFormProps {
+  product: Product;
   onSave: (data: ProductFormData) => void;
   onCancel: () => void;
   isSaving: boolean;
 }
 
-export default function AddProductForm({ onSave, onCancel, isSaving }: AddProductFormProps) {
-  const t = useTranslations('ProductsPage.addProduct');
-  const { data: categories, isLoading: isLoadingCategories } = useCategories();
+export default function EditProductForm({ product, onSave, onCancel, isSaving }: EditProductFormProps) {
+  const t = useTranslations('ProductsPage.editProduct');
+  const { data: categories } = useCategories();
+  
   const {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ProductFormData>({
     resolver: zodResolver(productSchema),
     defaultValues: {
-      properties: [],
-      images: [],
+      ...product,
+      properties: product.available_options ? Object.entries(product.available_options).flatMap(([key, values]) => values.map(value => ({ key, value }))) : [],
+      images: product.images ? product.images.map(url => ({ url })) : [],
     },
   });
+
+  useEffect(() => {
+    reset({
+      ...product,
+      properties: product.available_options ? Object.entries(product.available_options).flatMap(([key, values]) => values.map(value => ({ key, value }))) : [],
+      images: product.images ? product.images.map(url => ({ url })) : [],
+    });
+  }, [product, reset]);
 
   const { fields: propertyFields, append: appendProperty, remove: removeProperty } = useFieldArray({
     control,
@@ -79,7 +92,6 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
               <option key={cat.id} value={cat.id}>{cat.name}</option>
             ))}
           </select>
-          {errors.category_id && <p className="text-red-500 text-xs mt-1">{errors.category_id.message}</p>}
         </div>
         <div>
           <label htmlFor="price" className="block text-sm font-medium text-gray-700 dark:text-gray-300">{t('priceLabel')}</label>
@@ -102,10 +114,7 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
         <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">{t('imagesLabel')}</h3>
         {imageFields.map((field, index) => (
           <div key={field.id} className="flex items-center gap-4">
-            <div className="flex-1">
-              <label className="sr-only">{t('imageUrlLabel')}</label>
-              <input {...register(`images.${index}.url`)} placeholder={t('imageUrlPlaceholder')} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
-            </div>
+            <input {...register(`images.${index}.url`)} placeholder={t('imageUrlPlaceholder')} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
             <button type="button" onClick={() => removeImage(index)} className="text-red-500 hover:text-red-700">Remove</button>
           </div>
         ))}
@@ -119,17 +128,11 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
         <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">{t('propertiesLabel')}</h3>
         {propertyFields.map((field, index) => (
           <div key={field.id} className="flex items-center gap-4">
-            <div className="flex-1">
-              <label className="sr-only">{t('propertyNameLabel')}</label>
-              <select {...register(`properties.${index}.key`)} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600">
-                <option value="">{t('selectProperty')}</option>
-                {productPropertyKeys.map(key => <option key={key} value={key}>{key}</option>)}
-              </select>
-            </div>
-            <div className="flex-1">
-              <label className="sr-only">{t('propertyValueLabel')}</label>
-              <input {...register(`properties.${index}.value`)} placeholder={t('propertyValueLabel')} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
-            </div>
+            <select {...register(`properties.${index}.key`)} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+              <option value="">{t('selectProperty')}</option>
+              {productPropertyKeys.map(key => <option key={key} value={key}>{key}</option>)}
+            </select>
+            <input {...register(`properties.${index}.value`)} placeholder={t('propertyValueLabel')} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
             <button type="button" onClick={() => removeProperty(index)} className="text-red-500 hover:text-red-700">Remove</button>
           </div>
         ))}
@@ -144,7 +147,7 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
           {t('cancelButton')}
         </button>
         <button type="submit" disabled={isSaving} className="rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 disabled:opacity-50">
-          {isSaving ? 'Saving...' : t('saveButton')}
+          {isSaving ? t('saving') : t('saveButton')}
         </button>
       </div>
     </form>

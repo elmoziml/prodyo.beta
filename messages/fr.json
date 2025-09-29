@@ -1,9 +1,4 @@
 {
-  "WorkInProgress": {
-    "title": "Bientôt Disponible",
-    "description": "Cette page est en cours de construction. Nous travaillons dur pour vous la présenter.",
-    "cta": "Aller à la page d'accueil"
-  },
   "sidebar": {
     "home": "Tableau de bord",
     "orders": "Commandes",
@@ -11,12 +6,12 @@
     "inventory": "Inventaire",
     "categories": "Catégories",
     "reports": "Rapports",
-    "landingPage": "Contenu/Page d'accueil",
+    "landingPage": "Page d'accueil",
     "storeSettings": "Paramètres du magasin",
-    "staff": "Personnel/Admins"
+    "staff": "Personnel"
   },
   "pages": {
-    "dtcSearch": "Recherche de codes de défaut (DTC)",
+    "dtcSearch": "Recherche DTC",
     "repairProtocols": "Protocoles de réparation",
     "vinDecoder": "Décodeur VIN",
     "electricalDiagrams": "Schémas électriques",
@@ -34,14 +29,14 @@
     "rights": "Tous droits réservés.",
     "slogan": "Votre outil professionnel pour un diagnostic et une réparation rapides.",
     "links": "Liens rapides",
-    "about": "À propos de nous",
+    "about": "À propos",
     "services": "Services",
     "prices": "Tarifs",
     "learn": "En savoir plus",
     "legal": "Légal",
     "privacyPolicy": "Politique de confidentialité",
     "termsOfUse": "Conditions d'utilisation",
-    "cookiePolicy": "Politique en matière de cookies",
+    "cookiePolicy": "Politique de cookies",
     "contact": "Contactez-nous",
     "address": "123 Rue d'Alger, Alger",
     "phone": "+213 (0) 12 345 678",
@@ -61,94 +56,247 @@
   "Dashboard": {
     "ProfileDropdown": {
       "accountStatus": "Statut du compte",
-      "subscriptionPlan": "Plan d'abonnement",
+      "subscriptionPlan": "Forfait d'abonnement",
       "verified": "Vérifié",
       "unverified": "Non vérifié",
       "username": "Nom d'utilisateur",
       "expiresOn": "Expire le",
-      "verificationWarning": "Votre e-mail ou votre téléphone n'est pas vérifié. Veuillez mettre à jour votre profil.",
+      "verificationWarning": "Votre e-mail ou téléphone n'est pas vérifié. Veuillez mettre à jour votre profil.",
       "settings": "Paramètres",
-      "publicProfile": "Profil Public"
+      "publicProfile": "Profil public"
+    }
+  },
+  "WorkInProgress": {
+    "title": "Bientôt disponible",
+    "description": "Cette page est en cours de construction. Nous travaillons dur pour vous la proposer.",
+    "cta": "Retour à l'accueil"
+  },
+  "OrdersPage": {
+    "title": "Commandes",
+    "loading": "Chargement des commandes...",
+    "error": "Échec du chargement des commandes.",
+    "empty": "Aucune commande trouvée.",
+    "filters": {
+      "searchPlaceholder": "Rechercher par ID de commande ou client...",
+      "allStatuses": "Tous les statuts",
+      "apply": "Appliquer les filtres",
+      "clear": "Effacer"
+    },
+    "table": {
+      "orderId": "ID Commande",
+      "customer": "Client",
+      "date": "Date",
+      "status": "Statut",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "detailsButton": "Détails",
+    "modal": {
+      "title": "Détails de la commande",
+      "customerInfo": "Informations client",
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "status": "Statut",
+      "date": "Date de commande",
+      "orderSummary": "Résumé de la commande",
+      "items": "Articles",
+      "quantity": "Qté",
+      "price": "Prix",
+      "total": "Total",
+      "print": "Imprimer",
+      "close": "Fermer",
+      "options": "Options",
+      "color": "Couleur",
+      "size": "Taille",
+      "material": "Matériau",
+      "warranty": "Garantie",
+      "loadingDetails": "Chargement des détails...",
+      "errorDetails": "Impossible de charger les détails."
+    }
+  },
+  "OrderStatus": {
+    "Processing": "En cours",
+    "Shipped": "Expédiée",
+    "Delivered": "Livrée",
+    "Canceled": "Annulée",
+    "Pending": "En attente"
+  },
+  "ProductsPage": {
+    "title": "Produits",
+    "loading": "Chargement des produits...",
+    "error": "Échec du chargement des produits.",
+    "empty": "Aucun produit trouvé.",
+    "table": {
+      "product": "Produit",
+      "category": "Catégorie",
+      "stock": "Stock",
+      "price": "Prix",
+      "actions": "Actions"
+    },
+    "detailsButton": "Détails",
+    "editButton": "Modifier",
+    "deleteButton": "Supprimer",
+    "modal": {
+      "title": "Détails du produit",
+      "description": "Description",
+      "options": "Options disponibles",
+      "close": "Fermer",
+      "loading": "Chargement des détails...",
+      "error": "Impossible de charger les détails."
+    },
+    "addProduct": {
+      "title": "Ajouter un nouveau produit",
+      "addButton": "Ajouter un produit",
+      "nameLabel": "Nom du produit",
+      "namePlaceholder": "Ex: T-shirt classique",
+      "categoryLabel": "Catégorie",
+      "categoryPlaceholder": "Ex: Vêtements",
+      "selectCategory": "Choisir une catégorie",
+      "priceLabel": "Prix",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "propertiesLabel": "Propriétés du produit",
+      "addPropertyButton": "Ajouter une propriété",
+      "propertyNameLabel": "Propriété",
+      "propertyValueLabel": "Valeur",
+      "selectProperty": "Choisir une propriété",
+      "imagesLabel": "Images du produit",
+      "imageUrlLabel": "URL de l'image",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Ajouter une image",
+      "saveButton": "Enregistrer",
+      "cancelButton": "Annuler"
+    },
+    "editProduct": {
+      "title": "Modifier le produit",
+      "nameLabel": "Nom du produit",
+      "namePlaceholder": "Ex: T-shirt classique",
+      "categoryLabel": "Catégorie",
+      "selectCategory": "Choisir une catégorie",
+      "priceLabel": "Prix",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "imagesLabel": "Images du produit",
+      "imageUrlLabel": "URL de l'image",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Ajouter une image",
+      "propertiesLabel": "Propriétés du produit",
+      "propertyNameLabel": "Propriété",
+      "selectProperty": "Choisir une propriété",
+      "propertyValueLabel": "Valeur",
+      "addPropertyButton": "Ajouter une propriété",
+      "cancelButton": "Annuler",
+      "saveButton": "Enregistrer les modifications",
+      "saving": "Enregistrement..."
+    },
+    "deleteProduct": {
+      "title": "Supprimer le produit",
+      "confirmation": "Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer",
+      "deleting": "Suppression..."
+    }
+  },
+  "CategoriesPage": {
+    "title": "Catégories",
+    "loading": "Chargement des catégories...",
+    "error": "Échec du chargement des catégories.",
+    "addButton": "Ajouter une catégorie",
+    "addTitle": "Ajouter une nouvelle catégorie",
+    "editTitle": "Modifier la catégorie",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette catégorie ?",
+    "form": {
+      "name": "Nom de la catégorie",
+      "description": "Description",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "saving": "Enregistrement..."
+    },
+    "list": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
     }
   },
   "LandingPage": {
     "Hero": {
-      "title": "Le Futur du Diagnostic Auto",
-      "subtitle": "Base de données, protocoles de réparation, et outils de gestion pour votre atelier.",
+      "title": "Le futur du diagnostic et de la réparation automobile",
+      "subtitle": "Accès instantané à une vaste base de données, protocoles de réparation guidés et outils de gestion d'atelier avancés.",
       "ctaPrimary": "Commencer",
       "ctaSecondary": "Voir la démo"
     },
     "Features": {
-      "title": "Caractéristiques Principales",
+      "title": "Fonctionnalités principales",
       "feature1": {
-        "title": "Base de Données DTC",
-        "description": "Couverture complète des codes OBD-II et constructeurs."
+        "title": "Base de données DTC",
+        "description": "Couverture complète des codes OBD-II et spécifiques aux constructeurs."
       },
       "feature2": {
-        "title": "Protocoles de Réparation Guidés",
-        "description": "Étapes détaillées, données live et diagrammes."
+        "title": "Protocoles de réparation guidés",
+        "description": "Étapes détaillées avec données en direct et schémas."
       },
       "feature3": {
-        "title": "Gestion des Sessions de Réparation",
+        "title": "Gestion des sessions de réparation",
         "description": "Journal visuel et suivi des coûts."
       },
       "feature4": {
-        "title": "Outils d'Atelier",
+        "title": "Outils d'atelier",
         "description": "Décodeur VIN, intégration OBD-II, CRM."
       },
       "feature5": {
-        "title": "Réseau et Communauté",
-        "description": "Profil, recherche, évaluations, et suivi financier."
+        "title": "Réseau et communauté",
+        "description": "Profil, recherche intelligente, évaluations et profil financier pour suivre les factures et les bénéfices."
       },
       "discoverMore": "Découvrir plus"
     },
     "HowItWorks": {
-      "title": "Comment Ça Marche",
-      "subtitle": "Suivez ces étapes simples pour démarrer avec notre plateforme.",
+      "title": "Comment ça marche",
+      "subtitle": "Suivez ces étapes simples pour commencer avec notre plateforme.",
       "videoLink": "Voir la vidéo",
-      "docsLink": "Lire la doc",
+      "docsLink": "Lire la documentation",
       "step1": {
-        "title": "Créez Votre Compte Pro",
-        "description": "Démarrez en quelques minutes."
+        "title": "Créez votre compte professionnel",
+        "description": "Étapes simples pour commencer en quelques minutes."
       },
       "step2": {
-        "title": "Créez une Session de Réparation",
-        "description": "Ajoutez les détails client et véhicule."
+        "title": "Créer une session de réparation",
+        "description": "Ajoutez facilement les détails du client et du véhicule."
       },
       "step3": {
-        "title": "Ajoutez les infos voiture/client",
+        "title": "Ajouter les informations sur la voiture et le client",
         "description": "Utilisez nos outils pour un diagnostic précis."
       },
       "step4": {
-        "title": "Réparez avec notre base de données",
+        "title": "Commencez la réparation avec une base de données complète",
         "description": "Suivez les protocoles guidés étape par étape."
       },
       "step5": {
-        "title": "Gérez vos gains et factures",
-        "description": "Suivez vos revenus et dépenses en un seul endroit."
+        "title": "Gérez vos bénéfices et vos factures",
+        "description": "Suivez vos revenus et vos dépenses depuis un seul endroit."
       }
     },
     "Testimonials": {
-      "title": "Ce Que Disent Nos Clients",
-      "subtitle": "Voyez ce que disent nos techniciens et propriétaires d'ateliers satisfaits.",
+      "title": "Ce que disent nos clients",
+      "subtitle": "Découvrez ce que disent nos techniciens et propriétaires d'ateliers satisfaits.",
       "testimonial1": {
         "name": "Mohammed",
-        "quote": "Diagnostics 50% plus rapides !",
-        "expertise": "Spécialiste en programmation ECU"
+        "quote": "Les diagnostics sont devenus 50% plus rapides !",
+        "expertise": "Spécialiste en programmation d'ECU"
       },
       "testimonial2": {
         "name": "Ahmed",
-        "quote": "Les diagrammes attirent de nouveaux clients.",
+        "quote": "Les schémas ont attiré de nouveaux clients.",
         "expertise": "Maître électricien automobile"
       },
       "testimonial3": {
         "name": "Fatima",
-        "quote": "La gestion des sessions simplifie mon travail.",
-        "expertise": "+15 ans d'expérience"
+        "quote": "La gestion des sessions a facilité mon travail.",
+        "expertise": "Plus de 15 ans d'expérience"
       }
     },
     "Pricing": {
-      "title": "Choisissez le Forfait Qui Vous Convient",
+      "title": "Choisissez le forfait qui vous convient",
       "featured": "Le plus populaire",
       "free": {
         "plan": "Forfait d'essai",
@@ -161,10 +309,10 @@
         "plan": "Forfait Technicien",
         "price": "XX Dinar/mois",
         "feature1": "Analyses avancées",
-        "feature2": "Diagnostic complet",
-        "feature3": "Schémas techniques",
-        "feature4": "Gestion des sessions",
-        "feature5": "Profils financier & public",
+        "feature2": "Diagnostic complet (DTC, VIN, protocoles)",
+        "feature3": "Schémas techniques (électriques, démontage)",
+        "feature4": "Gestion des sessions de réparation",
+        "feature5": "Profil financier et public",
         "feature6": "Support technique",
         "cta": "Choisir le forfait Technicien"
       },
@@ -172,15 +320,15 @@
         "plan": "Forfait Atelier",
         "price": "XX Dinar/mois",
         "feature1": "Toutes les fonctionnalités du forfait Technicien",
-        "feature2": "Gestion complète d'atelier",
-        "feature3": "Gestion employés & permissions",
-        "feature4": "Gestion magasin & stocks",
+        "feature2": "Gestion complète de l'atelier",
+        "feature3": "Gestion des employés et des autorisations",
+        "feature4": "Gestion du magasin et de l'inventaire",
         "feature5": "Rapports d'atelier avancés",
         "cta": "Demander un devis"
       }
     },
     "FAQ": {
-      "title": "Questions Fréquemment Posées",
+      "title": "Questions fréquemment posées",
       "subtitle": "Vous avez des questions ? Nous avons des réponses. Si vous ne trouvez pas ce que vous cherchez, n'hésitez pas à nous contacter.",
       "helperLinks": {
         "title": "Liens utiles",
@@ -190,29 +338,29 @@
       "q1": {
         "category": "Technique",
         "question": "Comment connecter mon appareil OBD-II ?",
-        "answer": "Localisez le port 16 broches, coupez le contact, et branchez l'appareil.",
-        "answer_long": "Pour connecter votre appareil OBD-II, localisez d'abord le port 16 broches de votre véhicule, généralement sous le tableau de bord près du volant. Le contact étant complètement coupé, branchez fermement l'appareil. Une fois connecté, vous pouvez mettre le contact en position \"On\" (sans démarrer le moteur) et lancer notre application pour établir une connexion sans fil."
+        "answer": "Pour connecter votre appareil OBD-II, localisez d'abord le port à 16 broches de votre véhicule, généralement sous le tableau de bord. Contact coupé, branchez fermement l'appareil.",
+        "answer_long": "Pour connecter votre appareil OBD-II, localisez d'abord le port à 16 broches de votre véhicule, généralement sous le tableau de bord, près du volant. Le contact étant complètement coupé, branchez fermement l'appareil. Une fois connecté, vous pouvez mettre le contact en position « On » (sans démarrer le moteur) et lancer notre application pour établir une connexion sans fil."
       },
       "q2": {
         "category": "Général",
         "question": "Prenez-vous en charge toutes les marques de voitures ?",
-        "answer": "Oui, compatible avec la plupart des véhicules après 1996.",
-        "answer_long": "Oui, notre plateforme est compatible avec tous les véhicules conformes à la norme OBD-II. Cela inclut la quasi-totalité des voitures et des camions légers fabriqués pour la vente en Europe, aux États-Unis et en Asie après 1996. Nous mettons continuellement à jour notre base de données pour prendre en charge les derniers modèles et protocoles de véhicules afin d'assurer la couverture la plus large possible."
+        "answer": "Oui, notre plateforme est compatible avec tous les véhicules conformes à la norme OBD-II, ce qui inclut la quasi-totalité des voitures fabriquées après 1996.",
+        "answer_long": "Oui, notre plateforme est compatible avec tous les véhicules conformes à la norme OBD-II. Cela inclut la quasi-totalité des voitures et camions légers fabriqués pour la vente en Europe, aux États-Unis et en Asie après 1996. Nous mettons continuellement à jour notre base de données pour prendre en charge les derniers modèles et protocoles de véhicules afin de garantir la couverture la plus large possible."
       },
       "q3": {
         "category": "Compte",
         "question": "Comment attirer plus de clients ?",
-        "answer": "Complétez votre profil, ajoutez une photo et encouragez les avis pour attirer des clients.",
+        "answer": "Un profil complet et professionnel est la clé. Ajoutez une photo de haute qualité, détaillez votre expérience et encouragez les clients satisfaits à laisser des avis.",
         "answer_long": "Un profil public complet et professionnel est essentiel pour instaurer la confiance. Nous vous recommandons d'ajouter une photo de profil de haute qualité, de détailler vos années d'expérience et vos certifications, et de mettre en valeur votre atelier. De plus, encourager les clients satisfaits à laisser des avis sur votre profil augmentera considérablement votre visibilité et attirera plus de clients via la recherche de notre plateforme."
       }
     },
     "FinalCTA": {
-      "title": "Prêt à évoluer ?",
-      "subtitle": "Rejoignez des milliers de techniciens.",
+      "title": "Prêt à transformer votre atelier ?",
+      "subtitle": "Rejoignez des milliers de techniciens qui font confiance à Kontrilo.",
       "form": {
         "name": "Nom complet",
         "email": "Adresse e-mail",
-        "cta": "Inscrivez"
+        "cta": "Inscrivez-vous gratuitement"
       }
     },
     "Footer": {
