@@ -7,162 +7,125 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import LogoImage from "../../assets/img/g19-5.png";
 import clsx from "clsx";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-/**
- * Header component for the public-facing pages.
- * Features a responsive design that adapts to mobile and desktop screens,
- * and a sticky behavior with a transparent-to-blur-white background transition on scroll.
- */
 const Header = () => {
-  // Internationalization hook to get translations for the "header" namespace.
   const t = useTranslations("header");
-  // Hook to get the current URL pathname for active link styling.
   const pathname = usePathname();
-  // State to manage the visibility of the mobile menu.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // State to track whether the user has scrolled down the page.
   const [scrolled, setScrolled] = useState(false);
 
-  // Effect hook to add and clean up a scroll event listener.
   useEffect(() => {
     const handleScroll = () => {
-      // Check if the vertical scroll position is greater than 10 pixels.
       const isScrolled = window.scrollY > 10;
-      // Update the state only if it has changed to prevent unnecessary re-renders.
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
     };
-
-    // Add the event listener when the component mounts.
     document.addEventListener("scroll", handleScroll);
-    // Remove the event listener when the component unmounts.
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
-  }, [scrolled]); // Dependency array ensures this effect runs only when `scrolled` changes.
+  }, [scrolled]);
 
-  // Array of navigation links, using translations for labels.
   const navLinks = [
-    { href: "/", label: t("home") },
-    { href: "#features", label: t("features") },
-    { href: "#pricing", label: t("pricing") },
-    { href: "#", label: t("learn") },
+    { href: "/shop", label: t("shop") },
+    { href: "/new-arrivals", label: t("newArrivals") },
+    { href: "/sale", label: t("sale") },
   ];
 
   return (
-    // The main header element.
     <header
       className={clsx(
-        // Base classes: fixed position, full width, z-index, and smooth transitions.
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        // Default style for mobile: white background and a shadow.
-        "bg-white shadow-md",
-        // Conditional styles based on the scroll state for desktop screens.
+        "bg-white shadow-md dark:bg-gray-900",
         scrolled
-          ? "md:bg-white/80 md:dark:bg-gray-900/80 md:shadow-md md:backdrop-blur-sm" // Scrolled state
-          : "md:bg-transparent md:shadow-none" // Unscrolled state
+          ? "md:bg-white/80 md:dark:bg-gray-900/80 md:shadow-md md:backdrop-blur-sm"
+          : "md:bg-transparent md:shadow-none"
       )}
     >
-      {/* Centered container for the header content. */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 lg:py-[20px]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo section */}
           <div className="flex-shrink-0">
             <Link href="/">
               <Image
                 src={LogoImage}
-                alt="KontriloTech Logo"
+                alt="Prodyo Logo"
                 width={30}
                 height={50}
-                priority // Prioritize loading of the logo image.
+                priority
               />
             </Link>
           </div>
 
-          {/* Desktop navigation menu (hidden on mobile). */}
-          <nav className="hidden md:flex md:items-center">
+          <div className="hidden md:flex md:items-center md:space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={clsx(
-                  "font-medium p-[40px] transition-colors hover:text-Primary", // Base styles including the consistent hover effect.
-                  "text-Secondary", // Default mobile text color.
-                  !scrolled && "md:text-white", // Desktop unscrolled text color.
-                  scrolled && "md:text-Secondary dark:md:text-white", // Desktop scrolled text color.
-                  // Active link styling.
-                  { "text-Primary dark:text-Primary": pathname === link.href }
-                )}
+                className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600"
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
-
-          {/* Desktop register button (hidden on mobile). */}
-          <div className="hidden md:block rounded-[30px] ">
-            <Link
-              href="/register"
-              className="rounded-[30px] inline-block bg-Primary px-[50px] py-2 text-sm font-medium text-white hover:bg-Primary/90"
-            >
-              {t("register")}
-            </Link>
           </div>
 
-          {/* Mobile menu button (hamburger icon). */}
-          <div className="md:hidden flex justify-center items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-Secondary hover:bg-gray-100 hover:text-Primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-Primary"
-            >
-              <span className="sr-only">Open main menu</span>
-              {/* Toggle between hamburger and cross icons. */}
-              {isMenuOpen ? (
-                <i className="fi fi-rr-cross flex"></i>
-              ) : (
-                <i className="fi fi-rr-menu-burger flex"></i>
-              )}
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
+              <a href="/login" className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 border rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">{t('login')}</a>
+              <a href="/register" className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700">{t('register')}</a>
+            </div>
+            <button className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
             </button>
+            <LanguageSwitcher />
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                <span className="sr-only">Open main menu</span>
+                {isMenuOpen ? (
+                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                ) : (
+                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu dropdown. */}
       <div
         className={clsx(
-          // Base styles for the dropdown.
-          "md:hidden absolute top-full left-0 right-0 bg-white shadow-md z-20 transition-all duration-300 ease-in-out",
-          // Conditional styles for showing/hiding the menu.
+          "md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-md z-20 transition-all duration-300 ease-in-out",
           {
             "opacity-100 translate-y-0": isMenuOpen,
             "opacity-0 -translate-y-4 pointer-events-none": !isMenuOpen,
           }
         )}
       >
-        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 mx-2">
+        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`block rounded-md px-3 py-2 text-base font-medium text-center ${
                 pathname === link.href
-                  ? "bg-Primary text-white"
-                  : "text-Secondary hover:bg-gray-50 hover:text-Primary"
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
               }`}
-              onClick={() => setIsMenuOpen(false)} // Close menu on link click.
+              onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          {/* Register button for mobile menu. */}
-          <Link
-            href="/register"
-            className="block w-full rounded-[30px] bg-Primary px-3 py-2 text-center text-base font-medium text-Secondary hover:bg-Primary/90"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t("register")}
-          </Link>
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+             <a href="/login" className="block w-full text-center rounded-md px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">{t('login')}</a>
+             <a href="/register" className="mt-2 block w-full text-center rounded-md bg-indigo-600 px-3 py-2 text-base font-medium text-white hover:bg-indigo-700">{t('register')}</a>
+          </div>
         </div>
       </div>
     </header>

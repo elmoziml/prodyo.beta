@@ -20,69 +20,45 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Logo and Slogan */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center mb-4">
-              <Image src={logo} alt="KontriloTech Logo" width={40} height={40} className="me-3" />
-            </div>
-            <p className="text-gray-400 max-w-xs">
-              {t("slogan")}
-            </p>
-            <div className="mt-6 flex justify-between w-[250px]">
-              {socialLinks.map((link) => (
-                <a 
-                  key={link.name}
-                  href={link.href} 
-                  aria-label={link.name}
-                  className="text-gray-400 hover:text-orange-500 bg-gray-800 hover:bg-gray-700 transition-colors p-3 rounded-full"
-                >
-                  {link.icon}
-                </a>
-              ))}
-              <LanguageSwitcher />
-              <ThemeSwitcher />
-            </div>
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div className="md:col-span-1">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Prodyo</h2>
+            <p className="mt-2 text-gray-500 dark:text-gray-400">{t('slogan')}</p>
           </div>
 
-          {/* Links Sections */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">{t("links")}</h3>
-              <ul className="space-y-3">
-                <li><Link href="/about" className="hover:text-white transition-colors">{t("about")}</Link></li>
-                <li><Link href="/services" className="hover:text-white transition-colors">{t("services")}</Link></li>
-                <li><Link href="/prices" className="hover:text-white transition-colors">{t("prices")}</Link></li>
-                <li><Link href="/learn" className="hover:text-white transition-colors">{t("learn")}</Link></li>
-              </ul>
-            </div>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('links')}</h3>
+            <ul className="mt-4 space-y-2">
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('about')}</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('contact')}</a></li>
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">{t("legal")}</h3>
-              <ul className="space-y-3">
-                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">{t("privacyPolicy")}</Link></li>
-                <li><Link href="/terms-of-use" className="hover:text-white transition-colors">{t("termsOfUse")}</Link></li>
-                <li><Link href="/cookie-policy" className="hover:text-white transition-colors">{t("cookiePolicy")}</Link></li>
-              </ul>
-            </div>
+          {/* Help Section */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('help')}</h3>
+            <ul className="mt-4 space-y-2">
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('shipping')}</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('returns')}</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('faq')}</a></li>
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">{t("contact")}</h3>
-              <ul className="space-y-3">
-                <li>{t("address")}</li>
-                <li>{t("phone")}</li>
-                <li><a href={`mailto:${t("email")}`} className="hover:text-white transition-colors">{t("email")}</a></li>
-              </ul>
-            </div>
-
+          {/* Legal Section */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('legal')}</h3>
+            <ul className="mt-4 space-y-2">
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('privacyPolicy')}</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600">{t('termsOfUse')}</a></li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <p className="text-sm text-gray-500 text-center">
-            &copy; {currentYear} KontriloTech. {t("rights")}
-          </p>
+        <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-gray-500 dark:text-gray-400">
+          &copy; {currentYear} Prodyo. {t('rights')}
         </div>
       </div>
     </footer>

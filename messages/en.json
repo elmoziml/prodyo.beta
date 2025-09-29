@@ -18,357 +18,40 @@
     "componentLocations": "Component Locations",
     "disassemblyDiagrams": "Disassembly Diagrams"
   },
-  "header": {
-    "home": "Home",
-    "features": "Features",
-    "pricing": "Pricing",
-    "learn": "Learn",
+"header": {
+    "shop": "Shop",
+    "newArrivals": "New Arrivals",
+    "sale": "Sale",
+    "login": "Sign In",
     "register": "Register"
   },
   "footer": {
-    "rights": "All rights reserved.",
-    "slogan": "Your professional tool for fast diagnostics and repair.",
+    "slogan": "Your destination for modern fashion.",
     "links": "Quick Links",
     "about": "About Us",
-    "services": "Services",
-    "prices": "Prices",
-    "learn": "Learn More",
+    "contact": "Contact",
+    "help": "Help",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "faq": "FAQ",
     "legal": "Legal",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "cookiePolicy": "Cookie Policy",
-    "contact": "Contact Us",
-    "address": "123 Algiers Street, Algiers",
-    "phone": "+213 (0) 12 345 678",
-    "email": "supports@kontrilo.com"
+    "rights": "All rights reserved."
   },
-  "notifications": {
-    "title": "Notifications",
-    "markAllAsRead": "Mark all as read",
-    "info": "Information",
-    "warning": "Warning",
-    "success": "Success",
-    "error": "Error",
-    "promotion": "Promotion",
-    "reminder": "Reminder",
-    "viewDetails": "View Details"
-  },
-  "Dashboard": {
-    "ProfileDropdown": {
-      "accountStatus": "Account Status",
-      "subscriptionPlan": "Subscription Plan",
-      "verified": "Verified",
-      "unverified": "Unverified",
-      "username": "Username",
-      "expiresOn": "Expires on",
-      "verificationWarning": "Your email or phone is not verified. Please update your profile.",
-      "settings": "Settings",
-      "publicProfile": "Public Profile"
-    }
-  },
-  "WorkInProgress": {
-    "title": "Coming Soon",
-    "description": "This page is under construction. We are working hard to bring it to you.",
-    "cta": "Go to Homepage"
-  },
-  "OrdersPage": {
-    "title": "Orders",
-    "loading": "Loading orders...",
-    "error": "Failed to load orders.",
-    "empty": "No orders found.",
-    "filters": {
-      "searchPlaceholder": "Search by Order ID or Customer...",
-      "allStatuses": "All Statuses",
-      "apply": "Apply Filters",
-      "clear": "Clear"
-    },
-    "table": {
-      "orderId": "Order ID",
-      "customer": "Customer",
-      "date": "Date",
-      "status": "Status",
-      "total": "Total",
-      "actions": "Actions"
-    },
-    "detailsButton": "Details",
-    "modal": {
-      "title": "Order Details",
-      "customerInfo": "Customer Information",
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone",
-      "address": "Address",
-      "status": "Status",
-      "date": "Order Date",
-      "orderSummary": "Order Summary",
-      "items": "Items",
-      "quantity": "Qty",
-      "price": "Price",
-      "total": "Total",
-      "print": "Print",
-      "close": "Close",
-      "options": "Options",
-      "color": "Color",
-      "size": "Size",
-      "material": "Material",
-      "warranty": "Warranty",
-      "loadingDetails": "Loading order details...",
-      "errorDetails": "Could not load order details."
-    }
-  },
-  "OrderStatus": {
-    "Processing": "Processing",
-    "Shipped": "Shipped",
-    "Delivered": "Delivered",
-    "Canceled": "Canceled",
-    "Pending": "Pending"
-  },
-  "ProductsPage": {
-    "title": "Products",
-    "loading": "Loading products...",
-    "error": "Failed to load products.",
-    "empty": "No products found.",
-    "table": {
-      "product": "Product",
-      "category": "Category",
-      "stock": "Stock",
-      "price": "Price",
-      "actions": "Actions"
-    },
-    "detailsButton": "Details",
-    "editButton": "Edit",
-    "deleteButton": "Delete",
-    "modal": {
-      "title": "Product Details",
-      "description": "Description",
-      "options": "Available Options",
-      "close": "Close",
-      "loading": "Loading product details...",
-      "error": "Could not load product details."
-    },
-    "addProduct": {
-      "title": "Add New Product",
-      "addButton": "Add Product",
-      "nameLabel": "Product Name",
-      "namePlaceholder": "e.g., Classic T-Shirt",
-      "categoryLabel": "Category",
-      "categoryPlaceholder": "e.g., Apparel",
-      "selectCategory": "Select a category",
-      "priceLabel": "Price",
-      "stockLabel": "Stock",
-      "descriptionLabel": "Description",
-      "propertiesLabel": "Product Properties",
-      "addPropertyButton": "Add Property",
-      "propertyNameLabel": "Property",
-      "propertyValueLabel": "Value",
-      "selectProperty": "Select a property",
-      "imagesLabel": "Product Images",
-      "imageUrlLabel": "Image URL",
-      "imageUrlPlaceholder": "https://example.com/image.png",
-      "addImageButton": "Add Image",
-      "saveButton": "Save Product",
-      "cancelButton": "Cancel"
-    },
-    "editProduct": {
-      "title": "Edit Product",
-      "nameLabel": "Product Name",
-      "namePlaceholder": "e.g., Classic T-Shirt",
-      "categoryLabel": "Category",
-      "selectCategory": "Select a category",
-      "priceLabel": "Price",
-      "stockLabel": "Stock",
-      "descriptionLabel": "Description",
-      "imagesLabel": "Product Images",
-      "imageUrlLabel": "Image URL",
-      "imageUrlPlaceholder": "https://example.com/image.png",
-      "addImageButton": "Add Image",
-      "propertiesLabel": "Product Properties",
-      "propertyNameLabel": "Property",
-      "selectProperty": "Select a property",
-      "propertyValueLabel": "Value",
-      "addPropertyButton": "Add Property",
-      "cancelButton": "Cancel",
-      "saveButton": "Save Changes",
-      "saving": "Saving..."
-    },
-    "deleteProduct": {
-      "title": "Delete Product",
-      "confirmation": "Are you sure you want to delete this product? This action cannot be undone.",
-      "cancel": "Cancel",
-      "confirm": "Delete",
-      "deleting": "Deleting..."
-    }
-  },
-  "CategoriesPage": {
-    "title": "Categories",
-    "loading": "Loading categories...",
-    "error": "Failed to load categories.",
-    "addButton": "Add Category",
-    "addTitle": "Add New Category",
-    "editTitle": "Edit Category",
-    "deleteConfirm": "Are you sure you want to delete this category?",
-    "form": {
-      "name": "Category Name",
-      "description": "Description",
-      "cancel": "Cancel",
-      "save": "Save",
-      "saving": "Saving..."
-    },
-    "list": {
-      "edit": "Edit",
-      "delete": "Delete"
-    }
-  },
-  "LandingPage": {
+  "Storefront": {
     "Hero": {
-      "title": "The Future of Automotive Diagnostics & Repair",
-      "subtitle": "Access a vast database, guided repair protocols, and advanced workshop management tools.",
-      "ctaPrimary": "Get Started",
-      "ctaSecondary": "Watch Demo"
+      "title": "New Season Arrivals",
+      "subtitle": "Check out the latest trends in our collection.",
+      "cta": "Shop Now"
     },
-    "Features": {
-      "title": "Main Features",
-      "feature1": {
-        "title": "DTC Database",
-        "description": "Comprehensive coverage of OBD-II and manufacturer-specific codes."
-      },
-      "feature2": {
-        "title": "Guided Repair Protocols",
-        "description": "Detailed steps with live data and diagrams."
-      },
-      "feature3": {
-        "title": "Repair Session Management",
-        "description": "Visual log and cost tracking."
-      },
-      "feature4": {
-        "title": "Workshop Tools",
-        "description": "VIN Decoder, OBD-II integration, CRM."
-      },
-      "feature5": {
-        "title": "Network and Community",
-        "description": "Profile, smart search, ratings, and financial profile to track invoices and profits."
-      },
-      "discoverMore": "Discover More"
+    "CategoryShowcase": {
+      "title": "Shop by Category",
+      "browseAll": "Browse all categories"
     },
-    "HowItWorks": {
-      "title": "How It Works",
-      "subtitle": "Follow these simple steps to get started with our platform.",
-      "videoLink": "Watch Video",
-      "docsLink": "Read Docs",
-      "step1": {
-        "title": "Register Your Professional Account",
-        "description": "Simple steps to get started in minutes."
-      },
-      "step2": {
-        "title": "Create a Repair Session",
-        "description": "Easily add client and vehicle details."
-      },
-      "step3": {
-        "title": "Add Car and Client Information",
-        "description": "Use our tools for accurate diagnosis."
-      },
-      "step4": {
-        "title": "Start the Repair with a Complete Database",
-        "description": "Follow guided protocols step-by-step."
-      },
-      "step5": {
-        "title": "Manage Your Profits and Invoices",
-        "description": "Track your income and expenses in one place."
-      }
-    },
-    "Testimonials": {
-      "title": "What Our Clients Say",
-      "subtitle": "See what our satisfied technicians and workshop owners are saying.",
-      "testimonial1": {
-        "name": "Mohammed",
-        "quote": "Diagnostics became 50% faster!",
-        "expertise": "ECU Programming Specialist"
-      },
-      "testimonial2": {
-        "name": "Ahmed",
-        "quote": "The diagrams attracted new customers.",
-        "expertise": "Master Auto Electrician"
-      },
-      "testimonial3": {
-        "name": "Fatima",
-        "quote": "Session management made my work easier.",
-        "expertise": "15+ Years of Experience"
-      }
-    },
-    "Pricing": {
-      "title": "Choose the Plan That Suits You",
-      "featured": "Most Popular",
-      "free": {
-        "plan": "Trial Plan",
-        "price": "Free",
-        "feature1": "Full access to Technician Plan",
-        "feature2": "Limited to 14 days",
-        "cta": "Start Trial"
-      },
-      "technician": {
-        "plan": "Technician Plan",
-        "price": "XX Dinar/month",
-        "feature1": "Advanced Analytics",
-        "feature2": "Comprehensive Diagnosis (DTC, VIN, Protocols)",
-        "feature3": "Technical Diagrams (Electrical, Disassembly)",
-        "feature4": "Repair Session Management",
-        "feature5": "Financial and Public Profile",
-        "feature6": "Technical Support",
-        "cta": "Choose Technician Plan"
-      },
-      "workshop": {
-        "plan": "Workshop Plan",
-        "price": "XX Dinar/month",
-        "feature1": "All features of Technician Plan",
-        "feature2": "Comprehensive Workshop Management",
-        "feature3": "Manage Workers and Permissions",
-        "feature4": "Store and Inventory Management",
-        "feature5": "Advanced Workshop Reports",
-        "cta": "Request a Quote"
-      }
-    },
-    "FAQ": {
-      "title": "Frequently Asked Questions",
-      "subtitle": "Have questions? We have answers. If you can't find what you're looking for, feel free to contact us.",
-      "helperLinks": {
-        "title": "Helper Links",
-        "link1": "Go to documentation",
-        "link2": "Contact support"
-      },
-      "q1": {
-        "category": "Technical",
-        "question": "How do I connect my OBD-II device?",
-        "answer": "To connect your OBD-II device, first locate the 16-pin port in your vehicle, usually under the dashboard. With the ignition off, plug the device in firmly.",
-        "answer_long": "To connect your OBD-II device, first locate the 16-pin port in your vehicle, usually under the dashboard near the steering wheel. With the ignition turned completely off, plug the device in firmly. Once connected, you can turn the ignition to the \"On\" position (without starting the engine) and launch our application to establish a wireless connection."
-      },
-      "q2": {
-        "category": "General",
-        "question": "Do you support all car brands?",
-        "answer": "Yes, our platform is compatible with all vehicles that are OBD-II compliant, which includes virtually all cars manufactured for sale after 1996.",
-        "answer_long": "Yes, our platform is compatible with all vehicles that are OBD-II compliant. This includes virtually all cars and light trucks manufactured for sale in Europe, the US, and Asia after 1996. We continuously update our database to support the latest vehicle models and protocols to ensure the widest possible coverage."
-      },
-      "q3": {
-        "category": "Account",
-        "question": "How do I attract more clients?",
-        "answer": "A complete and professional profile is key. Add a high-quality photo, detail your experience, and encourage satisfied customers to leave reviews.",
-        "answer_long": "A complete and professional public profile is key to building trust. We recommend adding a high-quality profile picture, detailing your years of experience and certifications, and showcasing your workshop. Furthermore, encouraging satisfied customers to leave reviews on your profile will significantly boost your visibility and attract more clients through our platform's search."
-      }
-    },
-    "FinalCTA": {
-      "title": "Ready to transform your workshop?",
-      "subtitle": "Join thousands of technicians who trust Kontrilo.",
-      "form": {
-        "name": "Full Name",
-        "email": "Email Address",
-        "cta": "Register Now for Free"
-      }
-    },
-    "Footer": {
-      "rights": "All rights reserved.",
-      "contact": {
-        "email": "support@kontrilo.com",
-        "domain": "kontrilo.com"
-      }
+    "FeaturedProducts": {
+      "title": "Featured Products"
     }
   }
+}
 }

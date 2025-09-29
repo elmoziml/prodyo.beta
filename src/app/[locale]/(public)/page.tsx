@@ -1,25 +1,34 @@
-'use client';
+import Hero from '@/components/public/storefront/Hero';
+import CategoryShowcase from '@/components/public/storefront/CategoryShowcase';
+import FeaturedProducts from '@/components/public/storefront/FeaturedProducts';
+import { Category, Product } from '@/types';
 
-import Features from '@/components/public/LandingPage/Features';
-import Hero from '@/components/public/LandingPage/Hero';
-import HowItWorks from '@/components/public/LandingPage/HowItWorks';
-import Testimonials from '@/components/public/LandingPage/Testimonials';
-import Pricing from '@/components/public/LandingPage/Pricing';
-import FAQ from '@/components/public/LandingPage/FAQ';
-import FinalCTA from '@/components/public/LandingPage/FinalCTA';
+async function getStorefrontData() {
+  // In a real app, you'd fetch from your absolute API URL
+  // For simplicity here, we're assuming it can resolve locally.
+  // A real implementation would use http://localhost:3000/api/storefront or similar.
+  // This approach is illustrative for the CLI environment.
+  try {
+    const res = await fetch('http://localhost:3000/api/storefront', { cache: 'no-store' });
+    if (!res.ok) {
+      throw new Error('Failed to fetch storefront data');
+    }
+    return res.json();
+  } catch (error) {
+    console.error(error);
+    // Return empty arrays on error to prevent build failure
+    return { categories: [], featuredProducts: [] };
+  }
+}
 
-export default function Home() {
+export default async function HomePage() {
+  const { categories, featuredProducts }: { categories: Category[], featuredProducts: Product[] } = await getStorefrontData();
+
   return (
-    <div className="bg-white dark:bg-gray-900">
-      <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
-        <FinalCTA />
-      </main>
-    </div>
+    <main>
+      <Hero />
+      <CategoryShowcase categories={categories} />
+      <FeaturedProducts products={featuredProducts} />
+    </main>
   );
 }
