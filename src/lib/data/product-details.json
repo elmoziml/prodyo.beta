@@ -1,0 +1,115 @@
+{
+  "prod-1": {
+    "id": "prod-1",
+    "name": "Classic T-Shirt",
+    "category_id": "cat-1",
+    "price": 25.99,
+    "stock": 150,
+    "description": "A high-quality classic t-shirt made from 100% premium cotton. Perfect for everyday wear.",
+    "available_options": {
+      "colors": [
+        "Red",
+        "Black",
+        "White"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    "images": [
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE"
+    ]
+  },
+  "prod-2": {
+    "id": "prod-2",
+    "name": "Wireless Headphones",
+    "category_id": "cat-2",
+    "price": 199.99,
+    "stock": 75,
+    "description": "Experience immersive sound with these noise-cancelling wireless headphones. 24-hour battery life.",
+    "available_options": {
+      "colors": [
+        "Matte Black",
+        "Silver"
+      ]
+    },
+    "images": [
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE"
+    ]
+  },
+  "prod-3": {
+    "id": "prod-3",
+    "name": "Leather Wallet",
+    "category_id": "cat-3",
+    "price": 49.5,
+    "stock": 200,
+    "description": "A sleek and durable wallet made from genuine leather, featuring multiple card slots and a cash compartment.",
+    "available_options": {},
+    "images": []
+  },
+  "prod-4": {
+    "id": "prod-4",
+    "name": "Running Shoes",
+    "category_id": "cat-4",
+    "price": 89.99,
+    "stock": 120,
+    "description": "Lightweight and comfortable running shoes for all terrains.",
+    "available_options": {
+      "sizes": [
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "colors": [
+        "Blue",
+        "Gray"
+      ]
+    },
+    "images": [
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE"
+    ]
+  },
+  "prod-5": {
+    "id": "prod-5",
+    "name": "Coffee Maker",
+    "category_id": "cat-5",
+    "price": 59.99,
+    "stock": 50,
+    "description": "12-cup programmable coffee maker with a reusable filter.",
+    "available_options": {
+      "colors": [
+        "Black",
+        "Stainless Steel"
+      ]
+    },
+    "images": [
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE",
+      "https://scontent.faae2-1.fna.fbcdn.net/v/t45.5328-4/554799686_1455196619020604_6270212029308033083_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEv1bZatsjjgP8bE-16psnm8nebl8tlDfHyd5uXy2UN8dWOyFfhEAHiB0IT1segBP95Wv1whQCWHMgl3I1n07lC&_nc_ohc=jgYwSFnYygAQ7kNvwGN2C6Q&_nc_oc=Adky22OczVN7BTvl6EJ6BVA8kRSBEY7GM5HstP31Kpu3LFM80IE54YLiMfVmlSt0AUQ&_nc_zt=23&_nc_ht=scontent.faae2-1.fna&_nc_gid=5Pkol_IKNh1b7wrqD4rJ5Q&oh=00_AfZP56BqmuRgDqjq7KfL4khmvj-J0Pd4c6GSctG-1vMVyQ&oe=68E024EE"
+    ]
+  },
+  "prod-1759165744631": {
+    "name": "يبلاب",
+    "category_id": "cat-1",
+    "price": 1222,
+    "stock": 222,
+    "description": "",
+    "images": [],
+    "available_options": {
+      "warranty": [
+        "f"
+      ]
+    },
+    "id": "prod-1759165744631"
+  }
+}

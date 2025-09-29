@@ -140,7 +140,9 @@
       "title": "Product Details",
       "description": "Description",
       "options": "Available Options",
-      "close": "Close"
+      "close": "Close",
+      "loading": "Loading product details...",
+      "error": "Could not load product details."
     },
     "addProduct": {
       "title": "Add New Product",
@@ -149,6 +151,7 @@
       "namePlaceholder": "e.g., Classic T-Shirt",
       "categoryLabel": "Category",
       "categoryPlaceholder": "e.g., Apparel",
+      "selectCategory": "Select a category",
       "priceLabel": "Price",
       "stockLabel": "Stock",
       "descriptionLabel": "Description",
@@ -157,8 +160,32 @@
       "propertyNameLabel": "Property",
       "propertyValueLabel": "Value",
       "selectProperty": "Select a property",
+      "imagesLabel": "Product Images",
+      "imageUrlLabel": "Image URL",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Add Image",
       "saveButton": "Save Product",
       "cancelButton": "Cancel"
+    }
+  },
+  "CategoriesPage": {
+    "title": "Categories",
+    "loading": "Loading categories...",
+    "error": "Failed to load categories.",
+    "addButton": "Add Category",
+    "addTitle": "Add New Category",
+    "editTitle": "Edit Category",
+    "deleteConfirm": "Are you sure you want to delete this category?",
+    "form": {
+      "name": "Category Name",
+      "description": "Description",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "list": {
+      "edit": "Edit",
+      "delete": "Delete"
     }
   },
   "LandingPage": {

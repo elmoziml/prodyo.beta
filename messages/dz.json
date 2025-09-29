@@ -1,15 +1,10 @@
 {
-  "WorkInProgress": {
-    "title": "قريبا",
-    "description": " رانا نخدموا علاها تبعنا برك واصبر",
-    "cta": " ارجع للصفحة الرئيسية"
-  },
   "sidebar": {
     "home": "الرئيسية",
     "orders": "لي كوموند",
     "products": "المنتوجات",
     "inventory": "الستوك",
-    "categories": "الصناف",
+    "categories": "الأصناف",
     "reports": "الراربورات",
     "landingPage": "صفحة الواجهة",
     "storeSettings": "إعدادات الحانوت",
@@ -26,56 +21,178 @@
   "header": {
     "home": "الرئيسية",
     "features": "الميزات",
-    "pricing": "الأسعار",
-    "learn": "تعلم",
-    "register": "سجل باطل"
+    "pricing": "السومات",
+    "learn": "تعلّم",
+    "register": "سجّل باطل"
   },
   "footer": {
-    "rights": "كل الحقوق محفوظة.",
-    "slogan": "أداتك الاحترافية للتشخيص والإصلاح السريع.",
+    "rights": "كامل الحقوق محفوظة.",
+    "slogan": "لوتي تاعك بروفيسيونال للتشخيص والتصليح السريع.",
     "links": "روابط سريعة",
     "about": "شكون حنا",
     "services": "خدماتنا",
-    "prices": "الأسعار",
-    "learn": "مركز التعلم",
+    "prices": "السومات",
+    "learn": "مركز التعلّم",
     "legal": "قانوني",
     "privacyPolicy": "سياسة الخصوصية",
     "termsOfUse": "شروط الاستخدام",
     "cookiePolicy": "سياسة الكوكيز",
-    "contact": "تواصل معانا",
-    "address": "123 شارع الجزائر، دزاير",
+    "contact": "كونتاكتينا",
+    "address": "123 طريق دزاير، دزاير",
     "phone": "+213 (0) 12 345 678",
     "email": "supports@kontrilo.com"
   },
   "notifications": {
-    "title": "الإشعارات",
-    "markAllAsRead": "تعيين الكل كمقروء",
-    "info": "معلومات",
+    "title": "النوتيفيكاسيون",
+    "markAllAsRead": "ماركي كلش مقري",
+    "info": "معلومة",
     "warning": "تحذير",
     "success": "نجاح",
-    "error": "خطأ",
-    "promotion": "ترويج",
+    "error": "غلطة",
+    "promotion": "بروموسيون",
     "reminder": "تذكير",
-    "viewDetails": "عرض التفاصيل"
+    "viewDetails": "شوف لي ديتاي"
   },
   "Dashboard": {
     "ProfileDropdown": {
-      "accountStatus": "حالة الحساب",
-      "subscriptionPlan": "خطة الاشتراك",
-      "verified": "مؤكد",
-      "unverified": "ماشي مؤكد",
+      "accountStatus": "حالة الكونت",
+      "subscriptionPlan": "نوع الاشتراك",
+      "verified": "مأكد",
+      "unverified": "ماشي مأكد",
       "username": "اسم المستخدم",
       "expiresOn": "يخلاص في",
-      "verificationWarning": "الإيميل ولا التيليفون تاعك ماشي مأكدين. روح حدث البروفايل تاعك.",
+      "verificationWarning": "الإيميل ولا التيليفون تاعك ماشي مأكدين. روح بدّل البروفيل تاعك.",
       "settings": "الإعدادات",
-      "publicProfile": "الملف الشخصي العام"
+      "publicProfile": "البروفيل العام"
+    }
+  },
+  "WorkInProgress": {
+    "title": "قريبًا",
+    "description": "هاد لاباج رانا نخدمو عليها. أصبر برك.",
+    "cta": "أرجع للرئيسية"
+  },
+  "OrdersPage": {
+    "title": "لي كوموند",
+    "loading": "يشارجي في لي كوموند...",
+    "error": "ماقدرناش نجيبو لي كوموند.",
+    "empty": "مكان حتى كوموند.",
+    "filters": {
+      "searchPlaceholder": "حوّس بنيميرو تاع لاكوموند ولا اسم الكليون...",
+      "allStatuses": "كامل الحالات",
+      "apply": "أبليكي",
+      "clear": "أمسح"
+    },
+    "table": {
+      "orderId": "نيميرو لاكوموند",
+      "customer": "الكليون",
+      "date": "التاريخ",
+      "status": "الحالة",
+      "total": "الطوطال",
+      "actions": "واش دير"
+    },
+    "detailsButton": "لي ديتاي",
+    "modal": {
+      "title": "لي ديتاي تاع لاكوموند",
+      "customerInfo": "معلومات الكليون",
+      "name": "الاسم",
+      "email": "الإيميل",
+      "phone": "التيليفون",
+      "address": "لادراس",
+      "status": "الحالة",
+      "date": "تاريخ لاكوموند",
+      "orderSummary": "ملخص لاكوموند",
+      "items": "المنتوجات",
+      "quantity": "الكمية",
+      "price": "السومة",
+      "total": "الطوطال",
+      "print": "أطبع",
+      "close": "أغلق",
+      "options": "الخيارات",
+      "color": "اللون",
+      "size": "الطاي",
+      "material": "المادة",
+      "warranty": "الضمان",
+      "loadingDetails": "يشارجي في لي ديتاي...",
+      "errorDetails": "ماقدرناش نجيبو لي ديتاي."
+    }
+  },
+  "OrderStatus": {
+    "Processing": "تتحضر",
+    "Shipped": "تم الشحن",
+    "Delivered": "وصلت",
+    "Canceled": "ملغية",
+    "Pending": "تستنى"
+  },
+  "ProductsPage": {
+    "title": "المنتوجات",
+    "loading": "يشارجي في المنتوجات...",
+    "error": "ماقدرناش نجيبو المنتوجات.",
+    "empty": "مكان حتى منتوج.",
+    "table": {
+      "product": "المنتوج",
+      "category": "الصنف",
+      "stock": "الستوك",
+      "price": "السومة",
+      "actions": "واش دير"
+    },
+    "detailsButton": "لي ديتاي",
+    "modal": {
+      "title": "لي ديتاي تاع المنتوج",
+      "description": "الوصف",
+      "options": "الخيارات لي كاينة",
+      "close": "أغلق",
+      "loading": "يشارجي في لي ديتاي...",
+      "error": "ماقدرناش نجيبو لي ديتاي."
+    },
+    "addProduct": {
+      "title": "زيد منتوج جديد",
+      "addButton": "زيد منتوج",
+      "nameLabel": "اسم المنتوج",
+      "namePlaceholder": "مثال: تريكو كلاسيك",
+      "categoryLabel": "الصنف",
+      "categoryPlaceholder": "مثال: حوايج",
+      "selectCategory": "خيّر صنف",
+      "priceLabel": "السومة",
+      "stockLabel": "الستوك",
+      "descriptionLabel": "الوصف",
+      "propertiesLabel": "خصائص المنتوج",
+      "addPropertyButton": "زيد خاصية",
+      "propertyNameLabel": "الخاصية",
+      "propertyValueLabel": "القيمة",
+      "selectProperty": "خيّر خاصية",
+      "imagesLabel": "تصاور المنتوج",
+      "imageUrlLabel": "الليان تاع التصويرة",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "زيد تصويرة",
+      "saveButton": "سجّل المنتوج",
+      "cancelButton": "أنولي"
+    }
+  },
+  "CategoriesPage": {
+    "title": "الأصناف",
+    "loading": "يشارجي في الأصناف...",
+    "error": "ماقدرناش نجيبو الأصناف.",
+    "addButton": "زيد صنف",
+    "addTitle": "زيد صنف جديد",
+    "editTitle": "بدّل الصنف",
+    "deleteConfirm": "راك متأكد بلي حاب تفسخ هاد الصنف؟",
+    "form": {
+      "name": "اسم الصنف",
+      "description": "الوصف",
+      "cancel": "أنولي",
+      "save": "سجّل",
+      "saving": "يسجّل..."
+    },
+    "list": {
+      "edit": "بدّل",
+      "delete": "افسخ"
     }
   },
   "LandingPage": {
     "Hero": {
       "title": "مستقبل تشخيص وتصليح الطونوبيلات",
       "subtitle": "أكسيدي تم تم لقاعدة بيانات كبيرة، بروتوكولات تصليح موجهة، ولوتياج متقدم باش تجري لورشا تاعك.",
-      "ctaPrimary": "ابدأ ضرك",
+      "ctaPrimary": "أبدا ضرك",
       "ctaSecondary": "شوف ديمو"
     },
     "Features": {
@@ -133,7 +250,7 @@
       "subtitle": "شوف واش راهم يقولو لي تكنيسيان و موالين لورشا لي راضيين علينا.",
       "testimonial1": {
         "name": "محمد",
-        "quote": "التشخيص ولا أسرع بـ 50%!",
+        "quote": "التشخيص ولا أسرع بـ 50% !",
         "expertise": "سبيسياليست في برمجة لي كالكيلاتور"
       },
       "testimonial2": {
@@ -148,44 +265,44 @@
       }
     },
     "Pricing": {
-      "title": "خير الباقة لي توالمك",
+      "title": "خيّر الباقة لي توالمك",
       "featured": "الأكثر طلبا",
       "free": {
         "plan": "خطة تجريبية",
         "price": "باطل",
-        "feature1": "وصول كامل لخطة التقنيين",
-        "feature2": "محدودة لمدة 14 يوم",
+        "feature1": "أكسي كامل لخطة التقنيين",
+        "feature2": "محدودة لـ 14 يوم",
         "cta": "أبدا التجربة"
       },
       "technician": {
         "plan": "خطة التقنيين",
-        "price": "XX دينار/شهريا",
+        "price": "XX دينار/للشهر",
         "feature1": "تحليلات متقدمة",
         "feature2": "تشخيص شامل (DTC, VIN, بروتوكولات)",
-        "feature3": "مخططات فنية (كهربائية، تفكيك)",
+        "feature3": "مخططات فنية (تريسيتي، تفكيك)",
         "feature4": "جيستيون تاع جلسات التصليح",
         "feature5": "ملف مالي وعام",
         "feature6": "دعم فني",
-        "cta": "خير خطة التقنيين"
+        "cta": "خيّر خطة التقنيين"
       },
       "workshop": {
         "plan": "خطة الورشات",
-        "price": "XX دينار/شهريا",
+        "price": "XX دينار/للشهر",
         "feature1": "كامل ميزات خطة التقنيين",
         "feature2": "جيستيون شاملة للورشة",
         "feature3": "جيستيون تاع العمال والصلاحيات",
-        "feature4": "جيستيون تاع المتجر والمخزون",
-        "feature5": "تقارير متقدمة للورشة",
-        "cta": "اطلب عرض سعر"
+        "feature4": "جيستيون تاع الحانوت والستوك",
+        "feature5": "رابورات متقدمة للورشة",
+        "cta": "أطلب عرض سعر"
       }
     },
     "FAQ": {
       "title": "الأسئلة لي يتعاودو بزاف",
-      "subtitle": "عندك أسئلة؟ عندنا الأجوبة. إذا ما لقيتش واش تحوس، ما تترددش تتصل بينا.",
+      "subtitle": "عندك أسئلة؟ عندنا الجواب. يلا ملقيتش واش تحوس، ماتحشمش وكونتاكتينا.",
       "helperLinks": {
-        "title": "روابط مساعدة",
+        "title": "روابط تعاون",
         "link1": "روح للوثائق",
-        "link2": "اتصل بالدعم"
+        "link2": "كونتاكتي السيبور"
       },
       "q1": {
         "category": "تقني",
@@ -212,7 +329,7 @@
       "form": {
         "name": "الاسم الكامل",
         "email": "الإيميل",
-        "cta": "سجل ضرك باطل"
+        "cta": "سجّل ضرك باطل"
       }
     },
     "Footer": {

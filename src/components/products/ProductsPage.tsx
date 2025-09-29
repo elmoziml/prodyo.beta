@@ -7,16 +7,15 @@ import { useTranslations } from 'next-intl';
 import Modal from '../ui/Modal';
 import ProductDetailModal from './ProductDetailModal';
 import AddProductForm from './AddProductForm';
+import { ProductSummary } from '@/types';
 
-// Define the Product type
-interface Product {
-  id: string;
+interface ProductFormData {
   name: string;
-  category: string;
+  category_id: string;
   price: number;
   stock: number;
   description: string;
-  options: Record<string, string[]>;
+  properties: { key: string; value: string }[];
 }
 
 const getStockChip = (stock: number) => {
@@ -35,27 +34,28 @@ export default function ProductsPage() {
   const addProductMutation = useAddProduct();
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
-  const handleOpenDetailModal = (product: Product) => {
-    setSelectedProduct(product);
+  const handleOpenDetailModal = (productId: string) => {
+    setSelectedProductId(productId);
   };
 
   const handleCloseDetailModal = () => {
-    setSelectedProduct(null);
+    setSelectedProductId(null);
   };
 
   const handleSaveProduct = (formData: any) => {
-    // Convert dynamic properties array to an object
-    const options = formData.properties.reduce((acc: any, prop: any) => {
-      if (!acc[prop.key]) {
-        acc[prop.key] = [];
-      }
-      acc[prop.key].push(prop.value);
-      return acc;
-    }, {});
-
-    const newProductData = { ...formData, options };
+    const newProductData = {
+      ...formData,
+      images: formData.images.map((img: { url: string }) => img.url),
+      available_options: formData.properties.reduce((acc: Record<string, string[]>, prop: { key: string; value: string }) => {
+        if (!acc[prop.key]) {
+          acc[prop.key] = [];
+        }
+        acc[prop.key].push(prop.value);
+        return acc;
+      }, {}),
+    };
     delete newProductData.properties;
 
     addProductMutation.mutate(newProductData, {
@@ -96,10 +96,10 @@ export default function ProductsPage() {
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-body-dark divide-y divide-gray-200 dark:divide-gray-700">
-            {products?.map((product: Product) => (
+            {products?.map((product: ProductSummary) => (
               <tr key={product.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white text-start">{product.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{product.category}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{product.category_id}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-start">
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStockChip(product.stock)}`}>
                     {product.stock}
@@ -107,7 +107,7 @@ export default function ProductsPage() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">${product.price.toFixed(2)}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start">
-                  <button onClick={() => handleOpenDetailModal(product)} className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 font-semibold">
+                  <button onClick={() => handleOpenDetailModal(product.id)} className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 font-semibold">
                     {t('detailsButton')}
                   </button>
                 </td>
@@ -118,8 +118,8 @@ export default function ProductsPage() {
       </div>
 
       {/* Detail Modal */}
-      <Modal isOpen={!!selectedProduct} onClose={handleCloseDetailModal} title={t('modal.title')}>
-        <ProductDetailModal product={selectedProduct} />
+      <Modal isOpen={!!selectedProductId} onClose={handleCloseDetailModal} title={t('modal.title')}>
+        <ProductDetailModal productId={selectedProductId} />
         <div className="text-end mt-4">
             <button onClick={handleCloseDetailModal} className="px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700">
               {t('modal.close')}

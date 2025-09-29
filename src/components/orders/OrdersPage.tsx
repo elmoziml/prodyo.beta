@@ -3,6 +3,8 @@
 
 import { useState, useMemo } from 'react';
 import { useOrders } from '@/hooks/useOrders';
+import { useUpdateOrder } from '@/hooks/useUpdateOrder';
+
 import { format, parseISO } from 'date-fns';
 import { useTranslations } from 'next-intl';
 import Modal from '../ui/Modal';
@@ -45,6 +47,8 @@ export default function OrdersPage() {
   const t = useTranslations('OrdersPage');
   const tStatus = useTranslations('OrderStatus');
   const { data: orders, isLoading, isError } = useOrders();
+  const updateOrderMutation = useUpdateOrder();
+
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
   const [filters, setFilters] = useState({
     searchTerm: '',
@@ -52,6 +56,10 @@ export default function OrdersPage() {
     startDate: null,
     endDate: null,
   });
+
+  const handleStatusChange = (orderId: string, newStatus: Order['status']) => {
+    updateOrderMutation.mutate({ orderId, status: newStatus });
+  };
 
   const filteredOrders = useMemo(() => {
     if (!orders) return [];
@@ -128,7 +136,17 @@ export default function OrdersPage() {
                     {format(new Date(order.order_date), 'dd/MM/yyyy')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-start">
-                    <span className={getStatusChip(order.status)}>{tStatus(order.status)}</span>
+                    <select 
+                      value={order.status}
+                      onChange={(e) => handleStatusChange(order.id, e.target.value as Order['status'])}
+                      className={`${getStatusChip(order.status)} border-none outline-none appearance-none bg-transparent cursor-pointer`}
+                      disabled={updateOrderMutation.isPending}
+                    >
+                      <option value="Pending">{tStatus('Pending')}</option>
+                      <option value="Shipped">{tStatus('Shipped')}</option>
+                      <option value="Delivered">{tStatus('Delivered')}</option>
+                      <option value="Canceled">{tStatus('Canceled')}</option>
+                    </select>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">DA {order.total_amount.toFixed(2)}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start">
