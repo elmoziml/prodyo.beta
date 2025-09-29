@@ -137,6 +137,8 @@
       "actions": "الإجراءات"
     },
     "detailsButton": "تفاصيل",
+    "editButton": "تعديل",
+    "deleteButton": "حذف",
     "modal": {
       "title": "تفاصيل المنتج",
       "description": "الوصف",
@@ -167,6 +169,35 @@
       "addImageButton": "إضافة صورة",
       "saveButton": "حفظ المنتج",
       "cancelButton": "إلغاء"
+    },
+    "editProduct": {
+      "title": "تعديل المنتج",
+      "nameLabel": "اسم المنتج",
+      "namePlaceholder": "مثال: قميص كلاسيكي",
+      "categoryLabel": "الفئة",
+      "selectCategory": "اختر فئة",
+      "priceLabel": "السعر",
+      "stockLabel": "المخزون",
+      "descriptionLabel": "الوصف",
+      "imagesLabel": "صور المنتج",
+      "imageUrlLabel": "رابط الصورة",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "إضافة صورة",
+      "propertiesLabel": "خصائص المنتج",
+      "propertyNameLabel": "الخاصية",
+      "selectProperty": "اختر خاصية",
+      "propertyValueLabel": "القيمة",
+      "addPropertyButton": "إضافة خاصية",
+      "cancelButton": "إلغاء",
+      "saveButton": "حفظ التغييرات",
+      "saving": "جاري الحفظ..."
+    },
+    "deleteProduct": {
+      "title": "حذف المنتج",
+      "confirmation": "هل أنت متأكد أنك تريد حذف هذا المنتج؟ لا يمكن التراجع عن هذا الإجراء.",
+      "cancel": "إلغاء",
+      "confirm": "حذف",
+      "deleting": "جاري الحذف..."
     }
   },
   "CategoriesPage": {

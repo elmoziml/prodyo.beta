@@ -102,6 +102,32 @@ Handles operations for products.
 -   **Request Parameter:** `id` (string) in the URL path.
 -   **Response:** A single full `Product` object.
 
+### PUT /api/products/[id]
+
+-   **Description:** Updates an existing product. This endpoint updates both the details and the summary files.
+-   **Target Files:** 
+    -   `src/lib/data/product-details.json`
+    -   `src/lib/data/products.json`
+-   **Request Parameter:** `id` (string) in the URL path.
+-   **Request Body:** A partial or full `Product` object with the fields to be updated.
+    ```json
+    {
+      "name": "Updated T-Shirt Name",
+      "price": 29.99,
+      "stock": 120
+    }
+    ```
+-   **Response:** The updated full `Product` object.
+
+### DELETE /api/products/[id]
+
+-   **Description:** Deletes a product. This endpoint removes the product from both the details and the summary files.
+-   **Target Files:** 
+    -   `src/lib/data/product-details.json`
+    -   `src/lib/data/products.json`
+-   **Request Parameter:** `id` (string) in the URL path.
+-   **Response:** `204 No Content` on success.
+
 ---
 
 ## 3. Orders API

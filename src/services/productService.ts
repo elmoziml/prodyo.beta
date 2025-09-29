@@ -16,3 +16,12 @@ export const createProduct = async (productData: Partial<Product>) => {
   const response = await axios.post('/api/products', productData);
   return response.data;
 };
+
+export const updateProduct = async (productId: string, productData: Partial<Product>) => {
+  const response = await axios.put(`/api/products/${productId}`, productData);
+  return response.data;
+};
+
+export const deleteProduct = async (productId: string) => {
+  await axios.delete(`/api/products/${productId}`);
+};

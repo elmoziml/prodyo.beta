@@ -136,6 +136,8 @@
       "actions": "Actions"
     },
     "detailsButton": "Détails",
+    "editButton": "Modifier",
+    "deleteButton": "Supprimer",
     "modal": {
       "title": "Détails du produit",
       "description": "Description",
@@ -166,6 +168,35 @@
       "addImageButton": "Ajouter une image",
       "saveButton": "Enregistrer",
       "cancelButton": "Annuler"
+    },
+    "editProduct": {
+      "title": "Modifier le produit",
+      "nameLabel": "Nom du produit",
+      "namePlaceholder": "Ex: T-shirt classique",
+      "categoryLabel": "Catégorie",
+      "selectCategory": "Choisir une catégorie",
+      "priceLabel": "Prix",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "imagesLabel": "Images du produit",
+      "imageUrlLabel": "URL de l'image",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Ajouter une image",
+      "propertiesLabel": "Propriétés du produit",
+      "propertyNameLabel": "Propriété",
+      "selectProperty": "Choisir une propriété",
+      "propertyValueLabel": "Valeur",
+      "addPropertyButton": "Ajouter une propriété",
+      "cancelButton": "Annuler",
+      "saveButton": "Enregistrer les modifications",
+      "saving": "Enregistrement..."
+    },
+    "deleteProduct": {
+      "title": "Supprimer le produit",
+      "confirmation": "Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer",
+      "deleting": "Suppression..."
     }
   },
   "CategoriesPage": {

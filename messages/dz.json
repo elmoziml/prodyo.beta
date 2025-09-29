@@ -136,6 +136,8 @@
       "actions": "واش دير"
     },
     "detailsButton": "لي ديتاي",
+    "editButton": "بدّل",
+    "deleteButton": "افسخ",
     "modal": {
       "title": "لي ديتاي تاع المنتوج",
       "description": "الوصف",
@@ -166,6 +168,35 @@
       "addImageButton": "زيد تصويرة",
       "saveButton": "سجّل المنتوج",
       "cancelButton": "أنولي"
+    },
+    "editProduct": {
+      "title": "بدّل المنتوج",
+      "nameLabel": "اسم المنتوج",
+      "namePlaceholder": "مثال: تريكو كلاسيك",
+      "categoryLabel": "الصنف",
+      "selectCategory": "خيّر صنف",
+      "priceLabel": "السومة",
+      "stockLabel": "الستوك",
+      "descriptionLabel": "الوصف",
+      "imagesLabel": "تصاور المنتوج",
+      "imageUrlLabel": "الليان تاع التصويرة",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "زيد تصويرة",
+      "propertiesLabel": "خصائص المنتوج",
+      "propertyNameLabel": "الخاصية",
+      "selectProperty": "خيّر خاصية",
+      "propertyValueLabel": "القيمة",
+      "addPropertyButton": "زيد خاصية",
+      "cancelButton": "أنولي",
+      "saveButton": "سجّل التبديلات",
+      "saving": "يسجّل..."
+    },
+    "deleteProduct": {
+      "title": "افسخ المنتوج",
+      "confirmation": "راك متأكد بلي حاب تفسخ هاد المنتوج؟ متقدرش ترجع اللور.",
+      "cancel": "أنولي",
+      "confirm": "افسخ",
+      "deleting": "يفسخ..."
     }
   },
   "CategoriesPage": {

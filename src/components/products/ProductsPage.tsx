@@ -2,21 +2,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useProducts, useAddProduct } from '@/hooks/useProducts';
+import { useProducts, useAddProduct, useUpdateProduct, useDeleteProduct } from '@/hooks/useProducts';
+import { useProductDetail } from '@/hooks/useProductDetail';
 import { useTranslations } from 'next-intl';
 import Modal from '../ui/Modal';
 import ProductDetailModal from './ProductDetailModal';
 import AddProductForm from './AddProductForm';
-import { ProductSummary } from '@/types';
-
-interface ProductFormData {
-  name: string;
-  category_id: string;
-  price: number;
-  stock: number;
-  description: string;
-  properties: { key: string; value: string }[];
-}
+import EditProductForm from './EditProductForm';
+import { Product, ProductSummary } from '@/types';
 
 const getStockChip = (stock: number) => {
     if (stock > 50) {
@@ -32,15 +25,36 @@ export default function ProductsPage() {
   const t = useTranslations('ProductsPage');
   const { data: products, isLoading, isError } = useProducts();
   const addProductMutation = useAddProduct();
+  const updateProductMutation = useUpdateProduct();
+  const deleteProductMutation = useDeleteProduct();
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  
+  const { data: selectedProductDetails } = useProductDetail(selectedProductId);
 
-  const handleOpenDetailModal = (productId: string) => {
+  const handleOpenDetailModal = (productId: string) => setSelectedProductId(productId);
+  const handleCloseDetailModal = () => setSelectedProductId(null);
+
+  const handleOpenEditModal = (productId: string) => {
     setSelectedProductId(productId);
+    setIsEditModalOpen(true);
+  };
+  
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+    setSelectedProductId(null);
   };
 
-  const handleCloseDetailModal = () => {
+  const handleOpenDeleteModal = (productId: string) => {
+    setSelectedProductId(productId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setIsDeleteModalOpen(false);
     setSelectedProductId(null);
   };
 
@@ -49,9 +63,7 @@ export default function ProductsPage() {
       ...formData,
       images: formData.images.map((img: { url: string }) => img.url),
       available_options: formData.properties.reduce((acc: Record<string, string[]>, prop: { key: string; value: string }) => {
-        if (!acc[prop.key]) {
-          acc[prop.key] = [];
-        }
+        if (!acc[prop.key]) acc[prop.key] = [];
         acc[prop.key].push(prop.value);
         return acc;
       }, {}),
@@ -59,19 +71,37 @@ export default function ProductsPage() {
     delete newProductData.properties;
 
     addProductMutation.mutate(newProductData, {
-      onSuccess: () => {
-        setIsAddModalOpen(false); // Close modal on success
-      },
+      onSuccess: () => setIsAddModalOpen(false),
     });
   };
 
-  if (isLoading) {
-    return <div className="text-center py-10">{t('loading')}</div>;
-  }
+  const handleUpdateProduct = (formData: any) => {
+    if (!selectedProductId) return;
+    const updatedProductData = {
+      ...formData,
+      images: formData.images.map((img: { url: string }) => img.url),
+      available_options: formData.properties.reduce((acc: Record<string, string[]>, prop: { key: string; value: string }) => {
+        if (!acc[prop.key]) acc[prop.key] = [];
+        acc[prop.key].push(prop.value);
+        return acc;
+      }, {}),
+    };
+    delete updatedProductData.properties;
 
-  if (isError) {
-    return <div className="text-center py-10 text-red-500">{t('error')}</div>;
-  }
+    updateProductMutation.mutate({ productId: selectedProductId, productData: updatedProductData }, {
+      onSuccess: () => handleCloseEditModal(),
+    });
+  };
+
+  const handleDeleteProduct = () => {
+    if (!selectedProductId) return;
+    deleteProductMutation.mutate(selectedProductId, {
+      onSuccess: () => handleCloseDeleteModal(),
+    });
+  };
+
+  if (isLoading) return <div className="text-center py-10">{t('loading')}</div>;
+  if (isError) return <div className="text-center py-10 text-red-500">{t('error')}</div>;
 
   return (
     <div className="bg-white dark:bg-body-dark shadow-md rounded-lg p-6">
@@ -82,10 +112,8 @@ export default function ProductsPage() {
         </button>
       </div>
       
-      {/* Products Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-          {/* ... table head ... */}
           <thead className="bg-gray-50 dark:bg-gray-800">
             <tr>
               <th scope="col" className="px-6 py-3 text-start text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{t('table.product')}</th>
@@ -106,9 +134,15 @@ export default function ProductsPage() {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">${product.price.toFixed(2)}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start space-x-4">
                   <button onClick={() => handleOpenDetailModal(product.id)} className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 font-semibold">
                     {t('detailsButton')}
+                  </button>
+                  <button onClick={() => handleOpenEditModal(product.id)} className="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 font-semibold">
+                    {t('editButton')}
+                  </button>
+                  <button onClick={() => handleOpenDeleteModal(product.id)} className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200 font-semibold">
+                    {t('deleteButton')}
                   </button>
                 </td>
               </tr>
@@ -118,7 +152,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Detail Modal */}
-      <Modal isOpen={!!selectedProductId} onClose={handleCloseDetailModal} title={t('modal.title')}>
+      <Modal isOpen={!!selectedProductId && !isEditModalOpen && !isDeleteModalOpen} onClose={handleCloseDetailModal} title={t('modal.title')}>
         <ProductDetailModal productId={selectedProductId} />
         <div className="text-end mt-4">
             <button onClick={handleCloseDetailModal} className="px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700">
@@ -134,6 +168,31 @@ export default function ProductsPage() {
           onCancel={() => setIsAddModalOpen(false)} 
           isSaving={addProductMutation.isPending}
         />
+      </Modal>
+
+      {/* Edit Product Modal */}
+      {selectedProductDetails && (
+        <Modal isOpen={isEditModalOpen} onClose={handleCloseEditModal} title={t('editProduct.title')}>
+          <EditProductForm 
+            product={selectedProductDetails}
+            onSave={handleUpdateProduct}
+            onCancel={handleCloseEditModal}
+            isSaving={updateProductMutation.isPending}
+          />
+        </Modal>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal} title={t('deleteProduct.title')}>
+        <div>
+          <p>{t('deleteProduct.confirmation')}</p>
+          <div className="flex justify-end gap-4 mt-4">
+            <button onClick={handleCloseDeleteModal} className="px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg">{t('deleteProduct.cancel')}</button>
+            <button onClick={handleDeleteProduct} disabled={deleteProductMutation.isPending} className="px-4 py-2 bg-red-600 text-white rounded-lg disabled:opacity-50">
+              {deleteProductMutation.isPending ? t('deleteProduct.deleting') : t('deleteProduct.confirm')}
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );
