@@ -77,6 +77,12 @@
     "loading": "جاري تحميل الطلبات...",
     "error": "فشل تحميل الطلبات.",
     "empty": "لم يتم العثور على طلبات.",
+    "filters": {
+      "searchPlaceholder": "ابحث برقم الطلب أو اسم العميل...",
+      "allStatuses": "كل الحالات",
+      "apply": "تطبيق الفلاتر",
+      "clear": "مسح"
+    },
     "table": {
       "orderId": "رقم الطلب",
       "customer": "العميل",
@@ -90,17 +96,25 @@
       "title": "تفاصيل الطلب",
       "customerInfo": "معلومات العميل",
       "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "address": "العنوان",
+      "status": "الحالة",
+      "date": "تاريخ الطلب",
       "orderSummary": "ملخص الطلب",
       "items": "المنتجات",
       "quantity": "الكمية",
       "price": "السعر",
+      "total": "الإجمالي",
       "print": "طباعة",
       "close": "إغلاق",
       "options": "خيارات",
       "color": "اللون",
       "size": "المقاس",
       "material": "المادة",
-      "warranty": "الضمان"
+      "warranty": "الضمان",
+      "loadingDetails": "جاري تحميل تفاصيل الطلب...",
+      "errorDetails": "تعذر تحميل تفاصيل الطلب."
     }
   },
   "OrderStatus": {

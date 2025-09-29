@@ -1,103 +1,74 @@
 [
   {
-    "id": "ORD001",
-    "customer": "John Doe",
-    "date": "2024-09-27T10:00:00Z",
-    "status": "Processing",
-    "total": 99.99,
-    "items": [
-      { "id": "prod001", "name": "Product A", "quantity": 1, "price": 99.99, "options": { "color": "Red", "size": "M" } }
-    ]
-  },
-  {
-    "id": "ORD002",
-    "customer": "Jane Smith",
-    "date": "2024-09-26T14:30:00Z",
-    "status": "Shipped",
-    "total": 150.50,
-    "items": [
-      { "id": "prod002", "name": "Product B", "quantity": 2, "price": 50.25, "options": { "color": "Black" } },
-      { "id": "prod003", "name": "Product C", "quantity": 1, "price": 50.00, "options": { "size": "L" } }
-    ]
-  },
-  {
-    "id": "ORD003",
-    "customer": "Sam Wilson",
-    "date": "2024-09-25T09:00:00Z",
+    "id": "ord-1",
+    "display_id": "ORD001",
+    "customer_id": "cust-1",
+    "customer": { "id": "cust-1", "full_name": "John Doe", "email": "john.doe@example.com", "phone": "123-456-7890", "address": "123 Main St, Anytown, USA" },
     "status": "Delivered",
-    "total": 25.00,
-    "items": [
-      { "id": "prod004", "name": "Product D", "quantity": 1, "price": 25.00 }
-    ]
+    "total_amount": 25.99,
+    "order_date": "2025-08-15T10:00:00Z"
   },
-    {
-    "id": "ORD004",
-    "customer": "Sarah Brown",
-    "date": "2024-09-27T11:00:00Z",
+  {
+    "id": "ord-2",
+    "display_id": "ORD002",
+    "customer_id": "cust-2",
+    "customer": { "id": "cust-2", "full_name": "Jane Smith", "email": "jane.smith@example.com", "phone": "987-654-3210", "address": "456 Oak Ave, Somecity, USA" },
+    "status": "Shipped",
+    "total_amount": 249.49,
+    "order_date": "2025-09-20T14:30:00Z"
+  },
+  {
+    "id": "ord-3",
+    "display_id": "ORD003",
+    "customer_id": "cust-3",
+    "customer": { "id": "cust-3", "full_name": "Sam Wilson", "email": "sam.wilson@example.com", "phone": "555-123-4567", "address": "789 Pine Ln, Otherville, USA" },
+    "status": "Processing",
+    "total_amount": 89.99,
+    "order_date": "2025-09-26T11:30:00Z"
+  },
+  {
+    "id": "ord-4",
+    "display_id": "ORD004",
+    "customer_id": "cust-4",
+    "customer": { "id": "cust-4", "full_name": "Alice Johnson", "email": "alice.j@example.com", "phone": "555-987-6543", "address": "101 Maple Dr, Metroburg, USA" },
     "status": "Pending",
-    "total": 75.00,
-    "items": [
-      { "id": "prod005", "name": "Product E", "quantity": 3, "price": 25.00, "options": { "material": "Cotton" } }
-    ]
+    "total_amount": 59.99,
+    "order_date": "2025-09-27T09:00:00Z"
   },
   {
-    "id": "ORD005",
-    "customer": "Michael Johnson",
-    "date": "2024-09-26T18:00:00Z",
-    "status": "Processing",
-    "total": 200.00,
-    "items": [
-      { "id": "prod001", "name": "Product A", "quantity": 2, "price": 100.00, "options": { "color": "Blue", "size": "XL" } }
-    ]
-  },
-  {
-    "id": "ORD006",
-    "customer": "Emily Davis",
-    "date": "2024-09-25T12:45:00Z",
-    "status": "Shipped",
-    "total": 45.75,
-    "items": [
-      { "id": "prod006", "name": "Product F", "quantity": 1, "price": 45.75 }
-    ]
-  },
-  {
-    "id": "ORD007",
-    "customer": "David Martinez",
-    "date": "2024-09-24T08:20:00Z",
-    "status": "Delivered",
-    "total": 300.00,
-    "items": [
-      { "id": "prod007", "name": "Product G", "quantity": 1, "price": 300.00, "options": { "warranty": "2 years" } }
-    ]
-  },
-  {
-    "id": "ORD008",
-    "customer": "Jessica Garcia",
-    "date": "2024-09-27T15:00:00Z",
+    "id": "ord-5",
+    "display_id": "ORD005",
+    "customer_id": "cust-5",
+    "customer": { "id": "cust-5", "full_name": "Bob Brown", "email": "bob.b@example.com", "phone": "555-456-1234", "address": "212 Birch Rd, Smalltown, USA" },
     "status": "Canceled",
-    "total": 120.00,
-    "items": [
-      { "id": "prod008", "name": "Product H", "quantity": 2, "price": 60.00 }
-    ]
+    "total_amount": 49.50,
+    "order_date": "2025-08-22T18:00:00Z"
   },
   {
-    "id": "ORD009",
-    "customer": "Chris Rodriguez",
-    "date": "2024-09-26T16:00:00Z",
-    "status": "Processing",
-    "total": 80.00,
-    "items": [
-      { "id": "prod009", "name": "Product I", "quantity": 1, "price": 80.00, "options": { "color": "Green" } }
-    ]
+    "id": "ord-6",
+    "display_id": "ORD006",
+    "customer_id": "cust-1",
+    "customer": { "id": "cust-1", "full_name": "John Doe", "email": "john.doe@example.com", "phone": "123-456-7890", "address": "123 Main St, Anytown, USA" },
+    "status": "Delivered",
+    "total_amount": 289.98,
+    "order_date": "2025-09-01T12:00:00Z"
   },
   {
-    "id": "ORD010",
-    "customer": "Amanda Hernandez",
-    "date": "2024-09-25T19:30:00Z",
+    "id": "ord-7",
+    "display_id": "ORD007",
+    "customer_id": "cust-6",
+    "customer": { "id": "cust-6", "full_name": "Charlie Davis", "email": "charlie.d@example.com", "phone": "555-789-0123", "address": "333 Cedar Blvd, Bigcity, USA" },
     "status": "Shipped",
-    "total": 95.50,
-    "items": [
-      { "id": "prod010", "name": "Product J", "quantity": 1, "price": 95.50, "options": { "size": "S", "color": "White" } }
-    ]
+    "total_amount": 199.99,
+    "order_date": "2025-09-24T15:20:00Z"
+  },
+  {
+    "id": "ord-8",
+    "display_id": "ORD008",
+    "customer_id": "cust-2",
+    "customer": { "id": "cust-2", "full_name": "Jane Smith", "email": "jane.smith@example.com", "phone": "987-654-3210", "address": "456 Oak Ave, Somecity, USA" },
+    "status": "Processing",
+    "total_amount": 25.99,
+    "order_date": "2025-09-28T10:15:00Z"
   }
 ]

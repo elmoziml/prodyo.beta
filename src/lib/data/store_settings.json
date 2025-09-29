@@ -1,0 +1,32 @@
+[
+  {
+    "key": "store_name",
+    "value": "Prodyo",
+    "description": "The public name of the store"
+  },
+  {
+    "key": "store_slogan",
+    "value": "Your one-stop shop for quality goods",
+    "description": "A catchy slogan displayed in the header/footer"
+  },
+  {
+    "key": "contact_email",
+    "value": "support@prodyo.com",
+    "description": "The primary email for customer support"
+  },
+  {
+    "key": "currency_symbol",
+    "value": "DA",
+    "description": "The currency symbol to display for prices"
+  },
+  {
+    "key": "currency_code",
+    "value": "DZD",
+    "description": "The ISO currency code (e.g., DZD, EUR)"
+  },
+  {
+    "key": "tax_rate",
+    "value": "0.05",
+    "description": "Default sales tax rate (e.g., 0.05 for 5%)"
+  }
+]

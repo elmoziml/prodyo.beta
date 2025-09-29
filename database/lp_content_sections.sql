@@ -1,46 +1,45 @@
-
--- Table to hold content for various sections of the landing page.
--- Using JSONB for text fields allows for storing multiple translations.
--- Example format for a translated field: {"en": "Hello", "ar": "مرحباً"}
+-- جدول لتخزين محتوى الأقسام المختلفة في الصفحة المقصودة.
+-- استخدام JSONB لحقول النص يسمح بتخزين ترجمات متعددة.
+-- مثال على تنسيق حقل مترجم: {"en": "Hello", "ar": "مرحباً"}
 
 CREATE TABLE lp_content_sections (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    -- Identifies the section, e.g., 'hero', 'how_it_works', 'testimonials_section'
-    section_key VARCHAR(50) UNIQUE NOT NULL,
-    is_visible BOOLEAN DEFAULT TRUE,
-    title JSONB, -- e.g., {"en": "How It Works", "ar": "كيف يعمل"}
-    subtitle JSONB,
-    content TEXT, -- For generic content blocks
-    media_url VARCHAR(255), -- For background images or videos
-    updated_at TIMESTAMPTZ DEFAULT NOW()
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- المعرف الفريد للقسم
+    -- يحدد القسم، على سبيل المثال 'hero', 'how_it_works', 'testimonials_section'
+    section_key VARCHAR(50) UNIQUE NOT NULL, -- مفتاح القسم (فريد)
+    is_visible BOOLEAN DEFAULT TRUE, -- هل القسم مرئي؟
+    title JSONB, -- العنوان (متعدد اللغات)
+    subtitle JSONB, -- العنوان الفرعي (متعدد اللغات)
+    content TEXT, -- للمحتوى النصي العام
+    media_url VARCHAR(255), -- لصور الخلفية أو الفيديوهات
+    updated_at TIMESTAMPTZ DEFAULT NOW() -- تاريخ آخر تحديث
 );
 
--- Attaching the timestamp trigger to the table
+-- ربط Trigger تحديث الطابع الزمني بالجدول
 CREATE TRIGGER update_lp_content_sections_timestamp
     BEFORE UPDATE ON lp_content_sections
     FOR EACH ROW
     EXECUTE FUNCTION update_timestamp_column();
 
--- Sample data for the main sections
+-- بيانات تجريبية للأقسام الرئيسية
 INSERT INTO lp_content_sections (section_key, title, subtitle)
 VALUES
     (
-        'hero',
-        '{"en": "The Future of Your Store", "ar": "مستقبل متجرك"}',
-        '{"en": "Access a vast database, guided repair protocols, and advanced workshop management tools.", "ar": "وصول فوري لقاعدة بيانات ضخمة، بروتوكولات إصلاح موجهة، وأدوات متقدمة لإدارة ورشتك."}'
+        'hero', -- مفتاح القسم: هيرو
+        '{"en": "The Future of Your Store", "ar": "مستقبل متجرك"}', -- العنوان
+        '{"en": "Access a vast database, guided repair protocols, and advanced workshop management tools.", "ar": "وصول فوري لقاعدة بيانات ضخمة، بروتوكولات إصلاح موجهة، وأدوات متقدمة لإدارة ورشتك."}' -- العنوان الفرعي
     ),
     (
-        'features_section',
-        '{"en": "Main Features", "ar": "الميزات الرئيسية"}',
-        NULL
+        'features_section', -- مفتاح القسم: الميزات
+        '{"en": "Main Features", "ar": "الميزات الرئيسية"}', -- العنوان
+        NULL -- لا يوجد عنوان فرعي
     ),
     (
-        'testimonials_section',
-        '{"en": "What Our Clients Say", "ar": "ماذا يقول عملاؤنا"}',
-        '{"en": "See what our satisfied technicians and workshop owners are saying.", "ar": "شاهد ماذا يقول عملاؤنا الراضون من الفنيين وأصحاب الورش."}'
+        'testimonials_section', -- مفتاح القسم: آراء العملاء
+        '{"en": "What Our Clients Say", "ar": "ماذا يقول عملاؤنا"}', -- العنوان
+        '{"en": "See what our satisfied technicians and workshop owners are saying.", "ar": "شاهد ماذا يقول عملاؤنا الراضون من الفنيين وأصحاب الورش."}' -- العنوان الفرعي
     ),
     (
-        'faq_section',
-        '{"en": "Frequently Asked Questions", "ar": "الأسئلة الشائعة"}',
-        '{"en": "Have questions? We have answers.", "ar": "لديك أسئلة؟ لدينا إجابات."}'
+        'faq_section', -- مفتاح القسم: الأسئلة الشائعة
+        '{"en": "Frequently Asked Questions", "ar": "الأسئلة الشائعة"}', -- العنوان
+        '{"en": "Have questions? We have answers.", "ar": "لديك أسئلة؟ لدينا إجابات."}' -- العنوان الفرعي
     );

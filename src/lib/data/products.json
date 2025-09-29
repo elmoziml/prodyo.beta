@@ -1,58 +1,47 @@
-
 [
   {
-    "id": "PROD001",
+    "id": "prod-1",
     "name": "Classic T-Shirt",
-    "category": "Apparel",
+    "category_id": "cat-1",
     "price": 25.99,
     "stock": 150,
-    "description": "A high-quality classic t-shirt made from 100% premium cotton. Perfect for everyday wear.",
-    "options": {
-      "colors": ["Red", "Black", "White"],
-      "sizes": ["S", "M", "L", "XL"]
-    }
+    "description": "A high-quality classic t-shirt made from 100% premium cotton.",
+    "available_options": { "colors": ["Red", "Black", "White"], "sizes": ["S", "M", "L", "XL"] }
   },
   {
-    "id": "PROD002",
+    "id": "prod-2",
     "name": "Wireless Headphones",
-    "category": "Electronics",
+    "category_id": "cat-2",
     "price": 199.99,
     "stock": 75,
-    "description": "Experience immersive sound with these noise-cancelling wireless headphones. 24-hour battery life.",
-    "options": {
-      "colors": ["Matte Black", "Silver"]
-    }
+    "description": "Noise-cancelling wireless headphones with 24-hour battery life.",
+    "available_options": { "colors": ["Matte Black", "Silver"] }
   },
   {
-    "id": "PROD003",
+    "id": "prod-3",
     "name": "Leather Wallet",
-    "category": "Accessories",
+    "category_id": "cat-3",
     "price": 49.50,
     "stock": 200,
-    "description": "A sleek and durable wallet made from genuine leather, featuring multiple card slots and a cash compartment.",
-    "options": {}
+    "description": "A sleek wallet made from genuine leather.",
+    "available_options": {}
   },
   {
-    "id": "PROD004",
+    "id": "prod-4",
     "name": "Running Shoes",
-    "category": "Footwear",
+    "category_id": "cat-4",
     "price": 89.99,
     "stock": 120,
-    "description": "Lightweight and comfortable running shoes designed for maximum performance and support.",
-    "options": {
-      "sizes": ["8", "9", "10", "11", "12"],
-      "colors": ["Blue/White", "Black/Red"]
-    }
+    "description": "Lightweight and comfortable running shoes for all terrains.",
+    "available_options": { "sizes": ["8", "9", "10", "11", "12"], "colors": ["Blue", "Gray"] }
   },
   {
-    "id": "PROD005",
-    "name": "Stainless Steel Water Bottle",
-    "category": "Home Goods",
-    "price": 19.99,
-    "stock": 300,
-    "description": "Keep your drinks cold for 24 hours or hot for 12 hours with this insulated stainless steel water bottle.",
-    "options": {
-      "capacity": ["500ml", "750ml", "1L"]
-    }
+    "id": "prod-5",
+    "name": "Coffee Maker",
+    "category_id": "cat-5",
+    "price": 59.99,
+    "stock": 50,
+    "description": "12-cup programmable coffee maker with a reusable filter.",
+    "available_options": { "colors": ["Black", "Stainless Steel"] }
   }
 ]

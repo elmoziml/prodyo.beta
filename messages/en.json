@@ -76,6 +76,12 @@
     "loading": "Loading orders...",
     "error": "Failed to load orders.",
     "empty": "No orders found.",
+    "filters": {
+      "searchPlaceholder": "Search by Order ID or Customer...",
+      "allStatuses": "All Statuses",
+      "apply": "Apply Filters",
+      "clear": "Clear"
+    },
     "table": {
       "orderId": "Order ID",
       "customer": "Customer",
@@ -89,17 +95,25 @@
       "title": "Order Details",
       "customerInfo": "Customer Information",
       "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "status": "Status",
+      "date": "Order Date",
       "orderSummary": "Order Summary",
       "items": "Items",
       "quantity": "Qty",
       "price": "Price",
+      "total": "Total",
       "print": "Print",
       "close": "Close",
       "options": "Options",
       "color": "Color",
       "size": "Size",
       "material": "Material",
-      "warranty": "Warranty"
+      "warranty": "Warranty",
+      "loadingDetails": "Loading order details...",
+      "errorDetails": "Could not load order details."
     }
   },
   "OrderStatus": {

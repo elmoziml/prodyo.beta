@@ -1,29 +1,28 @@
-
--- Enum for inventory movement type
+-- نوع مخصص لنوع حركة المخزون
 CREATE TYPE inventory_movement_type AS ENUM (
-    'stock_in',      -- Receiving new stock from a supplier
-    'sale',            -- Stock sold through an order
-    'return',          -- Stock returned by a customer
-    'adjustment_in',   -- Manual increase (e.g., found stock)
-    'adjustment_out'   -- Manual decrease (e.g., damaged goods)
+    'stock_in',      -- استلام مخزون جديد من مورد
+    'sale',            -- بيع مخزون من خلال طلب
+    'return',          -- إرجاع مخزون من قبل عميل
+    'adjustment_in',   -- زيادة يدوية (مثلاً، العثور على مخزون)
+    'adjustment_out'   -- تخفيض يدوي (مثلاً، بضاعة تالفة)
 );
 
--- Table to track every movement of stock for each product
+-- جدول لتتبع كل حركة مخزون لكل منتج
 CREATE TABLE inventory_movements (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    product_id UUID NOT NULL,
-    type inventory_movement_type NOT NULL,
-    -- The change in quantity. Can be positive (stock_in) or negative (sale)
-    quantity_change INTEGER NOT NULL,
-    reason TEXT, -- Optional reason for manual adjustments
-    related_order_id UUID, -- Optional link to an order for sales/returns
-    movement_date TIMESTAMPTZ DEFAULT NOW(),
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- المعرف الفريد للحركة
+    product_id UUID NOT NULL, -- معرف المنتج المرتبط
+    type inventory_movement_type NOT NULL, -- نوع الحركة
+    -- التغيير في الكمية. يمكن أن يكون موجبًا (stock_in) أو سالبًا (sale)
+    quantity_change INTEGER NOT NULL, -- مقدار التغيير في الكمية
+    reason TEXT, -- سبب اختياري للتعديلات اليدوية
+    related_order_id UUID, -- رابط اختياري لطلب معين لعمليات البيع/الإرجاع
+    movement_date TIMESTAMPTZ DEFAULT NOW(), -- تاريخ الحركة
 
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
     FOREIGN KEY (related_order_id) REFERENCES orders(id) ON DELETE SET NULL
 );
 
--- Trigger function to automatically update the products.stock column
+-- دالة Trigger لتحديث عمود products.stock تلقائيًا
 CREATE OR REPLACE FUNCTION update_product_stock()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -34,18 +33,18 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Attaching the trigger to the inventory_movements table
+-- ربط الـ Trigger بجدول inventory_movements
 CREATE TRIGGER inventory_movements_after_insert
     AFTER INSERT ON inventory_movements
     FOR EACH ROW
     EXECUTE FUNCTION update_product_stock();
 
--- Sample data: Initial stock for the Classic T-Shirt
+-- بيانات تجريبية: المخزون الأولي لمنتج "Classic T-Shirt"
 INSERT INTO inventory_movements (product_id, type, quantity_change, reason)
 VALUES
     (
-        (SELECT id FROM products WHERE name = 'Classic T-Shirt'),
-        'stock_in',
-        150,
-        'Initial stock count'
+        (SELECT id FROM products WHERE name = 'Classic T-Shirt'), -- المنتج: Classic T-Shirt
+        'stock_in', -- النوع: إدخال مخزون
+        150, -- الكمية: 150
+        'Initial stock count' -- السبب: جرد المخزون الأولي
     );

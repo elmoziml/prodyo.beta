@@ -1,18 +1,17 @@
+-- تعريف أنواع بيانات مخصصة (enums) لتحسين سلامة البيانات
 
--- Define custom enum types for better data integrity
-
--- Enum for order status
+-- نوع مخصص لحالة الطلب
 CREATE TYPE order_status AS ENUM (
-    'Pending',
-    'Processing',
-    'Shipped',
-    'Delivered',
-    'Canceled'
+    'Pending', -- قيد الانتظار
+    'Processing', -- قيد المعالجة
+    'Shipped', -- تم الشحن
+    'Delivered', -- تم التوصيل
+    'Canceled' -- ملغى
 );
 
--- Enum for user roles
+-- نوع مخصص لأدوار المستخدمين
 CREATE TYPE user_role AS ENUM (
-    'Admin',
-    'Staff',
-    'Viewer'
+    'Admin', -- مدير
+    'Staff', -- موظف
+    'Viewer' -- مشاهد
 );
