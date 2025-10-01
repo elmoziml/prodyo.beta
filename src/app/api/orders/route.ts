@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       items: items.map((item: any) => ({
         ...item,
         product_name: item.product_name || 'Product Name Missing',
-        selected_options: item.properties || {}
+        selected_options: item.available_options || {}
       })),
       total_amount: total_amount,
     };

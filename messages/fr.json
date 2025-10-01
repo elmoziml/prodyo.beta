@@ -241,6 +241,10 @@
     "placingOrder": "Passation de la commande...",
     "size": "Taille",
     "color": "Couleur",
-    "material": "Matériau"
+    "material": "Matériau",
+    "options": "Options",
+    "description": "Description",
+    "orderSuccess": "Commande passée avec succès !",
+    "orderError": "Échec de la passation de la commande. Veuillez réessayer."
   }
 }

@@ -331,5 +331,29 @@
       }
     ],
     "total_amount": 59.99
+  },
+  {
+    "id": "ord-1759335675506",
+    "display_id": "ORD014",
+    "order_date": "2025-10-01T16:21:15.506Z",
+    "status": "Pending",
+    "customer_name": "محمد ",
+    "phone_number": "0554211856",
+    "address": "Bouchegouf, CITE 190 logts, BLOK 14, N° 132",
+    "items": [
+      {
+        "product_id": "prod-1759334757662",
+        "product_name": "قميص كلاسيكي",
+        "quantity": 1,
+        "price": 2300,
+        "available_options": {
+          "size": "Black"
+        },
+        "selected_options": {
+          "size": "Black"
+        }
+      }
+    ],
+    "total_amount": 2300
   }
 ]

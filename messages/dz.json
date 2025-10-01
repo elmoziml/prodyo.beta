@@ -242,6 +242,10 @@
     "placingOrder": "يبعث في لاكوموند...",
     "size": "الطاي",
     "color": "اللون",
-    "material": "المادة"
+    "material": "المادة",
+    "options": "الخيارات",
+    "description": "الوصف",
+    "orderSuccess": "تمت لاكوموند بنجاح!",
+    "orderError": "ماقدرناش نبعثو لاكوموند. عاود سيي."
   }
 }
