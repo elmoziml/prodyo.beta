@@ -9,7 +9,7 @@ import Modal from '../ui/Modal';
 import ProductDetailModal from './ProductDetailModal';
 import AddProductForm from './AddProductForm';
 import EditProductForm from './EditProductForm';
-import { Product, ProductSummary } from '@/types';
+import { Product } from '@/types';
 
 const getStockChip = (stock: number) => {
     if (stock > 50) {
@@ -124,7 +124,7 @@ export default function ProductsPage() {
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-body-dark divide-y divide-gray-200 dark:divide-gray-700">
-            {products?.map((product: ProductSummary) => (
+            {products?.map((product: Product) => (
               <tr key={product.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white text-start">{product.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{product.category_id}</td>

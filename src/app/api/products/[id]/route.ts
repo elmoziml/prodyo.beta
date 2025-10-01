@@ -5,22 +5,18 @@ import path from 'path';
 import { Product } from '@/types';
 
 const productsPath = path.join(process.cwd(), 'src/lib/data/products.json');
-const productDetailsPath = path.join(process.cwd(), 'src/lib/data/product-details.json');
 
-function readJsonFile(filePath: string) {
+function readProductsFile(): Product[] {
   try {
-    const data = fs.readFileSync(filePath, 'utf-8');
+    const data = fs.readFileSync(productsPath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
-    // If file doesn't exist or is empty, return a default structure
-    if (filePath.endsWith('products.json')) return [];
-    if (filePath.endsWith('product-details.json')) return {};
-    return null;
+    return [];
   }
 }
 
-function writeJsonFile(filePath: string, data: any) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+function writeProductsFile(data: any) {
+  fs.writeFileSync(productsPath, JSON.stringify(data, null, 2));
 }
 
 export async function GET(
@@ -28,8 +24,8 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   await new Promise(resolve => setTimeout(resolve, 300));
-  const products = readJsonFile(productDetailsPath) as Record<string, Product>;
-  const product = products[params.id];
+  const products = readProductsFile();
+  const product = products.find(p => p.id === params.id);
 
   if (product) {
     return NextResponse.json(product);
@@ -43,29 +39,17 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     const updatedProductData = await request.json();
     const { id } = params;
 
-    // Update details in product-details.json
-    const allProductDetails = readJsonFile(productDetailsPath);
-    if (!allProductDetails[id]) {
+    const products = readProductsFile();
+    const productIndex = products.findIndex((p: Product) => p.id === id);
+
+    if (productIndex === -1) {
       return new NextResponse('Product not found', { status: 404 });
     }
-    allProductDetails[id] = { ...allProductDetails[id], ...updatedProductData };
-    writeJsonFile(productDetailsPath, allProductDetails);
 
-    // Update summary in products.json
-    const allProductsSummary = readJsonFile(productsPath);
-    const productIndex = allProductsSummary.findIndex((p: Product) => p.id === id);
-    if (productIndex !== -1) {
-      allProductsSummary[productIndex] = {
-        ...allProductsSummary[productIndex],
-        name: updatedProductData.name,
-        category_id: updatedProductData.category_id,
-        price: updatedProductData.price,
-        stock: updatedProductData.stock,
-      };
-      writeJsonFile(productsPath, allProductsSummary);
-    }
+    products[productIndex] = { ...products[productIndex], ...updatedProductData };
+    writeProductsFile(products);
 
-    return NextResponse.json(allProductDetails[id]);
+    return NextResponse.json(products[productIndex]);
   } catch (error) {
     console.error(error);
     return new NextResponse('Internal Server Error', { status: 500 });
@@ -76,18 +60,15 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
   try {
     const { id } = params;
 
-    // Delete from product-details.json
-    const allProductDetails = readJsonFile(productDetailsPath);
-    if (!allProductDetails[id]) {
+    let products = readProductsFile();
+    const productIndex = products.findIndex((p: Product) => p.id === id);
+
+    if (productIndex === -1) {
       return new NextResponse('Product not found', { status: 404 });
     }
-    delete allProductDetails[id];
-    writeJsonFile(productDetailsPath, allProductDetails);
 
-    // Delete from products.json
-    let allProductsSummary = readJsonFile(productsPath);
-    allProductsSummary = allProductsSummary.filter((p: Product) => p.id !== id);
-    writeJsonFile(productsPath, allProductsSummary);
+    products = products.filter((p: Product) => p.id !== id);
+    writeProductsFile(products);
 
     return new NextResponse(null, { status: 204 }); // No Content
   } catch (error) {

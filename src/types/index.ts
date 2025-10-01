@@ -4,15 +4,12 @@ export interface Category {
   description: string;
 }
 
-export interface ProductSummary {
+export interface Product {
   id: string;
   name: string;
   price: number;
   stock: number;
   category_id: string;
-}
-
-export interface Product extends ProductSummary {
   description: string;
   available_options?: {
     [key: string]: string[];

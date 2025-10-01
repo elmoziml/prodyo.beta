@@ -28,10 +28,10 @@ export default function ProductPurchasePage() {
           setIsLoading(true);
           const productData = await fetchProductById(id as string);
           setProduct(productData);
-          if (productData.properties) {
+          if (productData.available_options) {
             const initialProperties: { [key: string]: string } = {};
-            Object.keys(productData.properties).forEach(key => {
-              initialProperties[key] = productData.properties[key][0];
+            Object.keys(productData.available_options).forEach(key => {
+              initialProperties[key] = productData.available_options[key][0];
             });
             setSelectedProperties(initialProperties);
           }
@@ -71,7 +71,7 @@ export default function ProductPurchasePage() {
           product_name: product.name,
           quantity: 1,
           price: product.price,
-          properties: selectedProperties,
+          available_options: selectedProperties,
         },
       ],
       total_amount: product.price,
@@ -110,7 +110,7 @@ export default function ProductPurchasePage() {
           <p className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">${product.price.toFixed(2)}</p>
 
           <form onSubmit={handleSubmit}>
-            {product.properties && Object.keys(product.properties).map(propName => (
+            {product.available_options && Object.keys(product.available_options).map(propName => (
               <div key={propName} className="mb-4">
                 <label htmlFor={propName} className="block text-sm font-medium text-gray-700 dark:text-gray-300 capitalize mb-2">
                   {t(propName)}
@@ -122,7 +122,7 @@ export default function ProductPurchasePage() {
                   onChange={(e) => handlePropertyChange(propName, e.target.value)}
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 >
-                  {product.properties[propName].map(option => (
+                  {product.available_options[propName].map(option => (
                     <option key={option} value={option}>{option}</option>
                   ))}
                 </select>
