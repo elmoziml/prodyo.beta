@@ -135,7 +135,7 @@ export default function OrdersPage() {
                       <option value="Canceled">{tStatus('Canceled')}</option>
                     </select>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">DA {order.total_amount.toFixed(2)}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.total_amount.toFixed(2)} دج</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start">
                     <button 
                       onClick={() => handleOpenModal(order.id)}

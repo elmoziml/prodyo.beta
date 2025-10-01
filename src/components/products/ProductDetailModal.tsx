@@ -65,7 +65,7 @@ export default function ProductDetailModal({ productId }: ProductDetailModalProp
       <div className="grid grid-cols-2 gap-4 mb-6 text-center">
         <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
             <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{tTable('price')}</p>
-            <p className="text-2xl font-bold text-gray-800 dark:text-white">${product.price.toFixed(2)}</p>
+            <p className="text-2xl font-bold text-gray-800 dark:text-white">{product.price.toFixed(2)} دج</p>
         </div>
         <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
             <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{tTable('stock')}</p>

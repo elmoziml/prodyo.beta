@@ -120,14 +120,14 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
                     )}
                   </td>
                   <td className="p-3 text-center">{item.quantity}</td>
-                  <td className="p-3 text-right font-medium">DA {(item.price_at_purchase * item.quantity).toFixed(2)}</td>
+                  <td className="p-3 text-right font-medium">{(item.price_at_purchase * item.quantity).toFixed(2)} دج</td>
                 </tr>
               ))}
             </tbody>
             <tfoot className="bg-gray-50">
               <tr className="font-bold">
                 <td colSpan={2} className="p-3 text-right text-gray-700">{t('total')}</td>
-                <td className="p-3 text-right text-xl text-gray-900">DA {order.total_amount.toFixed(2)}</td>
+                <td className="p-3 text-right text-xl text-gray-900">{order.total_amount.toFixed(2)} دج</td>
               </tr>
             </tfoot>
           </table>

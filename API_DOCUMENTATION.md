@@ -128,6 +128,30 @@ Handles operations for products.
 -   **Request Parameter:** `id` (string) in the URL path.
 -   **Response:** `204 No Content` on success.
 
+### GET /api/products/category/[categoryId]
+
+-   **Description:** Retrieves all products that belong to a specific category.
+-   **Target File:** `src/lib/data/products.json`
+-   **Request Parameter:** `categoryId` (string) in the URL path.
+-   **Response:** An array of `Product` objects filtered by category ID.
+    ```json
+    [
+      {
+        "id": "prod-1",
+        "name": "Classic T-Shirt",
+        "category_id": "cat-1",
+        "price": 25.99,
+        "stock": 150,
+        "description": "A comfortable cotton t-shirt",
+        "images": [],
+        "available_options": {}
+      }
+    ]
+    ```
+-   **Example Usage:** 
+    -   `GET /api/products/category/cat-1` - Returns all products in category "cat-1"
+    -   `GET /api/products/category/cat-2` - Returns all products in category "cat-2"
+
 ---
 
 ## 3. Orders API

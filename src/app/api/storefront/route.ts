@@ -16,6 +16,10 @@ function readJsonFile(filePath: string) {
   }
 }
 
+interface CategoryWithProducts extends Category {
+  products: Product[];
+}
+
 export async function GET() {
   await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
 
@@ -23,12 +27,16 @@ export async function GET() {
     const products: Product[] = readJsonFile(productsPath);
     const categories: Category[] = readJsonFile(categoriesPath);
 
-    // For the storefront, let's feature some products (e.g., the first 8)
-    const featuredProducts = products.slice(0, 8);
+    // Group products by category and only include categories that have products
+    const categoriesWithProducts: CategoryWithProducts[] = categories
+      .map(category => ({
+        ...category,
+        products: products.filter(product => product.category_id === category.id)
+      }))
+      .filter(category => category.products.length > 0); // Only categories with products
 
     return NextResponse.json({
-      categories,
-      featuredProducts,
+      categoriesWithProducts,
     });
   } catch (error) {
     console.error(error);

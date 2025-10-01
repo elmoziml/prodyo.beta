@@ -4,6 +4,10 @@ export interface Category {
   description: string;
 }
 
+export interface CategoryWithProducts extends Category {
+  products: Product[];
+}
+
 export interface Product {
   id: string;
   name: string;

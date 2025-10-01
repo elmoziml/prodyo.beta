@@ -1,7 +1,6 @@
 import Hero from '@/components/public/storefront/Hero';
-import CategoryShowcase from '@/components/public/storefront/CategoryShowcase';
-import FeaturedProducts from '@/components/public/storefront/FeaturedProducts';
-import { Category, Product } from '@/types';
+import CategorySection from '@/components/public/storefront/CategorySection';
+import { CategoryWithProducts } from '@/types';
 
 async function getStorefrontData() {
   // In a real app, you'd fetch from your absolute API URL
@@ -17,18 +16,33 @@ async function getStorefrontData() {
   } catch (error) {
     console.error(error);
     // Return empty arrays on error to prevent build failure
-    return { categories: [], featuredProducts: [] };
+    return { categoriesWithProducts: [] };
   }
 }
 
 export default async function HomePage() {
-  const { categories, featuredProducts }: { categories: Category[], featuredProducts: Product[] } = await getStorefrontData();
+  const { categoriesWithProducts }: { categoriesWithProducts: CategoryWithProducts[] } = await getStorefrontData();
 
   return (
     <main>
       <Hero />
-      <CategoryShowcase categories={categories} />
-      <FeaturedProducts products={featuredProducts} />
+      
+      {/* Display categories as sections with their products */}
+      {categoriesWithProducts.length > 0 ? (
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          {categoriesWithProducts.map((category) => (
+            <CategorySection key={category.id} category={category} />
+          ))}
+        </div>
+      ) : (
+        <div className="bg-white dark:bg-body-dark py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-gray-600 dark:text-gray-400">
+              لا توجد منتجات متاحة حالياً
+            </p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

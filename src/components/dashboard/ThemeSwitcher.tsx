@@ -30,18 +30,19 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div
-      className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 flex items-center justify-center cursor-pointer"
+    <button
+      className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105 border border-gray-200 dark:border-gray-700"
       onClick={toggleTheme}
+      aria-label="Toggle theme"
     >
       {mounted && (
         theme === 'light' ? (
-          <FaSun className="text-yellow-500 w-5 h-5" />
+          <FaSun className="text-amber-500 w-5 h-5" />
         ) : (
-          <FaMoon className="text-yellow-300 w-5 h-5" />
+          <FaMoon className="text-indigo-400 w-5 h-5" />
         )
       )}
-    </div>
+    </button>
   );
 };
 

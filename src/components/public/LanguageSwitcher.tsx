@@ -47,7 +47,7 @@ export default function LanguageSwitcher() {
       <div>
         <button
           type="button"
-          className="inline-flex items-center justify-center w-full rounded-md border border-gray-700 shadow-sm px-3 py-2 bg-gray-800 text-sm font-medium text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-orange-500 transition-colors"
+          className="inline-flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm px-3 py-2 bg-gray-100 dark:bg-gray-800 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-all duration-200 hover:scale-105"
           id="options-menu"
           aria-haspopup="true"
           aria-expanded={isOpen}
@@ -75,7 +75,7 @@ export default function LanguageSwitcher() {
 
       {isOpen && (
         <div
-          className="origin-bottom-right absolute end-0 bottom-full mb-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+          className="origin-top-right absolute end-0 top-full mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 dark:ring-gray-700 focus:outline-none z-50"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
@@ -85,7 +85,7 @@ export default function LanguageSwitcher() {
               <button
                 key={lang.code}
                 onClick={() => switchLanguage(lang.code)}
-                className={`${ locale === lang.code ? 'bg-orange-600 text-white' : 'text-gray-300' } group flex items-center w-full text-left px-4 py-2 text-sm hover:bg-gray-700 hover:text-white transition-colors`}
+                className={`${ locale === lang.code ? 'bg-indigo-600 text-white' : 'text-gray-700 dark:text-gray-300' } group flex items-center w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors`}
                 role="menuitem"
               >
                 <Image src={lang.flag} alt={lang.name} width={24} height={18} className="rounded-sm me-3" />
