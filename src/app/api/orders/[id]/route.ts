@@ -1,7 +1,6 @@
 
 import { NextResponse } from 'next/server';
 import ordersData from '@/lib/data/orders.json';
-import orderItems from '@/lib/data/order_items.json';
 import products from '@/lib/data/products.json';
 import fs from 'fs';
 import path from 'path';
@@ -31,11 +30,8 @@ export async function GET(
       return NextResponse.json({ message: 'Order not found' }, { status: 404 });
     }
 
-    // Find the items for this order
-    const itemsForOrder = orderItems.filter(item => item.order_id === orderId);
-
     // Combine items with product details (simulating a JOIN)
-    const detailedItems = itemsForOrder.map(item => {
+    const detailedItems = order.items.map(item => {
       const product = products.find(p => p.id === item.product_id);
       return {
         ...item,

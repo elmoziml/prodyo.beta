@@ -230,5 +230,18 @@
     "FeaturedProducts": {
       "title": "منتجات مميزة"
     }
+  },
+  "ProductPurchase": {
+    "loading": "جاري تحميل المنتج...",
+    "productNotFound": "لم يتم الع-ثور على المنتج.",
+    "shippingInfo": "معلومات الشحن",
+    "fullName": "الاسم الكامل",
+    "phoneNumber": "رقم الهاتف",
+    "address": "العنوان",
+    "buyNow": "شراء الآن",
+    "placingOrder": "جاري إرسال الطلب...",
+    "size": "المقاس",
+    "color": "اللون",
+    "material": "الخامة"
   }
 }

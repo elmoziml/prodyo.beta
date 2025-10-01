@@ -1,6 +1,7 @@
 
 import { Product } from '@/types';
 import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
 
 interface ProductCardProps {
   product: Product;
@@ -21,10 +22,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="mt-4 flex justify-between">
         <div>
           <h3 className="text-sm text-gray-700 dark:text-gray-200">
-            <a href={`/products/${product.id}`}>
+            <Link href={`/products/${product.id}`}>
               <span aria-hidden="true" className="absolute inset-0" />
               {product.name}
-            </a>
+            </Link>
           </h3>
         </div>
         <p className="text-sm font-medium text-gray-900 dark:text-white">${product.price.toFixed(2)}</p>

@@ -10,20 +10,7 @@ import { useTranslations } from 'next-intl';
 import Modal from '../ui/Modal';
 import OrderDetailModal from './OrderDetailModal';
 import OrderFilters from './OrderFilters';
-
-// Types remain the same
-interface Customer {
-  id: string;
-  full_name: string;
-}
-interface Order {
-  id: string;
-  display_id: string;
-  customer: Customer;
-  order_date: string;
-  status: 'Processing' | 'Shipped' | 'Delivered' | 'Canceled' | 'Pending';
-  total_amount: number;
-}
+import { Order } from '@/types';
 
 const getStatusChip = (status: Order['status']) => {
   const baseClasses = 'px-2 py-1 text-xs font-medium rounded-full inline-block';
@@ -70,7 +57,7 @@ export default function OrdersPage() {
       const searchTermLower = searchTerm.toLowerCase();
       const matchesSearch = searchTerm ? 
         order.display_id.toLowerCase().includes(searchTermLower) || 
-        order.customer.full_name.toLowerCase().includes(searchTermLower) : true;
+        (order.customer?.full_name || order.customer_name || '').toLowerCase().includes(searchTermLower) : true;
 
       // Status filter
       const matchesStatus = status ? order.status === status : true;
@@ -131,7 +118,7 @@ export default function OrdersPage() {
               filteredOrders.map((order: Order) => (
                 <tr key={order.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white text-start">{order.display_id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.customer.full_name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.customer ? order.customer.full_name : order.customer_name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">
                     {format(new Date(order.order_date), 'dd/MM/yyyy')}
                   </td>

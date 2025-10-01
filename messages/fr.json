@@ -1,4 +1,9 @@
 {
+  "WorkInProgress": {
+    "title": "Bientôt disponible",
+    "description": "Cette page est en cours de construction. Nous travaillons dur pour vous la présenter.",
+    "cta": "Retour à la page d'accueil"
+  },
   "sidebar": {
     "home": "Tableau de bord",
     "orders": "Commandes",
@@ -18,7 +23,7 @@
     "componentLocations": "Emplacements des composants",
     "disassemblyDiagrams": "Schémas de démontage"
   },
-"header": {
+  "header": {
     "shop": "Boutique",
     "newArrivals": "Nouveautés",
     "sale": "Soldes",
@@ -39,7 +44,179 @@
     "termsOfUse": "Conditions d'utilisation",
     "rights": "Tous droits réservés."
   },
- "Storefront": {
+  "notifications": {
+    "title": "Notifications",
+    "markAllAsRead": "Marquer tout comme lu",
+    "info": "Info",
+    "warning": "Avertissement",
+    "success": "Succès",
+    "error": "Erreur",
+    "promotion": "Promotion",
+    "reminder": "Rappel",
+    "viewDetails": "Voir les détails"
+  },
+  "Dashboard": {
+    "ProfileDropdown": {
+      "accountStatus": "État du compte",
+      "subscriptionPlan": "Plan d'abonnement",
+      "verified": "Vérifié",
+      "unverified": "Non vérifié",
+      "username": "Nom d'utilisateur",
+      "expiresOn": "Expire le",
+      "verificationWarning": "Votre e-mail ou votre téléphone n'est pas vérifié. Veuillez mettre à jour votre profil.",
+      "settings": "Paramètres",
+      "publicProfile": "Profil public"
+    }
+  },
+  "OrdersPage": {
+    "title": "Commandes",
+    "loading": "Chargement des commandes...",
+    "error": "Échec du chargement des commandes.",
+    "empty": "Aucune commande trouvée.",
+    "filters": {
+      "searchPlaceholder": "Rechercher par ID de commande ou nom de client...",
+      "allStatuses": "Tous les statuts",
+      "apply": "Appliquer les filtres",
+      "clear": "Effacer"
+    },
+    "table": {
+      "orderId": "ID de commande",
+      "customer": "Client",
+      "date": "Date",
+      "status": "Statut",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "detailsButton": "Détails",
+    "modal": {
+      "title": "Détails de la commande",
+      "customerInfo": "Informations sur le client",
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "status": "Statut",
+      "date": "Date de la commande",
+      "orderSummary": "Résumé de la commande",
+      "items": "Articles",
+      "quantity": "Quantité",
+      "price": "Prix",
+      "total": "Total",
+      "print": "Imprimer",
+      "close": "Fermer",
+      "options": "Options",
+      "color": "Couleur",
+      "size": "Taille",
+      "material": "Matériau",
+      "warranty": "Garantie",
+      "loadingDetails": "Chargement des détails de la commande...",
+      "errorDetails": "Impossible de charger les détails de la commande."
+    }
+  },
+  "OrderStatus": {
+    "Processing": "En cours de traitement",
+    "Shipped": "Expédiée",
+    "Delivered": "Livrée",
+    "Canceled": "Annulée",
+    "Pending": "En attente"
+  },
+  "ProductsPage": {
+    "title": "Produits",
+    "loading": "Chargement des produits...",
+    "error": "Échec du chargement des produits.",
+    "empty": "Aucun produit trouvé.",
+    "table": {
+      "product": "Produit",
+      "category": "Catégorie",
+      "stock": "Stock",
+      "price": "Prix",
+      "actions": "Actions"
+    },
+    "detailsButton": "Détails",
+    "editButton": "Modifier",
+    "deleteButton": "Supprimer",
+    "modal": {
+      "title": "Détails du produit",
+      "description": "Description",
+      "options": "Options disponibles",
+      "close": "Fermer",
+      "loading": "Chargement des détails du produit...",
+      "error": "Impossible de charger les détails du produit."
+    },
+    "addProduct": {
+      "title": "Ajouter un nouveau produit",
+      "addButton": "Ajouter un produit",
+      "nameLabel": "Nom du produit",
+      "namePlaceholder": "Ex: T-shirt classique",
+      "categoryLabel": "Catégorie",
+      "categoryPlaceholder": "Ex: Vêtements",
+      "selectCategory": "Sélectionnez une catégorie",
+      "priceLabel": "Prix",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "propertiesLabel": "Propriétés du produit",
+      "addPropertyButton": "Ajouter une propriété",
+      "propertyNameLabel": "Propriété",
+      "propertyValueLabel": "Valeur",
+      "selectProperty": "Sélectionnez une propriété",
+      "imagesLabel": "Images du produit",
+      "imageUrlLabel": "URL de l'image",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Ajouter une image",
+      "saveButton": "Enregistrer le produit",
+      "cancelButton": "Annuler"
+    },
+    "editProduct": {
+      "title": "Modifier le produit",
+      "nameLabel": "Nom du produit",
+      "namePlaceholder": "Ex: T-shirt classique",
+      "categoryLabel": "Catégorie",
+      "selectCategory": "Sélectionnez une catégorie",
+      "priceLabel": "Prix",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "imagesLabel": "Images du produit",
+      "imageUrlLabel": "URL de l'image",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Ajouter une image",
+      "propertiesLabel": "Propriétés du produit",
+      "propertyNameLabel": "Propriété",
+      "selectProperty": "Sélectionnez une propriété",
+      "propertyValueLabel": "Valeur",
+      "addPropertyButton": "Ajouter une propriété",
+      "cancelButton": "Annuler",
+      "saveButton": "Enregistrer les modifications",
+      "saving": "Enregistrement..."
+    },
+    "deleteProduct": {
+      "title": "Supprimer le produit",
+      "confirmation": "Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer",
+      "deleting": "Suppression..."
+    }
+  },
+  "CategoriesPage": {
+    "title": "Catégories",
+    "loading": "Chargement des catégories...",
+    "error": "Échec du chargement des catégories.",
+    "addButton": "Ajouter une catégorie",
+    "addTitle": "Ajouter une nouvelle catégorie",
+    "editTitle": "Modifier la catégorie",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette catégorie ?",
+    "form": {
+      "name": "Nom de la catégorie",
+      "description": "Description",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "saving": "Enregistrement..."
+    },
+    "list": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    }
+  },
+  "Storefront": {
     "Hero": {
       "title": "Nouveautés de la saison",
       "subtitle": "Découvrez les dernières tendances de notre collection.",
@@ -52,6 +229,18 @@
     "FeaturedProducts": {
       "title": "Produits en vedette"
     }
+  },
+  "ProductPurchase": {
+    "loading": "Chargement du produit...",
+    "productNotFound": "Produit non trouvé.",
+    "shippingInfo": "Informations de livraison",
+    "fullName": "Nom complet",
+    "phoneNumber": "Numéro de téléphone",
+    "address": "Adresse",
+    "buyNow": "Acheter maintenant",
+    "placingOrder": "Passation de la commande...",
+    "size": "Taille",
+    "color": "Couleur",
+    "material": "Matériau"
   }
-}
 }

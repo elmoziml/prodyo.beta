@@ -111,5 +111,19 @@
       ]
     },
     "id": "prod-1759165744631"
+  },
+  "prod-1759333781874": {
+    "name": "dfg",
+    "category_id": "cat-1759175033735",
+    "price": 1234,
+    "stock": 23,
+    "description": "",
+    "images": [],
+    "available_options": {
+      "capacity": [
+        "fsd"
+      ]
+    },
+    "id": "prod-1759333781874"
   }
 }

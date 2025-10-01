@@ -65,21 +65,31 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
         </div>
       </div>
 
-      <div className="bg-gray-50 p-4 rounded-lg mb-8">
-        <h4 className="text-lg font-semibold text-gray-700 mb-2">{t('customerInfo')}</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <p><strong className="font-medium text-gray-600">{t('name')}:</strong> {order.customer.full_name}</p>
-            <p><strong className="font-medium text-gray-600">{t('email')}:</strong> {order.customer.email}</p>
-            <p><strong className="font-medium text-gray-600">{t('phone')}:</strong> {order.customer.phone}</p>
-            <p><strong className="font-medium text-gray-600">{t('address')}:</strong> {order.customer.address}</p>
-            <div className="flex items-center gap-2">
-              <strong className="font-medium text-gray-600">{t('status')}:</strong>
-              <select value={status} onChange={handleStatusChange} className="p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600">
-                {orderStatuses.map(s => (
-                  <option key={s} value={s}>{tStatus(s)}</option>
-                ))}
-              </select>
-            </div>
+      <div class="bg-gray-50 p-4 rounded-lg mb-8">
+        <h4 class="text-lg font-semibold text-gray-700 mb-2">{t('customerInfo')}</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+          {order.customer ? (
+            <>
+              <p><strong class="font-medium text-gray-600">{t('name')}:</strong> {order.customer.full_name}</p>
+              <p><strong class="font-medium text-gray-600">{t('email')}:</strong> {order.customer.email}</p>
+              <p><strong class="font-medium text-gray-600">{t('phone')}:</strong> {order.customer.phone}</p>
+              <p><strong class="font-medium text-gray-600">{t('address')}:</strong> {order.customer.address}</p>
+            </>
+          ) : (
+            <>
+              <p><strong class="font-medium text-gray-600">{t('name')}:</strong> {order.customer_name}</p>
+              <p><strong class="font-medium text-gray-600">{t('phone')}:</strong> {order.phone_number}</p>
+              <p><strong class="font-medium text-gray-600">{t('address')}:</strong> {order.address}</p>
+            </>
+          )}
+          <div class="flex items-center gap-2">
+            <strong class="font-medium text-gray-600">{t('status')}:</strong>
+            <select value={status} onChange={handleStatusChange} class="p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+              {orderStatuses.map(s => (
+                <option key={s} value={s}>{tStatus(s)}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 

@@ -24,15 +24,25 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const newOrderData = await request.json();
+    const { customer_name, phone_number, address, items, total_amount } = await request.json();
+    
     const orders = readOrdersFile();
 
+    // Create a new order with the correct structure
     const newOrder: Order = {
-      ...newOrderData,
       id: `ord-${Date.now()}`,
       display_id: `ORD${(orders.length + 1).toString().padStart(3, '0')}`,
       order_date: new Date().toISOString(),
       status: 'Pending',
+      customer_name,
+      phone_number,
+      address,
+      items: items.map((item: any) => ({
+        ...item,
+        product_name: item.product_name || 'Product Name Missing',
+        selected_options: item.properties || {}
+      })),
+      total_amount: total_amount,
     };
 
     orders.push(newOrder);

@@ -10,9 +10,22 @@
       "phone": "123-456-7890",
       "address": "123 Main St, Anytown, USA"
     },
-    "status": "Pending",
+    "status": "Delivered",
     "total_amount": 25.99,
-    "order_date": "2025-08-15T10:00:00Z"
+    "order_date": "2025-08-15T10:00:00Z",
+    "items": [
+      {
+        "id": "item-1",
+        "order_id": "ord-1",
+        "product_id": "prod-1",
+        "quantity": 1,
+        "price_at_purchase": 25.99,
+        "selected_options": {
+          "color": "Black",
+          "size": "L"
+        }
+      }
+    ]
   },
   {
     "id": "ord-2",
@@ -25,9 +38,29 @@
       "phone": "987-654-3210",
       "address": "456 Oak Ave, Somecity, USA"
     },
-    "status": "Canceled",
+    "status": "Delivered",
     "total_amount": 249.49,
-    "order_date": "2025-09-20T14:30:00Z"
+    "order_date": "2025-09-20T14:30:00Z",
+    "items": [
+      {
+        "id": "item-2",
+        "order_id": "ord-2",
+        "product_id": "prod-2",
+        "quantity": 1,
+        "price_at_purchase": 199.99,
+        "selected_options": {
+          "color": "Silver"
+        }
+      },
+      {
+        "id": "item-3",
+        "order_id": "ord-2",
+        "product_id": "prod-3",
+        "quantity": 1,
+        "price_at_purchase": 49.5,
+        "selected_options": {}
+      }
+    ]
   },
   {
     "id": "ord-3",
@@ -42,7 +75,20 @@
     },
     "status": "Delivered",
     "total_amount": 89.99,
-    "order_date": "2025-09-26T11:30:00Z"
+    "order_date": "2025-09-26T11:30:00Z",
+    "items": [
+      {
+        "id": "item-4",
+        "order_id": "ord-3",
+        "product_id": "prod-4",
+        "quantity": 1,
+        "price_at_purchase": 89.99,
+        "selected_options": {
+          "size": "10",
+          "color": "Blue"
+        }
+      }
+    ]
   },
   {
     "id": "ord-4",
@@ -57,7 +103,19 @@
     },
     "status": "Delivered",
     "total_amount": 59.99,
-    "order_date": "2025-09-27T09:00:00Z"
+    "order_date": "2025-09-27T09:00:00Z",
+    "items": [
+      {
+        "id": "item-5",
+        "order_id": "ord-4",
+        "product_id": "prod-5",
+        "quantity": 1,
+        "price_at_purchase": 59.99,
+        "selected_options": {
+          "color": "Stainless Steel"
+        }
+      }
+    ]
   },
   {
     "id": "ord-5",
@@ -70,9 +128,19 @@
       "phone": "555-456-1234",
       "address": "212 Birch Rd, Smalltown, USA"
     },
-    "status": "Canceled",
+    "status": "Delivered",
     "total_amount": 49.5,
-    "order_date": "2025-08-22T18:00:00Z"
+    "order_date": "2025-08-22T18:00:00Z",
+    "items": [
+      {
+        "id": "item-6",
+        "order_id": "ord-5",
+        "product_id": "prod-3",
+        "quantity": 1,
+        "price_at_purchase": 49.5,
+        "selected_options": {}
+      }
+    ]
   },
   {
     "id": "ord-6",
@@ -87,7 +155,31 @@
     },
     "status": "Delivered",
     "total_amount": 289.98,
-    "order_date": "2025-09-01T12:00:00Z"
+    "order_date": "2025-09-01T12:00:00Z",
+    "items": [
+      {
+        "id": "item-7",
+        "order_id": "ord-6",
+        "product_id": "prod-4",
+        "quantity": 2,
+        "price_at_purchase": 89.99,
+        "selected_options": {
+          "size": "9",
+          "color": "Gray"
+        }
+      },
+      {
+        "id": "item-8",
+        "order_id": "ord-6",
+        "product_id": "prod-1",
+        "quantity": 4,
+        "price_at_purchase": 25.99,
+        "selected_options": {
+          "color": "White",
+          "size": "M"
+        }
+      }
+    ]
   },
   {
     "id": "ord-7",
@@ -100,9 +192,21 @@
       "phone": "555-789-0123",
       "address": "333 Cedar Blvd, Bigcity, USA"
     },
-    "status": "Shipped",
+    "status": "Delivered",
     "total_amount": 199.99,
-    "order_date": "2025-09-24T15:20:00Z"
+    "order_date": "2025-09-24T15:20:00Z",
+    "items": [
+      {
+        "id": "item-9",
+        "order_id": "ord-7",
+        "product_id": "prod-2",
+        "quantity": 1,
+        "price_at_purchase": 199.99,
+        "selected_options": {
+          "color": "Matte Black"
+        }
+      }
+    ]
   },
   {
     "id": "ord-8",
@@ -117,6 +221,115 @@
     },
     "status": "Delivered",
     "total_amount": 25.99,
-    "order_date": "2025-09-28T10:15:00Z"
+    "order_date": "2025-09-28T10:15:00Z",
+    "items": [
+      {
+        "id": "item-10",
+        "order_id": "ord-8",
+        "product_id": "prod-1",
+        "quantity": 1,
+        "price_at_purchase": 25.99,
+        "selected_options": {
+          "color": "Red",
+          "size": "S"
+        }
+      }
+    ]
+  },
+  {
+    "customer_name": "فارس",
+    "phone_number": "0123456789",
+    "address": "قالمة بوشقوف",
+    "items": [
+      {
+        "product_id": "prod-4",
+        "quantity": 1,
+        "price": 89.99,
+        "properties": {}
+      }
+    ],
+    "total_amount": 89.99,
+    "id": "ord-1759176645487",
+    "display_id": "ORD009",
+    "order_date": "2025-09-29T20:10:45.487Z",
+    "status": "Delivered"
+  },
+  {
+    "customer_name": "thvs",
+    "phone_number": "bsb",
+    "address": "ndfnd",
+    "items": [
+      {
+        "product_id": "prod-4",
+        "quantity": 1,
+        "price": 89.99,
+        "properties": {}
+      }
+    ],
+    "total_amount": 89.99,
+    "id": "ord-1759176730332",
+    "display_id": "ORD010",
+    "order_date": "2025-09-29T20:12:10.332Z",
+    "status": "Delivered"
+  },
+  {
+    "id": "ord-1759333727495",
+    "display_id": "ORD011",
+    "order_date": "2025-10-01T15:48:47.495Z",
+    "status": "Delivered",
+    "customer_name": "Fares Djefaflia",
+    "phone_number": "0554211856",
+    "address": "Bouchegouf, CITE 190 logts, BLOK 14, N° 132",
+    "items": [
+      {
+        "product_id": "prod-5",
+        "product_name": "Coffee Maker",
+        "quantity": 1,
+        "price": 59.99,
+        "properties": {},
+        "selected_options": {}
+      }
+    ],
+    "total_amount": 59.99
+  },
+  {
+    "id": "ord-1759334152388",
+    "display_id": "ORD012",
+    "order_date": "2025-10-01T15:55:52.388Z",
+    "status": "Delivered",
+    "customer_name": "فارس",
+    "phone_number": "0554211856",
+    "address": "قالمة بوشقوف تع سبي",
+    "items": [
+      {
+        "product_id": "prod-5",
+        "product_name": "Coffee Maker",
+        "quantity": 1,
+        "price": 59.99,
+        "properties": {},
+        "selected_options": {}
+      }
+    ],
+    "total_amount": 59.99
+  },
+  {
+    "id": "ord-1759334304844",
+    "display_id": "ORD013",
+    "order_date": "2025-10-01T15:58:24.844Z",
+    "status": "Pending",
+    "customer_name": "Fares Djefafliaل",
+    "phone_number": "0554211856",
+    "address": "Bouchegouf, CITE 190 logts, BLOK 14, N° 132",
+    "items": [
+      {
+        "product_id": "prod-5",
+        "product_name": "Coffee Maker",
+        "quantity": 1,
+        "price": 59.99,
+        "properties": {},
+        "selected_options": {}
+      }
+    ],
+    "total_amount": 59.99
   }
 ]

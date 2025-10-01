@@ -33,9 +33,13 @@ export interface Customer {
 export interface Order {
   id: string;
   display_id: string;
-  customer_id: string;
+  customer_id?: string;
   status: 'Pending' | 'Shipped' | 'Delivered' | 'Canceled';
   total_amount: number;
   order_date: string;
-  customer: Customer;
+  customer?: Customer;
+  customer_name?: string;
+  phone_number?: string;
+  address?: string;
+  items: any[];
 }

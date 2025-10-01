@@ -1,4 +1,9 @@
 {
+  "WorkInProgress": {
+    "title": "Coming Soon",
+    "description": "This page is under construction. We are working hard to bring it to you.",
+    "cta": "Go back to the homepage"
+  },
   "sidebar": {
     "home": "Dashboard",
     "orders": "Orders",
@@ -18,7 +23,7 @@
     "componentLocations": "Component Locations",
     "disassemblyDiagrams": "Disassembly Diagrams"
   },
-"header": {
+  "header": {
     "shop": "Shop",
     "newArrivals": "New Arrivals",
     "sale": "Sale",
@@ -39,6 +44,178 @@
     "termsOfUse": "Terms of Use",
     "rights": "All rights reserved."
   },
+  "notifications": {
+    "title": "Notifications",
+    "markAllAsRead": "Mark all as read",
+    "info": "Info",
+    "warning": "Warning",
+    "success": "Success",
+    "error": "Error",
+    "promotion": "Promotion",
+    "reminder": "Reminder",
+    "viewDetails": "View Details"
+  },
+  "Dashboard": {
+    "ProfileDropdown": {
+      "accountStatus": "Account Status",
+      "subscriptionPlan": "Subscription Plan",
+      "verified": "Verified",
+      "unverified": "Unverified",
+      "username": "Username",
+      "expiresOn": "Expires on",
+      "verificationWarning": "Your email or phone is not verified. Please update your profile.",
+      "settings": "Settings",
+      "publicProfile": "Public Profile"
+    }
+  },
+  "OrdersPage": {
+    "title": "Orders",
+    "loading": "Loading orders...",
+    "error": "Failed to load orders.",
+    "empty": "No orders found.",
+    "filters": {
+      "searchPlaceholder": "Search by order ID or customer name...",
+      "allStatuses": "All Statuses",
+      "apply": "Apply Filters",
+      "clear": "Clear"
+    },
+    "table": {
+      "orderId": "Order ID",
+      "customer": "Customer",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "detailsButton": "Details",
+    "modal": {
+      "title": "Order Details",
+      "customerInfo": "Customer Information",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "status": "Status",
+      "date": "Order Date",
+      "orderSummary": "Order Summary",
+      "items": "Items",
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total",
+      "print": "Print",
+      "close": "Close",
+      "options": "Options",
+      "color": "Color",
+      "size": "Size",
+      "material": "Material",
+      "warranty": "Warranty",
+      "loadingDetails": "Loading order details...",
+      "errorDetails": "Could not load order details."
+    }
+  },
+  "OrderStatus": {
+    "Processing": "Processing",
+    "Shipped": "Shipped",
+    "Delivered": "Delivered",
+    "Canceled": "Canceled",
+    "Pending": "Pending"
+  },
+  "ProductsPage": {
+    "title": "Products",
+    "loading": "Loading products...",
+    "error": "Failed to load products.",
+    "empty": "No products found.",
+    "table": {
+      "product": "Product",
+      "category": "Category",
+      "stock": "Stock",
+      "price": "Price",
+      "actions": "Actions"
+    },
+    "detailsButton": "Details",
+    "editButton": "Edit",
+    "deleteButton": "Delete",
+    "modal": {
+      "title": "Product Details",
+      "description": "Description",
+      "options": "Available Options",
+      "close": "Close",
+      "loading": "Loading product details...",
+      "error": "Could not load product details."
+    },
+    "addProduct": {
+      "title": "Add New Product",
+      "addButton": "Add Product",
+      "nameLabel": "Product Name",
+      "namePlaceholder": "e.g., Classic T-Shirt",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "e.g., Apparel",
+      "selectCategory": "Select a category",
+      "priceLabel": "Price",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "propertiesLabel": "Product Properties",
+      "addPropertyButton": "Add Property",
+      "propertyNameLabel": "Property",
+      "propertyValueLabel": "Value",
+      "selectProperty": "Select a property",
+      "imagesLabel": "Product Images",
+      "imageUrlLabel": "Image URL",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Add Image",
+      "saveButton": "Save Product",
+      "cancelButton": "Cancel"
+    },
+    "editProduct": {
+      "title": "Edit Product",
+      "nameLabel": "Product Name",
+      "namePlaceholder": "e.g., Classic T-Shirt",
+      "categoryLabel": "Category",
+      "selectCategory": "Select a category",
+      "priceLabel": "Price",
+      "stockLabel": "Stock",
+      "descriptionLabel": "Description",
+      "imagesLabel": "Product Images",
+      "imageUrlLabel": "Image URL",
+      "imageUrlPlaceholder": "https://example.com/image.png",
+      "addImageButton": "Add Image",
+      "propertiesLabel": "Product Properties",
+      "propertyNameLabel": "Property",
+      "selectProperty": "Select a property",
+      "propertyValueLabel": "Value",
+      "addPropertyButton": "Add Property",
+      "cancelButton": "Cancel",
+      "saveButton": "Save Changes",
+      "saving": "Saving..."
+    },
+    "deleteProduct": {
+      "title": "Delete Product",
+      "confirmation": "Are you sure you want to delete this product? This action cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    }
+  },
+  "CategoriesPage": {
+    "title": "Categories",
+    "loading": "Loading categories...",
+    "error": "Failed to load categories.",
+    "addButton": "Add Category",
+    "addTitle": "Add New Category",
+    "editTitle": "Edit Category",
+    "deleteConfirm": "Are you sure you want to delete this category?",
+    "form": {
+      "name": "Category Name",
+      "description": "Description",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "list": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
   "Storefront": {
     "Hero": {
       "title": "New Season Arrivals",
@@ -52,6 +229,18 @@
     "FeaturedProducts": {
       "title": "Featured Products"
     }
+  },
+  "ProductPurchase": {
+    "loading": "Loading product...",
+    "productNotFound": "Product not found.",
+    "shippingInfo": "Shipping Information",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "address": "Address",
+    "buyNow": "Buy Now",
+    "placingOrder": "Placing order...",
+    "size": "Size",
+    "color": "Color",
+    "material": "Material"
   }
-}
 }

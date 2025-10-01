@@ -1,4 +1,10 @@
+
 {
+  "WorkInProgress": {
+    "title": "قريبًا",
+    "description": "هاد لاباج رانا نخدمو عليها. أصبر برك.",
+    "cta": "أرجع للرئيسية"
+  },
   "sidebar": {
     "home": "الرئيسية",
     "orders": "لي كوموند",
@@ -19,28 +25,25 @@
     "disassemblyDiagrams": "شيمات تاع التفكيك"
   },
   "header": {
-    "home": "الرئيسية",
-    "features": "الميزات",
-    "pricing": "السومات",
-    "learn": "تعلّم",
-    "register": "سجّل باطل"
+    "shop": "الحانوت",
+    "newArrivals": "الجديد",
+    "sale": "الصولد",
+    "login": "ادخل",
+    "register": "سجّل"
   },
   "footer": {
-    "rights": "كامل الحقوق محفوظة.",
-    "slogan": "لوتي تاعك بروفيسيونال للتشخيص والتصليح السريع.",
+    "slogan": "وجهتك للموضة العصرية.",
     "links": "روابط سريعة",
     "about": "شكون حنا",
-    "services": "خدماتنا",
-    "prices": "السومات",
-    "learn": "مركز التعلّم",
+    "contact": "كونتاكتينا",
+    "help": "مساعدة",
+    "shipping": "التوصيل",
+    "returns": "الترجاع",
+    "faq": "الأسئلة الشايعة",
     "legal": "قانوني",
     "privacyPolicy": "سياسة الخصوصية",
     "termsOfUse": "شروط الاستخدام",
-    "cookiePolicy": "سياسة الكوكيز",
-    "contact": "كونتاكتينا",
-    "address": "123 طريق دزاير، دزاير",
-    "phone": "+213 (0) 12 345 678",
-    "email": "supports@kontrilo.com"
+    "rights": "كامل الحقوق محفوظة."
   },
   "notifications": {
     "title": "النوتيفيكاسيون",
@@ -65,11 +68,6 @@
       "settings": "الإعدادات",
       "publicProfile": "البروفيل العام"
     }
-  },
-  "WorkInProgress": {
-    "title": "قريبًا",
-    "description": "هاد لاباج رانا نخدمو عليها. أصبر برك.",
-    "cta": "أرجع للرئيسية"
   },
   "OrdersPage": {
     "title": "لي كوموند",
@@ -219,28 +217,7 @@
       "delete": "افسخ"
     }
   },
-"header": {
-    "shop": "الحانوت",
-    "newArrivals": "الجديد",
-    "sale": "الصولد",
-    "login": "ادخل",
-    "register": "سجّل"
-  },
-  "footer": {
-    "slogan": "وجهتك للموضة العصرية.",
-    "links": "روابط سريعة",
-    "about": "شكون حنا",
-    "contact": "كونتاكتينا",
-    "help": "مساعدة",
-    "shipping": "التوصيل",
-    "returns": "الترجاع",
-    "faq": "الأسئلة الشايعة",
-    "legal": "قانوني",
-    "privacyPolicy": "سياسة الخصوصية",
-    "termsOfUse": "شروط الاستخدام",
-    "rights": "كامل الحقوق محفوظة."
-  },
- "Storefront": {
+  "Storefront": {
     "Hero": {
       "title": "الجديد تاع هاد السيزون",
       "subtitle": "شوف آخر الموديلات في مجموعتنا.",
@@ -253,6 +230,18 @@
     "FeaturedProducts": {
       "title": "المنتوجات المميزة"
     }
+  },
+  "ProductPurchase": {
+    "loading": "يشارجي في المنتوج...",
+    "productNotFound": "مالقيناش المنتوج.",
+    "shippingInfo": "معلومات التوصيل",
+    "fullName": "الاسم الكامل",
+    "phoneNumber": "نيميرو التيليفون",
+    "address": "لادراس",
+    "buyNow": "اشري ضرك",
+    "placingOrder": "يبعث في لاكوموند...",
+    "size": "الطاي",
+    "color": "اللون",
+    "material": "المادة"
   }
-}
 }

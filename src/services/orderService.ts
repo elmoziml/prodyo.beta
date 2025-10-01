@@ -1,4 +1,5 @@
 
+import { Order } from '@/types';
 import axios from 'axios';
 
 export const fetchOrders = async () => {
@@ -14,5 +15,10 @@ export const fetchOrderById = async (id: string) => {
 
 export const updateOrderStatus = async (orderId: string, status: string) => {
   const response = await axios.put(`/api/orders/${orderId}`, { status });
+  return response.data;
+};
+
+export const createOrder = async (orderData: Partial<Order>) => {
+  const response = await axios.post('/api/orders', orderData);
   return response.data;
 };

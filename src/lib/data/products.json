@@ -40,5 +40,12 @@
     "category_id": "cat-1",
     "price": 1222,
     "stock": 222
+  },
+  {
+    "id": "prod-1759333781874",
+    "name": "dfg",
+    "category_id": "cat-1759175033735",
+    "price": 1234,
+    "stock": 23
   }
 ]
