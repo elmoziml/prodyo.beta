@@ -24,6 +24,7 @@ export default function ProductPurchasePage() {
   const [selectedWilaya, setSelectedWilaya] = useState<string | null>(null);
   const [selectedDaira, setSelectedDaira] = useState<string | null>(null);
   const [selectedCommune, setSelectedCommune] = useState<string | null>(null);
+  const [orderSubmitted, setOrderSubmitted] = useState(false);
 
   const { wilayas, isLoading: isLoadingWilayas } = useWilayas();
   const { dairas, isLoading: isLoadingDairas } = useDairas(selectedWilaya);
@@ -46,10 +47,11 @@ export default function ProductPurchasePage() {
             setCategory(cat || null);
           }
 
+          // Initialize properties as empty strings
           if (productData.available_options) {
             const initialProperties: { [key: string]: string } = {};
             Object.keys(productData.available_options).forEach(key => {
-              initialProperties[key] = productData.available_options[key][0];
+              initialProperties[key] = '';
             });
             setSelectedProperties(initialProperties);
           }
@@ -65,11 +67,7 @@ export default function ProductPurchasePage() {
 
   useEffect(() => {
     if (createOrderMutation.isSuccess) {
-      setCustomerName('');
-      setPhoneNumber('');
-      setSelectedWilaya(null);
-      setSelectedDaira(null);
-      setSelectedCommune(null);
+      setOrderSubmitted(true);
     }
   }, [createOrderMutation.isSuccess]);
 
@@ -79,11 +77,23 @@ export default function ProductPurchasePage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate all required fields
     if (!product || !selectedWilaya || !selectedDaira || !selectedCommune) {
-        // Optionally, show an error message to the user
-        alert('Please select your full address.');
+      alert(t('pleaseSelectAddress') || 'Please select your full address.');
+      return;
+    }
+    
+    // Validate all properties are selected
+    if (product.available_options) {
+      const hasEmptyProperty = Object.keys(product.available_options).some(
+        key => !selectedProperties[key] || selectedProperties[key] === ''
+      );
+      if (hasEmptyProperty) {
+        alert(t('pleaseSelectAllOptions') || 'Please select all product options.');
         return;
-    };
+      }
+    }
 
     const wilayaName = wilayas.find(w => w.id === selectedWilaya)?.name_ar || '';
     const dairaName = dairas.find(d => d.id === selectedDaira)?.name_ar || '';
@@ -161,6 +171,32 @@ export default function ProductPurchasePage() {
 
           {/* Product Details & Form */}
           <div className="flex flex-col justify-center">
+            {/* Success Message */}
+            {orderSubmitted && (
+              <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-500 rounded-lg p-8 text-center">
+                <div className="flex justify-center mb-4">
+                  <svg className="w-20 h-20 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-green-700 dark:text-green-400 mb-2">
+                  {t('orderSuccessTitle') || 'تم إرسال طلبك بنجاح!'}
+                </h2>
+                <p className="text-green-600 dark:text-green-300 mb-6">
+                  {t('orderSuccessMessage') || 'سنتواصل معك قريباً لتأكيد الطلب'}
+                </p>
+                <button
+                  onClick={() => window.location.href = `/${locale}`}
+                  className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300"
+                >
+                  {t('backToHome') || 'العودة للصفحة الرئيسية'}
+                </button>
+              </div>
+            )}
+            
+            {/* Form - Hidden after successful submission */}
+            {!orderSubmitted && (
+            <>
             {category && (
               <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2">
                 {category.name}
@@ -185,7 +221,9 @@ export default function ProductPurchasePage() {
                         value={selectedProperties[propName] || ''}
                         onChange={(e) => handlePropertyChange(propName, e.target.value)}
                         className={selectClasses}
+                        required
                       >
+                        <option value="" disabled>{t('selectOption') || 'اختر...'}</option>
                         {product.available_options[propName].map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))}
@@ -288,8 +326,9 @@ export default function ProductPurchasePage() {
                 </button>
               </div>
               {createOrderMutation.isError && <p className="text-red-500 mt-4 text-center">{t('orderError')}</p>}
-              {createOrderMutation.isSuccess && <p className="text-green-500 mt-4 text-center">{t('orderSuccess')}</p>}
             </form>
+            </>
+            )}
           </div>
         </div>
 

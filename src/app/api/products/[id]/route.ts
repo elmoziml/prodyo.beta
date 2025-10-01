@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { Product } from '@/types';
+import { deleteProductImages } from '@/lib/utils/fileUpload';
 
 const productsPath = path.join(process.cwd(), 'src/lib/data/products.json');
 

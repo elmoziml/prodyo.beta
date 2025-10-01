@@ -316,7 +316,7 @@
     "id": "ord-1759334304844",
     "display_id": "ORD013",
     "order_date": "2025-10-01T15:58:24.844Z",
-    "status": "Pending",
+    "status": "Delivered",
     "customer_name": "Fares Djefafliaل",
     "phone_number": "0554211856",
     "address": "Bouchegouf, CITE 190 logts, BLOK 14, N° 132",
@@ -336,7 +336,7 @@
     "id": "ord-1759335675506",
     "display_id": "ORD014",
     "order_date": "2025-10-01T16:21:15.506Z",
-    "status": "Pending",
+    "status": "Delivered",
     "customer_name": "محمد ",
     "phone_number": "0554211856",
     "address": "Bouchegouf, CITE 190 logts, BLOK 14, N° 132",
@@ -360,7 +360,7 @@
     "id": "ord-1759338306026",
     "display_id": "ORD015",
     "order_date": "2025-10-01T17:05:06.026Z",
-    "status": "Pending",
+    "status": "Delivered",
     "customer_name": "Fares Djefaflia",
     "phone_number": "0554211856",
     "address": "سطيف, حمام قرقور, ذراع قبيلة",
@@ -379,5 +379,57 @@
       }
     ],
     "total_amount": 2300
+  },
+  {
+    "id": "ord-1759354838322",
+    "display_id": "ORD016",
+    "order_date": "2025-10-01T21:40:38.322Z",
+    "status": "Delivered",
+    "customer_name": "فارس",
+    "phone_number": "0123456789",
+    "address": "قالمة, هيليوبوليس, الفجوج",
+    "items": [
+      {
+        "product_id": "prod-1759354380159",
+        "product_name": "تشرت مطبوع",
+        "quantity": 1,
+        "price": 3500,
+        "available_options": {
+          "size": "M",
+          "color": "اخضر"
+        },
+        "selected_options": {
+          "size": "M",
+          "color": "اخضر"
+        }
+      }
+    ],
+    "total_amount": 3500
+  },
+  {
+    "id": "ord-1759355226081",
+    "display_id": "ORD017",
+    "order_date": "2025-10-01T21:47:06.081Z",
+    "status": "Pending",
+    "customer_name": "محمد",
+    "phone_number": "0123456789",
+    "address": "تلمسان, الغزوات, تيانت",
+    "items": [
+      {
+        "product_id": "prod-1759354380159",
+        "product_name": "تشرت مطبوع",
+        "quantity": 1,
+        "price": 3500,
+        "available_options": {
+          "size": "M",
+          "color": "اخضر"
+        },
+        "selected_options": {
+          "size": "M",
+          "color": "اخضر"
+        }
+      }
+    ],
+    "total_amount": 3500
   }
 ]

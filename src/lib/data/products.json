@@ -119,5 +119,47 @@
       ]
     },
     "id": "prod-1759334757662"
+  },
+  {
+    "name": "تشرت مطبوع",
+    "category_id": "cat-1759353948268",
+    "price": 3500,
+    "stock": 120,
+    "description": "💥 اكتشف الراحة الحقيقية هذا الموسم !\n💯 تيشيرت قطني 100% من القطن الهندي الممشط والمضغوط عالي الجودة\n🧵 خامة ناعمة، مريحة، تتحمل الغسيل بوزن 265 غ/م²\n🎨 التريكو متوفر بـ 6 ألوان أنيقة\n📏 المقاسات من XS حتى 5XL – لكل الأجسام حتى 150كغ\n✅ جودة عالية – سعر مناسب\n📲 للجملة راسلونا على الواتساب أو على الرقم الظاهر في الأسفل\n🚚 التوصيل متوفر ل58 ولاية والدفع عند الاستلام",
+    "images": [
+      "https://scontent.faae2-2.fna.fbcdn.net/v/t45.5328-4/528587325_1256615569496287_878983311120859709_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeFflgZE54PyNZPE8AO0Op3xsi4THZyeMFuyLhMdnJ4wWzh9mUidNeJbuZv5cgZYw6cMP_mc4AN6DBVx4AlAd9_K&_nc_ohc=uQUD9AyUCcsQ7kNvwE9QfLW&_nc_oc=Adk9vZrs0LG5tKGavvhFdjE0IbfHUx8O6gOJE56mfTrVIzPzjj5RL4vVppbUYRhAJPo&_nc_zt=23&_nc_ht=scontent.faae2-2.fna&_nc_gid=Mn56nO3XCsP_IcEjYYSdXA&oh=00_AfavUu0wrO4ffo4uDbuXWN-uaVINXevmFpSoY4MIFA_vug&oe=68E38857",
+      "https://scontent.faae2-4.fna.fbcdn.net/v/t45.5328-4/529299974_1096324219108859_5138324742928847349_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeE5avVGxI8zifHTKqYSgFzziApszaCTUuqICmzNoJNS6hG_TdoPPaVsisfDLMwa-T1tnwm5AGBAgJtQZ5-Zz1y3&_nc_ohc=hhDg8PILFr8Q7kNvwE5pPtb&_nc_oc=AdkNmQIDXV9KNHO6rhTcocJH-g54beofVNWNIb5UsGzXfjKRByIoIW5x-cBppmStW_Y&_nc_zt=23&_nc_ht=scontent.faae2-4.fna&_nc_gid=Mn56nO3XCsP_IcEjYYSdXA&oh=00_AfajZ_nsnX3KTRBxYGtO0mMyojkA4XtaJVa907tKawWvKA&oe=68E35A09",
+      "https://scontent.faae2-3.fna.fbcdn.net/v/t45.5328-4/528515048_1063670579301264_4517641247737913981_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEtNI72_8U9Ld_aKBrDw46YMNmmz0CgONww2abPQKA43AUAKFVOig-myX49tBRCL1IXMclBEOBHpRxbkQdoCYW3&_nc_ohc=a1n6cbrrexsQ7kNvwEJvH1E&_nc_oc=AdmhtNhkg7QNSnX_538ps7_RDPzpvI3dAW4uuyAEz3JBoevwA8sQCqyALmhjVzBWM_8&_nc_zt=23&_nc_ht=scontent.faae2-3.fna&_nc_gid=Mn56nO3XCsP_IcEjYYSdXA&oh=00_AfaZW6l_JHeeudacB9nryqG0Ge8UW21ntJcU3sQUYPDp9A&oe=68E372E8"
+    ],
+    "available_options": {
+      "size": [
+        "X",
+        "L",
+        "M"
+      ],
+      "color": [
+        "ابيض",
+        "اسود",
+        "اخضر"
+      ]
+    },
+    "id": "prod-1759354380159"
+  },
+  {
+    "name": "لبسة",
+    "category_id": "cat-1759353948268",
+    "price": 4444,
+    "stock": 444,
+    "description": "",
+    "images": [
+      "/uploads/products/temp-1759356209210/image-1759356226602-137rxc.png",
+      "/uploads/products/temp-1759356209210/image-1759356235453-dsc12t.png"
+    ],
+    "available_options": {
+      "size": [
+        "xx"
+      ]
+    },
+    "id": "prod-1759356250788"
   }
 ]

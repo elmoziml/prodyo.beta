@@ -233,7 +233,7 @@
   },
   "ProductPurchase": {
     "loading": "جاري تحميل المنتج...",
-    "productNotFound": "لم يتم الع-ثور على المنتج.",
+    "productNotFound": "لم يتم العثور على المنتج.",
     "shippingInfo": "معلومات الشحن",
     "fullName": "الاسم الكامل",
     "phoneNumber": "رقم الهاتف",
@@ -252,6 +252,12 @@
     "commune": "البلدية",
     "selectWilaya": "اختر ولاية",
     "selectDaira": "اختر دائرة",
-    "selectCommune": "اختر بلدية"
+    "selectCommune": "اختر بلدية",
+    "selectOption": "اختر...",
+    "pleaseSelectAddress": "الرجاء اختيار العنوان الكامل",
+    "pleaseSelectAllOptions": "الرجاء اختيار جميع خيارات المنتج",
+    "orderSuccessTitle": "تم إرسال طلبك بنجاح!",
+    "orderSuccessMessage": "سنتواصل معك قريباً لتأكيد الطلب",
+    "backToHome": "العودة للصفحة الرئيسية"
   }
 }

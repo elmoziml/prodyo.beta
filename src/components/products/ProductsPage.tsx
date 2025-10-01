@@ -61,7 +61,7 @@ export default function ProductsPage() {
   const handleSaveProduct = (formData: any) => {
     const newProductData = {
       ...formData,
-      images: formData.images.map((img: { url: string }) => img.url),
+      images: formData.images || [],
       available_options: formData.properties.reduce((acc: Record<string, string[]>, prop: { key: string; value: string }) => {
         if (!acc[prop.key]) acc[prop.key] = [];
         acc[prop.key].push(prop.value);
@@ -79,7 +79,7 @@ export default function ProductsPage() {
     if (!selectedProductId) return;
     const updatedProductData = {
       ...formData,
-      images: formData.images.map((img: { url: string }) => img.url),
+      images: formData.images || [],
       available_options: formData.properties.reduce((acc: Record<string, string[]>, prop: { key: string; value: string }) => {
         if (!acc[prop.key]) acc[prop.key] = [];
         acc[prop.key].push(prop.value);

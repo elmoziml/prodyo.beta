@@ -25,3 +25,8 @@ export const updateProduct = async (productId: string, productData: Partial<Prod
 export const deleteProduct = async (productId: string) => {
   await axios.delete(`/api/products/${productId}`);
 };
+
+export const fetchProductsByCategory = async (categoryId: string) => {
+  const response = await axios.get(`/api/products/category/${categoryId}`);
+  return response.data;
+};

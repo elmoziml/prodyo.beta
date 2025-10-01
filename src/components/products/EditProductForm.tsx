@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -7,16 +8,12 @@ import { useTranslations } from 'next-intl';
 import { productPropertyKeys } from '@/lib/data/properties';
 import { useCategories } from '@/hooks/useCategories';
 import { Product } from '@/types';
-import { useEffect } from 'react';
+import ImageUploader from './ImageUploader';
 
 // Zod schema for validation
 const propertySchema = z.object({
   key: z.string().min(1, "Property name is required"),
   value: z.string().min(1, "Property value is required"),
-});
-
-const imageSchema = z.object({
-  url: z.string().url("Invalid URL format"),
 });
 
 const productSchema = z.object({
@@ -26,7 +23,6 @@ const productSchema = z.object({
   stock: z.preprocess((a) => parseInt(z.string().parse(a), 10), z.number().int().min(0, "Stock cannot be negative")),
   description: z.string().optional(),
   properties: z.array(propertySchema).optional(),
-  images: z.array(imageSchema).optional(),
 });
 
 type ProductFormData = z.infer<typeof productSchema>;
@@ -41,6 +37,7 @@ interface EditProductFormProps {
 export default function EditProductForm({ product, onSave, onCancel, isSaving }: EditProductFormProps) {
   const t = useTranslations('ProductsPage.editProduct');
   const { data: categories } = useCategories();
+  const [images, setImages] = useState<string[]>(product.images || []);
   
   const {
     register,
@@ -53,7 +50,6 @@ export default function EditProductForm({ product, onSave, onCancel, isSaving }:
     defaultValues: {
       ...product,
       properties: product.available_options ? Object.entries(product.available_options).flatMap(([key, values]) => values.map(value => ({ key, value }))) : [],
-      images: product.images ? product.images.map(url => ({ url })) : [],
     },
   });
 
@@ -61,8 +57,8 @@ export default function EditProductForm({ product, onSave, onCancel, isSaving }:
     reset({
       ...product,
       properties: product.available_options ? Object.entries(product.available_options).flatMap(([key, values]) => values.map(value => ({ key, value }))) : [],
-      images: product.images ? product.images.map(url => ({ url })) : [],
     });
+    setImages(product.images || []);
   }, [product, reset]);
 
   const { fields: propertyFields, append: appendProperty, remove: removeProperty } = useFieldArray({
@@ -70,13 +66,16 @@ export default function EditProductForm({ product, onSave, onCancel, isSaving }:
     name: 'properties',
   });
 
-  const { fields: imageFields, append: appendImage, remove: removeImage } = useFieldArray({
-    control,
-    name: 'images',
-  });
+  const handleFormSubmit = (data: ProductFormData) => {
+    const formDataWithImages = {
+      ...data,
+      images,
+    };
+    onSave(formDataWithImages as any);
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSave)} className="space-y-6 text-start">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6 text-start">
       {/* Basic Info */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
@@ -112,15 +111,13 @@ export default function EditProductForm({ product, onSave, onCancel, isSaving }:
       {/* Images */}
       <div className="space-y-4 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
         <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">{t('imagesLabel')}</h3>
-        {imageFields.map((field, index) => (
-          <div key={field.id} className="flex items-center gap-4">
-            <input {...register(`images.${index}.url`)} placeholder={t('imageUrlPlaceholder')} className="block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
-            <button type="button" onClick={() => removeImage(index)} className="text-red-500 hover:text-red-700">Remove</button>
-          </div>
-        ))}
-        <button type="button" onClick={() => appendImage({ url: '' })} className="rounded-md bg-gray-100 dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-white shadow-sm hover:bg-gray-200">
-          {t('addImageButton')}
-        </button>
+        <ImageUploader
+          productId={product.id}
+          images={images}
+          onImagesChange={setImages}
+          maxImages={10}
+          maxSizeInMB={5}
+        />
       </div>
 
       {/* Dynamic Properties */}

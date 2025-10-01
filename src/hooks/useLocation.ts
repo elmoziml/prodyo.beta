@@ -1,30 +1,24 @@
 
 import { useState, useEffect } from 'react';
-import axios from '@/lib/axios';
-
-interface LocationItem {
-  id: string;
-  name: string;
-  name_ar: string;
-}
+import { fetchWilayas, fetchDairas, fetchCommunes, LocationItem } from '@/services/locationService';
 
 export function useWilayas() {
   const [wilayas, setWilayas] = useState<LocationItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchWilayas = async () => {
+    const loadWilayas = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('/api/wilayas');
-        setWilayas(response.data);
+        const data = await fetchWilayas();
+        setWilayas(data);
       } catch (error) {
         console.error('Failed to fetch wilayas', error);
       } finally {
         setIsLoading(false);
       }
     };
-    fetchWilayas();
+    loadWilayas();
   }, []);
 
   return { wilayas, isLoading };
@@ -36,11 +30,11 @@ export function useDairas(wilayaId: string | null) {
 
   useEffect(() => {
     if (wilayaId) {
-      const fetchDairas = async () => {
+      const loadDairas = async () => {
         try {
           setIsLoading(true);
-          const response = await axios.get(`/api/wilayas/${wilayaId}/dairas`);
-          setDairas(response.data);
+          const data = await fetchDairas(wilayaId);
+          setDairas(data);
         } catch (error) {
           console.error('Failed to fetch dairas', error);
           setDairas([]);
@@ -48,7 +42,7 @@ export function useDairas(wilayaId: string | null) {
           setIsLoading(false);
         }
       };
-      fetchDairas();
+      loadDairas();
     } else {
       setDairas([]);
     }
@@ -63,11 +57,11 @@ export function useCommunes(dairaId: string | null) {
 
   useEffect(() => {
     if (dairaId) {
-      const fetchCommunes = async () => {
+      const loadCommunes = async () => {
         try {
           setIsLoading(true);
-          const response = await axios.get(`/api/dairas/${dairaId}/communes`);
-          setCommunes(response.data);
+          const data = await fetchCommunes(dairaId);
+          setCommunes(data);
         } catch (error) {
           console.error('Failed to fetch communes', error);
           setCommunes([]);
@@ -75,7 +69,7 @@ export function useCommunes(dairaId: string | null) {
           setIsLoading(false);
         }
       };
-      fetchCommunes();
+      loadCommunes();
     } else {
       setCommunes([]);
     }
