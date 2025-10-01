@@ -245,6 +245,12 @@
     "options": "Options",
     "description": "Description",
     "orderSuccess": "Commande passée avec succès !",
-    "orderError": "Échec de la passation de la commande. Veuillez réessayer."
+    "orderError": "Échec de la passation de la commande. Veuillez réessayer.",
+    "wilaya": "Wilaya",
+    "daira": "Daïra",
+    "commune": "Commune",
+    "selectWilaya": "Sélectionnez une wilaya",
+    "selectDaira": "Sélectionnez une daïra",
+    "selectCommune": "Sélectionnez une commune"
   }
 }

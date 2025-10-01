@@ -246,6 +246,12 @@
     "options": "الخيارات",
     "description": "الوصف",
     "orderSuccess": "تم تقديم الطلب بنجاح!",
-    "orderError": "فشل تقديم الطلب. يرجى المحاولة مرة أخرى."
+    "orderError": "فشل تقديم الطلب. يرجى المحاولة مرة أخرى.",
+    "wilaya": "الولاية",
+    "daira": "الدائرة",
+    "commune": "البلدية",
+    "selectWilaya": "اختر ولاية",
+    "selectDaira": "اختر دائرة",
+    "selectCommune": "اختر بلدية"
   }
 }

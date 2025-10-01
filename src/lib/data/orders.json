@@ -355,5 +355,29 @@
       }
     ],
     "total_amount": 2300
+  },
+  {
+    "id": "ord-1759338306026",
+    "display_id": "ORD015",
+    "order_date": "2025-10-01T17:05:06.026Z",
+    "status": "Pending",
+    "customer_name": "Fares Djefaflia",
+    "phone_number": "0554211856",
+    "address": "سطيف, حمام قرقور, ذراع قبيلة",
+    "items": [
+      {
+        "product_id": "prod-1759334757662",
+        "product_name": "قميص كلاسيكي",
+        "quantity": 1,
+        "price": 2300,
+        "available_options": {
+          "size": "f"
+        },
+        "selected_options": {
+          "size": "f"
+        }
+      }
+    ],
+    "total_amount": 2300
   }
 ]

@@ -245,6 +245,12 @@
     "options": "Options",
     "description": "Description",
     "orderSuccess": "Order placed successfully!",
-    "orderError": "Failed to place order. Please try again."
+    "orderError": "Failed to place order. Please try again.",
+    "wilaya": "State",
+    "daira": "District",
+    "commune": "City",
+    "selectWilaya": "Select a state",
+    "selectDaira": "Select a district",
+    "selectCommune": "Select a city"
   }
 }
