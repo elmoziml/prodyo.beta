@@ -1,16 +1,14 @@
--- تعريف جدول العملاء
+-- جدول العملاء
 CREATE TABLE customers (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- المعرف الفريد للعميل
-    full_name VARCHAR(100) NOT NULL, -- الاسم الكامل للعميل
-    email VARCHAR(100) UNIQUE, -- البريد الإلكتروني (فريد)
-    phone VARCHAR(50), -- رقم الهاتف
-    address TEXT, -- العنوان
-    created_at TIMESTAMPTZ DEFAULT NOW() -- تاريخ إنشاء الحساب
+    id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 100000 INCREMENT BY 1) PRIMARY KEY, 
+    full_name VARCHAR(100) NOT NULL,         
+    phone VARCHAR(50),                       
+    address TEXT,                            
+    created_at TIMESTAMPTZ DEFAULT NOW()     
 );
 
--- بيانات تجريبية للعملاء من الطلبات
-INSERT INTO customers (full_name, email)
+-- مثال إدخال
+INSERT INTO customers (full_name, phone, address)
 VALUES
-    ('John Doe', 'john.doe@example.com'), -- جون دو
-    ('Jane Smith', 'jane.smith@example.com'), -- جين سميث
-    ('Sam Wilson', 'sam.wilson@example.com'); -- سام ويلسون
+('يوسف بن عمر', '0555555555', 'الجزائر العاصمة'),
+('ليلى عبد الرحمن', '0666666666', 'وهران');

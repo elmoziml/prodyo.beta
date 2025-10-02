@@ -1,16 +1,23 @@
--- تعريف جدول المستخدمين/الموظفين
-CREATE TABLE users (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- المعرف الفريد للمستخدم
-    full_name VARCHAR(100) NOT NULL, -- الاسم الكامل
-    email VARCHAR(100) UNIQUE NOT NULL, -- البريد الإلكتروني (فريد)
-    password_hash VARCHAR(255) NOT NULL, -- تخزين كلمات المرور المجزأة (hashed)، وليس النص العادي
-    role user_role NOT NULL DEFAULT 'Staff', -- دور المستخدم (الافتراضي: موظف)
-    created_at TIMESTAMPTZ DEFAULT NOW(), -- تاريخ الإنشاء
-    updated_at TIMESTAMPTZ DEFAULT NOW() -- تاريخ آخر تحديث
+-- إنشاء نوع مخصص لأدوار المستخدمين
+CREATE TYPE user_role AS ENUM (
+    'Admin',   -- مدير
+    'Staff',   -- موظف
+    'Viewer'   -- مشاهد
 );
 
--- بيانات تجريبية للمستخدمين
-INSERT INTO users (full_name, email, password_hash, role)
-VALUES
-    ('Admin User', 'admin@prodyo.com', 'hashed_password_placeholder_1', 'Admin'), -- مستخدم مدير
-    ('Staff User', 'staff@prodyo.com', 'hashed_password_placeholder_2', 'Staff'); -- مستخدم موظف
+-- جدول المستخدمين
+CREATE TABLE users (
+    id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 100000 INCREMENT BY 1) PRIMARY KEY, -- رقم مكون من 6 أرقام
+    full_name VARCHAR(100) NOT NULL,           
+    email VARCHAR(100) UNIQUE NOT NULL,        
+    password VARCHAR(255) NOT NULL,            
+    role user_role NOT NULL DEFAULT 'Staff',   
+    created_at TIMESTAMPTZ DEFAULT NOW(),      
+    updated_at TIMESTAMPTZ DEFAULT NOW()       
+);
+
+-- مثال إدخال
+INSERT INTO users (full_name, email, password, role)
+VALUES 
+('فارس محمد', 'fares@example.com', 'hashed_pass', 'Admin'),
+('أحمد بن علي', 'ahmed@example.com', 'hashed_pass', 'Staff');
