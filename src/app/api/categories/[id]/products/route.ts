@@ -1,5 +1,5 @@
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { Product } from '@/types';
@@ -16,7 +16,7 @@ function readJsonFile(filePath: string) {
 }
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   await new Promise(resolve => setTimeout(resolve, 300));
