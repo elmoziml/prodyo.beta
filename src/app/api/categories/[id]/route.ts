@@ -1,75 +1,65 @@
 
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import { Category } from '@/types';
+import { queryDB } from '@/lib/utils/db';
 
-const categoriesPath = path.join(process.cwd(), 'src/lib/data/categories.json');
-
-function readCategoriesFile(): Category[] {
-  const data = fs.readFileSync(categoriesPath, 'utf-8');
-  return JSON.parse(data);
-}
-
-function writeCategoriesFile(data: Category[]) {
-  fs.writeFileSync(categoriesPath, JSON.stringify(data, null, 2));
-}
-
-// GET a single category by ID
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
-    const categories = readCategoriesFile();
-    const category = categories.find(c => c.id === params.id);
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 200));
+    const { id } = params;
+    const result = await queryDB('SELECT id, name, description FROM categories WHERE id = $1', [id]);
 
-    if (!category) {
+    if (result.rows.length > 0) {
+      return NextResponse.json(result.rows[0]);
+    } else {
       return new NextResponse('Category not found', { status: 404 });
     }
-
-    return NextResponse.json(category);
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching category:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
-
-// UPDATE a category
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
+    const { id } = params;
     const { name, description } = await request.json();
-    const categories = readCategoriesFile();
-    const categoryIndex = categories.findIndex(c => c.id === params.id);
 
-    if (categoryIndex === -1) {
-      return new NextResponse('Category not found', { status: 404 });
+    if (!name) {
+      return new NextResponse('Name is required', { status: 400 });
     }
 
-    const updatedCategory = { ...categories[categoryIndex], name, description };
-    categories[categoryIndex] = updatedCategory;
-    writeCategoriesFile(categories);
+    const result = await queryDB(
+      'UPDATE categories SET name = $1, description = $2 WHERE id = $3 RETURNING id, name, description',
+      [name, description, id]
+    );
 
-    return NextResponse.json(updatedCategory);
-  } catch (error) {
-    console.error(error);
+    if (result.rows.length > 0) {
+      return NextResponse.json(result.rows[0]);
+    } else {
+      return new NextResponse('Category not found', { status: 404 });
+    }
+  } catch (error: any) {
+    console.error('Error updating category:', error);
+    if (error.code === '23505') { // Unique violation error code
+      return new NextResponse('Category with this name already exists', { status: 409 });
+    }
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
-// DELETE a category
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const categories = readCategoriesFile();
-    const updatedCategories = categories.filter(c => c.id !== params.id);
+    const { id } = params;
+    const result = await queryDB('DELETE FROM categories WHERE id = $1 RETURNING id', [id]);
 
-    if (categories.length === updatedCategories.length) {
+    if (result.rows.length > 0) {
+      return new NextResponse(null, { status: 204 });
+    } else {
       return new NextResponse('Category not found', { status: 404 });
     }
-
-    writeCategoriesFile(updatedCategories);
-
-    return new NextResponse(null, { status: 204 }); // No Content
   } catch (error) {
-    console.error(error);
+    console.error('Error deleting category:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
