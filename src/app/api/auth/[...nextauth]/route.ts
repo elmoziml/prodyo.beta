@@ -1,44 +1,72 @@
-import NextAuth from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { queryDB } from "@/lib/utils/db";
+import { User } from "@/types";
 
-export const authOptions = {
-  // Configure one or more authentication providers
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      // The name to display on the sign in form (e.g. "Sign in with...")
       name: "Credentials",
-      // `credentials` is used to generate a form on the sign in page.
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
-      // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "test@example.com" },
-        password: { label: "Password", type: "password" }
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "test@example.com",
+        },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(_credentials, _req) {
-        // Add logic here to look up the user from the credentials supplied
-        // IMPORTANT: DON'T ACTUALLY USE THIS IN PRODUCTION
-        // This is a placeholder for demonstration purposes.
-        // You should connect this to your database to find the user.
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
-          return user
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null
-
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return null;
         }
-      }
-    })
+
+        try {
+          const result = await queryDB("SELECT * FROM users WHERE email = $1", [
+            credentials.email,
+          ]);
+
+          const user = result.rows[0];
+
+          if (user && user.password === credentials.password) {
+            return {
+              id: user.id,
+              name: user.full_name,
+              email: user.email,
+              role: user.role,
+            } as any;
+          }
+          return null;
+        } catch (error) {
+          console.error("Authorize error:", error);
+          return null;
+        }
+      },
+    }),
   ],
   pages: {
-    // signIn: '/auth/signin', // Uncomment if you want to create a custom sign-in page
-  }
-}
+    signIn: "/login",
+  },
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = (user as any).role;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        (session.user as any).id = token.id;
+        (session.user as any).role = token.role;
+      }
+      return session;
+    },
+  },
+};
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

@@ -44,3 +44,16 @@ export interface Order {
   address?: string;
   items: any[];
 }
+
+export interface User {
+  id: string;
+  full_name: string;
+  email: string;
+  role: "Admin" | "Staff";
+}
+
+export interface SidebarLink {
+  title: string;
+  path: string;
+  icon: React.ComponentType<any>;
+}

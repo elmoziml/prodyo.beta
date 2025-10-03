@@ -19,5 +19,5 @@ CREATE TABLE users (
 -- مثال إدخال
 INSERT INTO users (full_name, email, password, role)
 VALUES 
-('فارس محمد', 'fares@example.com', 'hashed_pass', 'Admin'),
-('أحمد بن علي', 'ahmed@example.com', 'hashed_pass', 'Staff');
+('فارس محمد', 'fares@example.com', '12345', 'Admin'),
+('أحمد بن علي', 'ahmed@example.com', '12345', 'Staff');
