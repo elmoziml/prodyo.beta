@@ -65,7 +65,8 @@
       "expiresOn": "Expire le",
       "verificationWarning": "Votre e-mail ou votre téléphone n'est pas vérifié. Veuillez mettre à jour votre profil.",
       "settings": "Paramètres",
-      "publicProfile": "Profil public"
+      "publicProfile": "Profil public",
+      "logout": "Déconnexion"
     }
   },
   "OrdersPage": {

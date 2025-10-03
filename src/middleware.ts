@@ -1,7 +1,8 @@
 import createMiddleware from "next-intl/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { withAuth } from "next-auth/middleware";
-import { routing } from "./i18n/routing.ts";
+import { getToken } from "next-auth/jwt";
+import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -19,7 +20,20 @@ const authMiddleware = withAuth(
   }
 );
 
-export default function middleware(req: NextRequest) {
+export default async function middleware(req: NextRequest) {
+  const token = await getToken({ req });
+  const { pathname } = req.nextUrl;
+
+  // Get locale from path
+  const locale =
+    routing.locales.find((l) => pathname.startsWith(`/${l}/`)) ||
+    routing.defaultLocale;
+
+  // Redirect authenticated users from login/register page to home
+  if (token && (pathname.endsWith("/login") || pathname.endsWith("/register"))) {
+    return NextResponse.redirect(new URL(`/${locale}/home`, req.url));
+  }
+
   // Expanded public paths based on the project structure
   const publicPaths = [
     "/",
@@ -30,8 +44,6 @@ export default function middleware(req: NextRequest) {
     "/learn",
     "/products",
   ];
-
-  const pathname = req.nextUrl.pathname;
 
   // Helper function to check if a path is public
   const isPublic = (path: string) => {

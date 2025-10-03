@@ -65,7 +65,8 @@
       "expiresOn": "Expires on",
       "verificationWarning": "Your email or phone is not verified. Please update your profile.",
       "settings": "Settings",
-      "publicProfile": "Public Profile"
+      "publicProfile": "Public Profile",
+      "logout": "Logout"
     }
   },
   "OrdersPage": {

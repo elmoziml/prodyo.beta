@@ -65,7 +65,8 @@
       "expiresOn": "يخلاص في",
       "verificationWarning": "الإيميل ولا التيليفون تاعك ماشي مأكدين. روح بدّل البروفيل تاعك.",
       "settings": "الإعدادات",
-      "publicProfile": "البروفيل العام"
+      "publicProfile": "البروفيل العام",
+      "logout": "أخرج"
     }
   },
   "OrdersPage": {

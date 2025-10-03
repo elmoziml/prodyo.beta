@@ -11,37 +11,42 @@ import {
   FaExclamationTriangle,
   FaCog,
   FaUserEdit,
+  FaSignOutAlt,
 } from 'react-icons/fa';
 import { Link } from '@/i18n/navigation';
 import clsx from 'clsx';
 
-// Define the shape of the dummy user object
-interface DummyUser {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-  image: string;
-  emailVerified: boolean;
-  phoneVerified: boolean;
-  accountStatus: string;
-  subscription: {
-    plan: string;
-    expires: string;
-  };
-}
+import { useSession, signOut } from 'next-auth/react';
 
 interface ProfileDropdownProps {
-  user: DummyUser;
   onClose: () => void;
 }
 
-export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps) {
+export default function ProfileDropdown({ onClose }: ProfileDropdownProps) {
+  const { data: session } = useSession();
+  const user = session?.user;
   const t = useTranslations('Dashboard.ProfileDropdown');
   const locale = useLocale();
   const isRtl = locale === 'ar' || locale === 'dz';
 
-  const showWarning = !user.emailVerified || !user.phoneVerified;
+  // Placeholder for actual verification status and subscription details
+  // You would typically get these from your user object or a separate API call
+  const emailVerified = user?.emailVerified ?? false; // Assuming emailVerified exists on user object
+  const phoneVerified = user?.phoneVerified ?? false; // Assuming phoneVerified exists on user object
+  const accountStatus = emailVerified && phoneVerified ? 'verified' : 'unverified';
+  const subscriptionPlan = 'Free'; // Placeholder
+  const subscriptionExpires = 'N/A'; // Placeholder
+
+  const showWarning = !emailVerified || !phoneVerified;
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: '/login' }); // Redirect to login page after logout
+    onClose();
+  };
+
+  if (!user) {
+    return null; // Or a loading spinner, or redirect to login
+  }
 
   return (
     <div
@@ -55,14 +60,14 @@ export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps)
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
             {user.image ? (
-              <img src={user.image} alt={user.name} className="w-full h-full object-cover" />
+              <img src={user.image} alt={user.name || 'User'} className="w-full h-full object-cover" />
             ) : (
               <FaUser className="text-gray-500 w-8 h-8" />
             )}
           </div>
           <div className={clsx("flex-grow", isRtl ? "mr-3" : "ml-3")}>
-            <p className="text-base font-bold text-gray-900 dark:text-white">{user.name}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{user.username}</p>
+            <p className="text-base font-bold text-gray-900 dark:text-white">{user.name || 'User'}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{user.email}</p>
           </div>
         </div>
       </div>
@@ -72,7 +77,7 @@ export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps)
         <ul className="space-y-3">
           {/* Account Status */}
           <li className="flex items-center">
-            {user.accountStatus === 'verified' ? (
+            {accountStatus === 'verified' ? (
               <FaCheckCircle className="w-5 h-5 text-green-500" />
             ) : (
               <FaTimesCircle className="w-5 h-5 text-red-500" />
@@ -80,7 +85,7 @@ export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps)
             <div className={clsx(isRtl ? "mr-3" : "ml-3")}>
               <p className="text-sm font-medium text-gray-800 dark:text-gray-300">{t('accountStatus')}</p>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                {user.accountStatus === 'verified' ? t('verified') : t('unverified')}
+                {accountStatus === 'verified' ? t('verified') : t('unverified')}
               </p>
             </div>
           </li>
@@ -91,7 +96,7 @@ export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps)
             <div className={clsx(isRtl ? "mr-3" : "ml-3")}>
               <p className="text-sm font-medium text-gray-800 dark:text-gray-300">{t('subscriptionPlan')}</p>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                {user.subscription.plan} ({t('expiresOn')} {user.subscription.expires})
+                {subscriptionPlan} ({t('expiresOn')} {subscriptionExpires})
               </p>
             </div>
           </li>
@@ -131,8 +136,17 @@ export default function ProfileDropdown({ user, onClose }: ProfileDropdownProps)
               {t('publicProfile')}
             </Link>
           </li>
+          <li>
+            <button
+              onClick={handleSignOut}
+              className="flex items-center w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-[20px] text-red-500"
+            >
+              <FaSignOutAlt className={clsx("w-4 h-4", isRtl ? "ml-2" : "mr-2")} />
+              {t('logout')}
+            </button>
+          </li>
         </ul>
       </div>
     </div>
-  );
-}
+    );
+  }
