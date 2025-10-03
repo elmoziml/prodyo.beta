@@ -142,7 +142,9 @@
       "options": "الخيارات لي كاينة",
       "close": "أغلق",
       "loading": "يشارجي في لي ديتاي...",
-      "error": "ماقدرناش نجيبو لي ديتاي."
+      "error": "ماقدرناش نجيبو لي ديتاي.",
+      "createdAt": "تاريخ الإنشاء",
+      "updatedAt": "تاريخ آخر تحديث"
     },
     "addProduct": {
       "title": "زيد منتوج جديد",
@@ -165,7 +167,15 @@
       "imageUrlPlaceholder": "https://example.com/image.png",
       "addImageButton": "زيد تصويرة",
       "saveButton": "سجّل المنتوج",
-      "cancelButton": "أنولي"
+      "cancelButton": "أنولي",
+      "productKindLabel": "نوع المنتوج",
+      "physicalProduct": "منتوج مادي",
+      "digitalProduct": "منتوج رقمي",
+      "isPublishedLabel": "نشر المنتوج",
+      "inStock": "متوفر",
+      "outOfStock": "خلاص الستوك",
+      "published": "منشور",
+      "notPublished": "ماشي منشور"
     },
     "editProduct": {
       "title": "بدّل المنتوج",

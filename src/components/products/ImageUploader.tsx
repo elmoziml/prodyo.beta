@@ -72,7 +72,7 @@ export default function ImageUploader({
         const result = await uploadProductImage(productId, file);
         
         setUploadProgress(prev => ({ ...prev, [file.name]: 100 }));
-        newImages.push(result.imagePath);
+        newImages.push(result.imageUrl); // Use imageUrl here
       }
 
       // Update images list
@@ -88,13 +88,17 @@ export default function ImageUploader({
     }
   };
 
-  const handleDelete = async (imagePath: string) => {
+  const handleDelete = async (imageUrl: string) => {
     try {
+      // The imageId is the relative path from UPLOAD_BASE_DIR, which is part of the imageUrl
+      // Example imageUrl: /api/images/products/123/image-123.jpg
+      // We need to extract /products/123/image-123.jpg
+      const imagePath = imageUrl.replace('/api/images', '');
       const imageId = extractImageId(imagePath);
       await deleteProductImage(productId, imageId);
       
       // Update images list
-      const updatedImages = images.filter(img => img !== imagePath);
+      const updatedImages = images.filter(img => img !== imageUrl);
       onImagesChange(updatedImages);
     } catch (err: any) {
       setError(err.message || 'فشل حذف الصورة');
@@ -209,11 +213,11 @@ export default function ImageUploader({
             الصور المرفوعة ({images.length}/{maxImages})
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {images.map((imagePath, index) => (
-              <div key={imagePath} className="relative group">
+            {images.map((imageUrl, index) => (
+              <div key={imageUrl} className="relative group">
                 <div className="aspect-square rounded-lg overflow-hidden border-2 border-gray-200 dark:border-gray-700">
                   <Image
-                    src={imagePath}
+                    src={imageUrl.replace('/api/images', '')}
                     alt={`Product image ${index + 1}`}
                     width={200}
                     height={200}
@@ -222,7 +226,7 @@ export default function ImageUploader({
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleDelete(imagePath)}
+                  onClick={() => handleDelete(imageUrl)}
                   className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
                   title="حذف الصورة"
                 >

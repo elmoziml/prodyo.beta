@@ -133,7 +133,7 @@ export default function ProductsPage() {
                     {product.stock}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{product.price.toFixed(2)} دج</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{parseFloat(product.price as any).toFixed(2)} دج</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start space-x-4">
                   <button onClick={() => handleOpenDetailModal(product.id)} className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 font-semibold">
                     {t('detailsButton')}

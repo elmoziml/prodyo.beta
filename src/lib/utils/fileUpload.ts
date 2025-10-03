@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+// Define the base directory for all uploads, outside of the public folder
+export const UPLOAD_BASE_DIR = path.join(process.cwd(), 'uploads');
+
 // Allowed image types
 const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
 const ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
@@ -68,7 +71,7 @@ export function deleteEmptyDirectory(dirPath: string): void {
  * Delete all images for a product
  */
 export async function deleteProductImages(productId: string): Promise<void> {
-  const productDir = path.join(process.cwd(), 'public', 'uploads', 'products', productId);
+  const productDir = path.join(UPLOAD_BASE_DIR, 'products', productId);
   
   try {
     if (fs.existsSync(productDir)) {
@@ -86,7 +89,8 @@ export async function deleteProductImages(productId: string): Promise<void> {
  */
 export function deleteImageFile(imagePath: string): void {
   try {
-    const fullPath = path.join(process.cwd(), 'public', imagePath);
+    // imagePath is expected to be relative to UPLOAD_BASE_DIR, e.g., /products/productId/fileName.jpg
+    const fullPath = path.join(UPLOAD_BASE_DIR, imagePath);
     if (fs.existsSync(fullPath)) {
       fs.unlinkSync(fullPath);
       console.log(`Deleted image: ${imagePath}`);
@@ -101,14 +105,15 @@ export function deleteImageFile(imagePath: string): void {
  * Get product images directory path
  */
 export function getProductImagesDir(productId: string): string {
-  return path.join(process.cwd(), 'public', 'uploads', 'products', productId);
+  return path.join(UPLOAD_BASE_DIR, 'products', productId);
 }
 
 /**
- * Get relative image path for storage in database
+ * Get relative image path for storage in database and serving via API
  */
 export function getRelativeImagePath(productId: string, fileName: string): string {
-  return `/uploads/products/${productId}/${fileName}`;
+  // This path will be used to construct the URL for the new image serving API route
+  return `/products/${productId}/${fileName}`;
 }
 
 /**
@@ -140,7 +145,7 @@ export async function saveUploadedFile(
     const buffer = Buffer.from(await file.arrayBuffer());
     fs.writeFileSync(filePath, buffer);
     
-    // Return relative path
+    // Return relative path for database storage and API serving
     return getRelativeImagePath(productId, fileName);
   } catch (error) {
     console.error('Error saving file:', error);

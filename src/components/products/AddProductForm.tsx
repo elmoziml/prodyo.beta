@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import { productPropertyKeys } from '@/lib/data/properties';
 import { useCategories } from '@/hooks/useCategories';
 import ImageUploader from './ImageUploader';
+import { ProductKind } from '@/types'; // Import ProductKind
 
 // Zod schema for validation
 const propertySchema = z.object({
@@ -18,17 +19,22 @@ const propertySchema = z.object({
 
 const productSchema = z.object({
   name: z.string().min(3, "Product name is required"),
-  category_id: z.string().optional(),
+  category_id: z.preprocess(
+    (val) => (val === '' ? null : Number(val)),
+    z.number().int().positive("Category ID must be a positive integer").nullable().optional()
+  ),
   price: z.preprocess((a) => parseFloat(z.string().parse(a)), z.number().positive("Price must be a positive number")),
   stock: z.preprocess((a) => parseInt(z.string().parse(a), 10), z.number().int().min(0, "Stock cannot be negative")),
   description: z.string().optional(),
   properties: z.array(propertySchema).optional(),
+  kind: z.enum(['PHYSICAL', 'DIGITAL']).default('PHYSICAL'),
+  is_published: z.boolean().default(false),
 });
 
 type ProductFormData = z.infer<typeof productSchema>;
 
 interface AddProductFormProps {
-  onSave: (data: ProductFormData) => void;
+  onSave: (data: ProductFormData & { images: string[] }) => void; // Update onSave to include images
   onCancel: () => void;
   isSaving: boolean;
 }
@@ -37,7 +43,7 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
   const t = useTranslations('ProductsPage.addProduct');
   const { data: categories, isLoading: isLoadingCategories } = useCategories();
   const [images, setImages] = useState<string[]>([]);
-  const [tempProductId] = useState(`temp-${Date.now()}`);
+  const [tempProductId] = useState(`temp-${Date.now()}`); // This will be used for temporary image uploads
   
   const {
     register,
@@ -48,6 +54,8 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
     resolver: zodResolver(productSchema),
     defaultValues: {
       properties: [],
+      kind: 'PHYSICAL',
+      is_published: false,
     },
   });
 
@@ -62,7 +70,7 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
       ...data,
       images,
     };
-    onSave(formDataWithImages as any);
+    onSave(formDataWithImages);
   };
 
   return (
@@ -93,6 +101,19 @@ export default function AddProductForm({ onSave, onCancel, isSaving }: AddProduc
           <label htmlFor="stock" className="block text-sm font-medium text-gray-700 dark:text-gray-300">{t('stockLabel')}</label>
           <input {...register('stock')} id="stock" type="number" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
           {errors.stock && <p className="text-red-500 text-xs mt-1">{errors.stock.message}</p>}
+        </div>
+        <div>
+          <label htmlFor="kind" className="block text-sm font-medium text-gray-700 dark:text-gray-300">{t('productKindLabel')}</label>
+          <select {...register('kind')} id="kind" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+            <option value="PHYSICAL">{t('physicalProduct')}</option>
+            <option value="DIGITAL">{t('digitalProduct')}</option>
+          </select>
+          {errors.kind && <p className="text-red-500 text-xs mt-1">{errors.kind.message}</p>}
+        </div>
+        <div className="flex items-center mt-6">
+          <input {...register('is_published')} id="is_published" type="checkbox" className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600" />
+          <label htmlFor="is_published" className="ml-2 block text-sm font-medium text-gray-700 dark:text-gray-300">{t('isPublishedLabel')}</label>
+          {errors.is_published && <p className="text-red-500 text-xs mt-1">{errors.is_published.message}</p>}
         </div>
         <div className="md:col-span-2">
           <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300">{t('descriptionLabel')}</label>

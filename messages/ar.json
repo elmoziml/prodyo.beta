@@ -143,7 +143,9 @@
       "options": "الخيارات المتاحة",
       "close": "إغلاق",
       "loading": "جاري تحميل تفاصيل المنتج...",
-      "error": "تعذر تحميل تفاصيل المنتج."
+      "error": "تعذر تحميل تفاصيل المنتج.",
+      "createdAt": "تاريخ الإنشاء",
+      "updatedAt": "تاريخ آخر تحديث"
     },
     "addProduct": {
       "title": "إضافة منتج جديد",
@@ -166,7 +168,15 @@
       "imageUrlPlaceholder": "https://example.com/image.png",
       "addImageButton": "إضافة صورة",
       "saveButton": "حفظ المنتج",
-      "cancelButton": "إلغاء"
+      "cancelButton": "إلغاء",
+      "productKindLabel": "نوع المنتج",
+      "physicalProduct": "منتج مادي",
+      "digitalProduct": "منتج رقمي",
+      "isPublishedLabel": "نشر المنتج",
+      "inStock": "في المخزون",
+      "outOfStock": "نفد المخزون",
+      "published": "منشور",
+      "notPublished": "غير منشور"
     },
     "editProduct": {
       "title": "تعديل المنتج",

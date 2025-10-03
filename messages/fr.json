@@ -142,7 +142,9 @@
       "options": "Options disponibles",
       "close": "Fermer",
       "loading": "Chargement des détails du produit...",
-      "error": "Impossible de charger les détails du produit."
+      "error": "Impossible de charger les détails du produit.",
+      "createdAt": "Date de création",
+      "updatedAt": "Dernière mise à jour"
     },
     "addProduct": {
       "title": "Ajouter un nouveau produit",
@@ -165,7 +167,15 @@
       "imageUrlPlaceholder": "https://example.com/image.png",
       "addImageButton": "Ajouter une image",
       "saveButton": "Enregistrer le produit",
-      "cancelButton": "Annuler"
+      "cancelButton": "Annuler",
+      "productKindLabel": "Type de produit",
+      "physicalProduct": "Produit physique",
+      "digitalProduct": "Produit numérique",
+      "isPublishedLabel": "Publier le produit",
+      "inStock": "En stock",
+      "outOfStock": "En rupture de stock",
+      "published": "Publié",
+      "notPublished": "Non publié"
     },
     "editProduct": {
       "title": "Modifier le produit",

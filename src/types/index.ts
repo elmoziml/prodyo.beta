@@ -1,5 +1,5 @@
 export interface Category {
-  id: string;
+  id: number;
   name: string;
   description: string;
 }
@@ -8,17 +8,21 @@ export interface CategoryWithProducts extends Category {
   products: Product[];
 }
 
+export type ProductKind = 'PHYSICAL' | 'DIGITAL';
+
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   price: number;
   stock: number;
-  category_id: string;
+  category_id: number | null; // Can be null if ON DELETE SET NULL
   description: string;
   available_options?: {
     [key: string]: string[];
   };
   images?: string[];
+  kind: ProductKind;
+  is_published: boolean;
   created_at?: string;
   updated_at?: string;
 }

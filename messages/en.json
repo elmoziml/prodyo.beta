@@ -142,7 +142,9 @@
       "options": "Available Options",
       "close": "Close",
       "loading": "Loading product details...",
-      "error": "Could not load product details."
+      "error": "Could not load product details.",
+      "createdAt": "Created At",
+      "updatedAt": "Last Updated"
     },
     "addProduct": {
       "title": "Add New Product",
@@ -165,7 +167,15 @@
       "imageUrlPlaceholder": "https://example.com/image.png",
       "addImageButton": "Add Image",
       "saveButton": "Save Product",
-      "cancelButton": "Cancel"
+      "cancelButton": "Cancel",
+      "productKindLabel": "Product Type",
+      "physicalProduct": "Physical Product",
+      "digitalProduct": "Digital Product",
+      "isPublishedLabel": "Publish Product",
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock",
+      "published": "Published",
+      "notPublished": "Not Published"
     },
     "editProduct": {
       "title": "Edit Product",
