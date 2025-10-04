@@ -4,11 +4,12 @@
 import { useTranslations } from 'next-intl';
 import { format } from 'date-fns';
 import { useOrderDetail } from '@/hooks/useOrderDetail';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUpdateOrder } from '@/hooks/useUpdateOrder';
+import { OrderItem, OrderStatus } from '@/types';
 
 interface OrderDetailModalProps {
-  orderId: string | null;
+  orderId: number | null;
   onClose: () => void;
 }
 
@@ -16,17 +17,23 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
   const t = useTranslations('OrdersPage.modal');
   const tStatus = useTranslations('OrderStatus');
   const { data: order, isLoading, isError } = useOrderDetail(orderId);
-  const [status, setStatus] = useState(order?.status || '');
+  const [status, setStatus] = useState<OrderStatus | ''>(order?.status || '');
   const updateOrderMutation = useUpdateOrder();
 
-  const orderStatuses = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Canceled'];
+  useEffect(() => {
+    if (order) {
+      setStatus(order.status);
+    }
+  }, [order]);
+
+  const orderStatuses: OrderStatus[] = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Canceled', 'Returned'];
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setStatus(e.target.value);
+    setStatus(e.target.value as OrderStatus);
   };
 
   const handleSaveStatus = () => {
-    if (orderId) {
+    if (orderId && status) {
       updateOrderMutation.mutate({ orderId, status });
     }
   };
@@ -65,26 +72,16 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
         </div>
       </div>
 
-      <div class="bg-gray-50 p-4 rounded-lg mb-8">
-        <h4 class="text-lg font-semibold text-gray-700 mb-2">{t('customerInfo')}</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-          {order.customer ? (
-            <>
-              <p><strong class="font-medium text-gray-600">{t('name')}:</strong> {order.customer.full_name}</p>
-              <p><strong class="font-medium text-gray-600">{t('email')}:</strong> {order.customer.email}</p>
-              <p><strong class="font-medium text-gray-600">{t('phone')}:</strong> {order.customer.phone}</p>
-              <p><strong class="font-medium text-gray-600">{t('address')}:</strong> {order.customer.address}</p>
-            </>
-          ) : (
-            <>
-              <p><strong class="font-medium text-gray-600">{t('name')}:</strong> {order.customer_name}</p>
-              <p><strong class="font-medium text-gray-600">{t('phone')}:</strong> {order.phone_number}</p>
-              <p><strong class="font-medium text-gray-600">{t('address')}:</strong> {order.address}</p>
-            </>
-          )}
-          <div class="flex items-center gap-2">
-            <strong class="font-medium text-gray-600">{t('status')}:</strong>
-            <select value={status} onChange={handleStatusChange} class="p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600">
+      <div className="bg-gray-50 p-4 rounded-lg mb-8">
+        <h4 className="text-lg font-semibold text-gray-700 mb-2">{t('customerInfo')}</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <p><strong className="font-medium text-gray-600">{t('name')}:</strong> {order.customer_name}</p>
+            {order.email && <p><strong className="font-medium text-gray-600">{t('email')}:</strong> {order.email}</p>}
+            <p><strong className="font-medium text-gray-600">{t('phone')}:</strong> {order.phone_number}</p>
+            <p><strong className="font-medium text-gray-600">{t('address')}:</strong> {order.address}</p>
+          <div className="flex items-center gap-2">
+            <strong className="font-medium text-gray-600">{t('status')}:</strong>
+            <select value={status} onChange={handleStatusChange} className="p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600">
               {orderStatuses.map(s => (
                 <option key={s} value={s}>{tStatus(s)}</option>
               ))}
@@ -105,7 +102,7 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {order.items.map((item: any) => (
+              {order.items.map((item: OrderItem) => (
                 <tr key={item.id}>
                   <td className="p-3">
                     <p className="font-medium text-gray-800">{item.product_name}</p>
@@ -120,14 +117,14 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
                     )}
                   </td>
                   <td className="p-3 text-center">{item.quantity}</td>
-                  <td className="p-3 text-right font-medium">{(item.price_at_purchase * item.quantity).toFixed(2)} دج</td>
+                  <td className="p-3 text-right font-medium">{(parseFloat(item.price_at_purchase as any) * item.quantity).toFixed(2)} دج</td>
                 </tr>
               ))}
             </tbody>
             <tfoot className="bg-gray-50">
               <tr className="font-bold">
                 <td colSpan={2} className="p-3 text-right text-gray-700">{t('total')}</td>
-                <td className="p-3 text-right text-xl text-gray-900">{order.total_amount.toFixed(2)} دج</td>
+                <td className="p-3 text-right text-xl text-gray-900">{parseFloat(order.total_amount as any).toFixed(2)} دج</td>
               </tr>
             </tfoot>
           </table>
@@ -136,7 +133,7 @@ export default function OrderDetailModal({ orderId, onClose }: OrderDetailModalP
 
       <div className="mt-10 flex justify-end gap-4 no-print">
         <button onClick={handleSaveStatus} disabled={updateOrderMutation.isPending} className="px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 disabled:opacity-50 focus:outline-none">
-          {updateOrderMutation.isPending ? 'Saving...' : 'Save'}
+          {updateOrderMutation.isPending ? t('saving') : t('save')}
         </button>
         <button onClick={handlePrint} className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 focus:outline-none">
           {t('print')}

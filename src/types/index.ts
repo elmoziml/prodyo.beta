@@ -35,18 +35,29 @@ export interface Customer {
   address: string;
 }
 
+export type OrderStatus = 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Canceled' | 'Returned';
+
+export interface OrderItem {
+  id: number;
+  product_id: number;
+  product_name: string;
+  quantity: number;
+  price_at_purchase: number;
+  selected_options: { [key: string]: string };
+}
+
 export interface Order {
-  id: string;
+  id: number;
   display_id: string;
-  customer_id?: string;
-  status: 'Pending' | 'Shipped' | 'Delivered' | 'Canceled';
+  customer_id?: number;
+  status: OrderStatus;
   total_amount: number;
   order_date: string;
-  customer?: Customer;
   customer_name?: string;
   phone_number?: string;
   address?: string;
-  items: any[];
+  email?: string;
+  items: OrderItem[];
 }
 
 export interface User {

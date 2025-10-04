@@ -4,15 +4,16 @@
 import { useState, useMemo } from 'react';
 import { useOrders } from '@/hooks/useOrders';
 import { useUpdateOrder } from '@/hooks/useUpdateOrder';
+import { useDeleteOrder } from '@/hooks/useDeleteOrder';
 
 import { format, parseISO } from 'date-fns';
 import { useTranslations } from 'next-intl';
 import Modal from '../ui/Modal';
 import OrderDetailModal from './OrderDetailModal';
 import OrderFilters from './OrderFilters';
-import { Order } from '@/types';
+import { Order, OrderStatus } from '@/types';
 
-const getStatusChip = (status: Order['status']) => {
+const getStatusChip = (status: OrderStatus) => {
   const baseClasses = 'px-2 py-1 text-xs font-medium rounded-full inline-block';
   switch (status) {
     case 'Processing':
@@ -23,6 +24,8 @@ const getStatusChip = (status: Order['status']) => {
       return `bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 ${baseClasses}`;
     case 'Canceled':
       return `bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 ${baseClasses}`;
+    case 'Returned':
+      return `bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 ${baseClasses}`;
     case 'Pending':
       return `bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 ${baseClasses}`;
     default:
@@ -30,13 +33,19 @@ const getStatusChip = (status: Order['status']) => {
   }
 };
 
+const orderStatuses: OrderStatus[] = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Canceled', 'Returned'];
+
 export default function OrdersPage() {
   const t = useTranslations('OrdersPage');
   const tStatus = useTranslations('OrderStatus');
   const { data: orders, isLoading, isError } = useOrders();
   const updateOrderMutation = useUpdateOrder();
+  const deleteOrderMutation = useDeleteOrder();
 
-  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+  const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [orderToDelete, setOrderToDelete] = useState<number | null>(null);
+
   const [filters, setFilters] = useState({
     searchTerm: '',
     status: '',
@@ -44,7 +53,7 @@ export default function OrdersPage() {
     endDate: null,
   });
 
-  const handleStatusChange = (orderId: string, newStatus: Order['status']) => {
+  const handleStatusChange = (orderId: number, newStatus: OrderStatus) => {
     updateOrderMutation.mutate({ orderId, status: newStatus });
   };
 
@@ -53,16 +62,13 @@ export default function OrdersPage() {
     return orders.filter((order: Order) => {
       const { searchTerm, status, startDate, endDate } = filters;
       
-      // Search term filter
       const searchTermLower = searchTerm.toLowerCase();
       const matchesSearch = searchTerm ? 
         order.display_id.toLowerCase().includes(searchTermLower) || 
-        (order.customer?.full_name || order.customer_name || '').toLowerCase().includes(searchTermLower) : true;
+        (order.customer_name || '').toLowerCase().includes(searchTermLower) : true;
 
-      // Status filter
       const matchesStatus = status ? order.status === status : true;
 
-      // Date filter
       const orderDate = parseISO(order.order_date);
       const matchesStartDate = startDate ? orderDate >= new Date(startDate) : true;
       const matchesEndDate = endDate ? orderDate <= new Date(endDate) : true;
@@ -75,12 +81,32 @@ export default function OrdersPage() {
     setFilters(newFilters);
   };
 
-  const handleOpenModal = (orderId: string) => {
+  const handleOpenDetailModal = (orderId: number) => {
     setSelectedOrderId(orderId);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseDetailModal = () => {
     setSelectedOrderId(null);
+  };
+
+  const handleOpenDeleteModal = (orderId: number) => {
+    setOrderToDelete(orderId);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setOrderToDelete(null);
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (orderToDelete) {
+      deleteOrderMutation.mutate(orderToDelete, {
+        onSuccess: () => {
+          handleCloseDeleteModal();
+        }
+      });
+    }
   };
 
   if (isLoading) {
@@ -118,30 +144,35 @@ export default function OrdersPage() {
               filteredOrders.map((order: Order) => (
                 <tr key={order.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white text-start">{order.display_id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.customer ? order.customer.full_name : order.customer_name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.customer_name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">
                     {format(new Date(order.order_date), 'dd/MM/yyyy')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-start">
                     <select 
                       value={order.status}
-                      onChange={(e) => handleStatusChange(order.id, e.target.value as Order['status'])}
+                      onChange={(e) => handleStatusChange(order.id, e.target.value as OrderStatus)}
                       className={`${getStatusChip(order.status)} border-none outline-none appearance-none bg-transparent cursor-pointer`}
                       disabled={updateOrderMutation.isPending}
                     >
-                      <option value="Pending">{tStatus('Pending')}</option>
-                      <option value="Shipped">{tStatus('Shipped')}</option>
-                      <option value="Delivered">{tStatus('Delivered')}</option>
-                      <option value="Canceled">{tStatus('Canceled')}</option>
+                      {orderStatuses.map(s => (
+                        <option key={s} value={s}>{tStatus(s)}</option>
+                      ))}
                     </select>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{order.total_amount.toFixed(2)} دج</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-start">{parseFloat(order.total_amount as any).toFixed(2)} دج</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-start space-x-2">
                     <button 
-                      onClick={() => handleOpenModal(order.id)}
+                      onClick={() => handleOpenDetailModal(order.id)}
                       className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 font-semibold"
                     >
                       {t('detailsButton')}
+                    </button>
+                    <button 
+                      onClick={() => handleOpenDeleteModal(order.id)}
+                      className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200 font-semibold"
+                    >
+                      {t('deleteButton')}
                     </button>
                   </td>
                 </tr>
@@ -151,8 +182,20 @@ export default function OrdersPage() {
         </table>
       </div>
 
-      <Modal isOpen={!!selectedOrderId} onClose={handleCloseModal} title={t('modal.title')}>
-        <OrderDetailModal orderId={selectedOrderId} onClose={handleCloseModal} />
+      <Modal isOpen={!!selectedOrderId} onClose={handleCloseDetailModal} title={t('modal.title')}>
+        <OrderDetailModal orderId={selectedOrderId} onClose={handleCloseDetailModal} />
+      </Modal>
+
+      <Modal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal} title={t('deleteModal.title')}>
+        <div>
+          <p>{t('deleteModal.confirmation')}</p>
+          <div className="flex justify-end gap-4 mt-4">
+            <button onClick={handleCloseDeleteModal} className="px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg">{t('deleteModal.cancel')}</button>
+            <button onClick={handleDeleteConfirm} disabled={deleteOrderMutation.isPending} className="px-4 py-2 bg-red-600 text-white rounded-lg disabled:opacity-50">
+              {deleteOrderMutation.isPending ? t('deleteModal.deleting') : t('deleteModal.confirm')}
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );

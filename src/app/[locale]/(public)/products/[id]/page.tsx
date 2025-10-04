@@ -111,7 +111,7 @@ export default function ProductPurchasePage() {
           product_name: product.name,
           quantity: 1,
           price: product.price,
-          available_options: selectedProperties,
+          selected_options: selectedProperties,
         },
       ],
       total_amount: product.price,
@@ -203,7 +203,7 @@ export default function ProductPurchasePage() {
               </span>
             )}
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3">{product.name}</h1>
-            <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">{product.price.toFixed(2)} دج</p>
+            <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">{parseFloat(product.price as any).toFixed(2)} دج</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Product Options */}

@@ -1,57 +1,60 @@
 
 import { NextResponse } from 'next/server';
-import ordersData from '@/lib/data/orders.json';
-import products from '@/lib/data/products.json';
-import fs from 'fs';
-import path from 'path';
-
-const ordersPath = path.join(process.cwd(), 'src/lib/data/orders.json');
-
-function readOrders() {
-  const data = fs.readFileSync(ordersPath, 'utf-8');
-  return JSON.parse(data);
-}
-
-function writeOrders(data: any) {
-  fs.writeFileSync(ordersPath, JSON.stringify(data, null, 2));
-}
+import { queryDB } from '@/lib/utils/db';
 
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    const orderId = params.id;
+    const orderId = parseInt(params.id, 10);
 
-    // Find the main order
-    const order = ordersData.find(o => o.id === orderId);
-
-    if (!order) {
-      return NextResponse.json({ message: 'Order not found' }, { status: 404 });
+    if (isNaN(orderId)) {
+      return NextResponse.json({ message: 'Invalid order ID' }, { status: 400 });
     }
 
-    // Combine items with product details (simulating a JOIN)
-    const detailedItems = order.items.map(item => {
-      const product = products.find(p => p.id === item.product_id);
-      return {
-        ...item,
-        product_name: product ? product.name : 'Unknown Product',
-        product_description: product ? product.description : '',
-      };
-    });
+    // 1. Fetch the main order details along with customer info
+    const orderQuery = `
+      SELECT 
+        o.id, o.display_id, o.status, o.total_amount, o.order_date,
+        c.id as customer_id, c.full_name as customer_name, c.phone as phone_number, c.address
+      FROM orders o
+      JOIN customers c ON o.customer_id = c.id
+      WHERE o.id = $1
+    `;
+    const orderResult = await queryDB(orderQuery, [orderId]);
 
-    // Combine everything into a single response
+    if (orderResult.rows.length === 0) {
+      return NextResponse.json({ message: 'Order not found' }, { status: 404 });
+    }
+    const order = orderResult.rows[0];
+
+    // 2. Fetch the order items with product details
+    const itemsQuery = `
+      SELECT 
+        oi.id, oi.quantity, oi.price_at_purchase, oi.selected_options,
+        p.id as product_id, 
+        COALESCE(p.name, 'المنتج محذوف') as product_name
+      FROM order_items oi
+      LEFT JOIN products p ON oi.product_id = p.id
+      WHERE oi.order_id = $1
+    `;
+    const itemsResult = await queryDB(itemsQuery, [orderId]);
+    const items = itemsResult.rows;
+
+    // 3. Combine into a single response
     const detailedOrder = {
       ...order,
-      items: detailedItems,
+      items: items,
     };
-    
-    // Simulate API delay
+
     await new Promise(resolve => setTimeout(resolve, 500));
 
     return NextResponse.json(detailedOrder);
-  } catch (error) {
-    return NextResponse.json({ message: 'An error occurred' }, { status: 500 });
+  } catch (error: any) {
+    console.error(`Error fetching order ${params.id}:`, error);
+    console.error(error.stack);
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
 
@@ -63,18 +66,41 @@ export async function PUT(
     const orderId = params.id;
     const { status } = await request.json();
 
-    const orders = readOrders();
-    const orderIndex = orders.findIndex((o: any) => o.id === orderId);
+    if (!status) {
+      return NextResponse.json({ message: 'Status is required' }, { status: 400 });
+    }
 
-    if (orderIndex === -1) {
+    const query = 'UPDATE orders SET status = $1, updated_at = NOW() WHERE id = $2 RETURNING *';
+    const result = await queryDB(query, [status, orderId]);
+
+    if (result.rows.length === 0) {
       return NextResponse.json({ message: 'Order not found' }, { status: 404 });
     }
 
-    orders[orderIndex].status = status;
-    writeOrders(orders);
-
-    return NextResponse.json(orders[orderIndex]);
+    return NextResponse.json(result.rows[0]);
   } catch (error) {
+    console.error(`Error updating order ${params.id}:`, error);
+    return NextResponse.json({ message: 'An error occurred' }, { status: 500 });
+  }
+}
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const orderId = params.id;
+
+    // The ON DELETE CASCADE constraint on order_items will handle item deletion
+    const result = await queryDB('DELETE FROM orders WHERE id = $1', [orderId]);
+
+    if (result.rowCount === 0) {
+      return NextResponse.json({ message: 'Order not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: 'Order deleted successfully' }, { status: 200 });
+  } catch (error) {
+    console.error(`Error deleting order ${params.id}:`, error);
     return NextResponse.json({ message: 'An error occurred' }, { status: 500 });
   }
 }

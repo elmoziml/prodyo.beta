@@ -90,6 +90,7 @@
       "actions": "الإجراءات"
     },
     "detailsButton": "تفاصيل",
+    "deleteButton": "حذف",
     "modal": {
       "title": "تفاصيل الطلب",
       "customerInfo": "معلومات العميل",
@@ -112,15 +113,25 @@
       "material": "المادة",
       "warranty": "الضمان",
       "loadingDetails": "جاري تحميل تفاصيل الطلب...",
-      "errorDetails": "تعذر تحميل تفاصيل الطلب."
+      "errorDetails": "تعذر تحميل تفاصيل الطلب.",
+      "saving": "جاري الحفظ...",
+      "save": "حفظ"
+    },
+    "deleteModal": {
+      "title": "حذف الطلب",
+      "confirmation": "هل أنت متأكد أنك تريد حذف هذا الطلب؟ لا يمكن التراجع عن هذا الإجراء.",
+      "cancel": "إلغاء",
+      "confirm": "حذف",
+      "deleting": "جاري الحذف..."
     }
   },
   "OrderStatus": {
+    "Pending": "قيد الانتظار",
     "Processing": "قيد المعالجة",
     "Shipped": "تم الشحن",
     "Delivered": "تم التوصيل",
     "Canceled": "ملغي",
-    "Pending": "قيد الانتظار"
+    "Returned": "مرتجع"
   },
   "ProductsPage": {
     "title": "المنتجات",

@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchOrderById } from '@/services/orderService';
 
-export function useOrderDetail(orderId: string | null) {
+export function useOrderDetail(orderId: number | null) {
   return useQuery({
     queryKey: ['order', orderId],
     queryFn: () => fetchOrderById(orderId!),

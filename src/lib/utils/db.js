@@ -15,3 +15,9 @@ export async function queryDB(text, params) {
     throw err;
   }
 }
+
+export async function getClient() {
+  return await pool.connect();
+}
+
+export default pool;

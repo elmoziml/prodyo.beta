@@ -1,12 +1,13 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateOrderStatus } from '@/services/orderService';
+import { OrderStatus } from '@/types';
 
 export function useUpdateOrder() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ orderId, status }: { orderId: string; status: string }) => updateOrderStatus(orderId, status),
+    mutationFn: ({ orderId, status }: { orderId: number; status: OrderStatus }) => updateOrderStatus(orderId, status),
     onSuccess: (data, variables) => {
       // Invalidate and refetch the orders list
       queryClient.invalidateQueries({ queryKey: ['orders'] });
